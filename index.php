@@ -15,9 +15,9 @@
         if(mysqli_num_rows($result) > 0){
           echo "Questionaire starts now: ";
           echo "<br>";
-          $val = 1;
+    
             while($row = mysqli_fetch_array($result)){
-                    echo $val++ . ". ";
+
                     echo $row['Question'];
                     echo "<br><br>";
 
