@@ -51,5 +51,6 @@ if($result = mysqli_query($link, $sql)){
     } else{
         echo "No records matching your query were found.";
     }
+}
 mysqli_close($link);
 ?>
