@@ -9,8 +9,8 @@
     include 'db.php';
 
 
-
-    $sql = "SELECT * FROM `questions` WHERE `Questionnaire_Name` = 'test'";
+    echo "yes";
+    $sql = "SELECT * FROM `questions` WHERE `Questionnaire_Name` = test";
     if($result = mysqli_query($link, $sql)){
         if(mysqli_num_rows($result) > 0){
           echo "Questionaire starts now: ";
