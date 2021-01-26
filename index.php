@@ -40,10 +40,9 @@ if($result = mysqli_query($link, $sql)){
             echo "</tr>";
         while($row = mysqli_fetch_array($result)){
             echo "<tr>";
-                echo "<td>" . $row['item1'] . "</td>";
-                echo "<td>" . $row['item2'] . "</td>";
-                echo "<td>" . $row['item3'] . "</td>";
-                echo "<td>" . $row['item4'] . "</td>";
+                echo "<td>" . $row['Username'] . "</td>";
+                echo "<td>" . $row['Password'] . "</td>";
+                echo "<td>" . $row['Role'] . "</td>";
             echo "</tr>";
         }
         echo "</table>";
