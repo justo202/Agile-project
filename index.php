@@ -13,8 +13,8 @@
     $sql = "SELECT * FROM `questions` WHERE `Questionnaire_Name` = `test`";
     if($result = mysqli_query($link, $sql)){
         if(mysqli_num_rows($result) > 0){
-          echo "Questionaire starts now: "
-          echo "<br>"
+          echo "Questionaire starts now: ";
+          echo "<br>";
 
             while($row = mysqli_fetch_array($result)){
 
