@@ -27,7 +27,7 @@ if (!$link) {
 echo "Success: A proper connection to MySQL was made! The my_db database is great." . PHP_EOL;
 echo "Host information: " . mysqli_get_host_info($link) . PHP_EOL;
 
-$sql = "SELECT * FROM `user` WHERE `Username` = Mike";
+$sql = "SELECT * FROM `user`";
 if($result = mysqli_query($link, $sql)){
     if(mysqli_num_rows($result) > 0){
         echo "<table>";
