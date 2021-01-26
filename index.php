@@ -27,7 +27,7 @@ if (!$link) {
 echo "Success: A proper connection to MySQL was made! The my_db database is great." . PHP_EOL;
 echo "Host information: " . mysqli_get_host_info($link) . PHP_EOL;
 $sql = "INSERT INTO `test`(`item1`, `item2`, `item3`, `item4`) VALUES (25,22,44,56)";
-mysqli_query($sql);
+mysqli_query($link, $sql);
 
 $sql = "SELECT * FROM test";
 if($result = mysqli_query($link, $sql)){
