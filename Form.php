@@ -12,7 +12,9 @@
 
   <body>
 
-    <header>
+    <?php
+    include 'db.php';
+    ?>
       <!-- Fixed navbar -->
       <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -37,35 +39,32 @@
     <main role="main" class="container">
       <h1 class="mt-5">There's some Questions and that</h1>
       <p class="lead">Just write answers into the boxes and im sure you'll be fine</p>
-      
-      <div class="form-group">
-        <label for="Question1">Question 1</label>
-        <input type="email" class="form-control" id="Question1" placeholder="Answer">
-        <small id="Question1Help" class="form-text text-muted">Use good grammar dumb dumb</small>
-      </div>
 
-      <div class="form-group">
-        <label for="Question2">Question 2</label>
-        <input type="email" class="form-control" id="Question2" placeholder="Answer">
-        <small id="Question2Help" class="form-text text-muted">Use good grammar dumb dumb</small>
-      </div>
+          <?php
 
-      <div class="form-group">
-        <label for="Question3">Question 3</label>
-        <input type="email" class="form-control" id="Question1" placeholder="Answer">
-        <small id="Question3Help" class="form-text text-muted">Use good grammar dumb dumb</small>
-      </div>
 
-      <div class="form-group">
-        <label for="MultiChoice1">Big many answer question</label>
-        <select class="form-control" id="MultiChoice1">
-          <option>1</option>
-          <option>2</option>
-          <option>3</option>
-          <option>4</option>
-          <option>5</option>
-        </select>
-      </div>
+          $sql = "SELECT * FROM `questions` WHERE `Questionnaire_Name` = 'test'";
+          if($result = mysqli_query($link, $sql)){
+              if(mysqli_num_rows($result) > 0){
+                echo "Questionaire starts now: ";
+                echo "<br>";
+                $val = 1;
+                  while($row = mysqli_fetch_array($result)){
+                          echo $row['Question'];
+                          echo "<div class=\"form-group\">"
+                          echo "<label>Question " . $val++ . ": " . $row['Question'] . "</label>"
+                          echo "<input type=\"text\" class = \"answers form-control\" placeholder = \"Answer\">"
+
+                  }
+                  // Free result set
+                  mysqli_free_result($result);
+              } else{
+                  echo "No records matching your query were found.";
+              }
+          }
+          mysqli_close($link);
+          ?>
+
 
     </main>
 
