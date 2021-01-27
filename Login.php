@@ -35,7 +35,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     if(empty($email_err) && empty($password_err)){
         
         // Prepare an Select statement
-        $sql = "SELECT ID, email, password FROM participant WHERE email = :email";
+        $sql = "SELECT Username, Password FROM user";
          
         if($stmt = $mysql->prepare($sql)){
             // Bind variables to the prepared statement as parameters
