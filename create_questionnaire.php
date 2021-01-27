@@ -5,6 +5,9 @@ $questionnaire_name = $_POST['questionnaire_name'];
 $creator_name = $_POST['creator_name'];
 $num_of_questions = $_POST['num_of_questions'];
 
+echo $questionnaire_name;
+echo $creator_name;
+
 function get_questions($num_of_questions)
 {
     $questions = array();
