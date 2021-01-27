@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>CREATE QUESTIONNAIRE</h2>
+
+<form id="questions" action="/create_questionnaire.php" method="post">
+    <h3 id="question">QUESTION 1</h3>
+    <textarea type="textarea" id="newQuestion" name="newQuestion"></textarea><br>
+    <input type="button" value="Add Question" onclick="addQuestion()">
+    <input type="hidden" id="num_of_questions">
+    <input type="submit" value="Submit">
+</form> 
+
+
+<script>
+    var questionNum = 1
+
+    function addQuestion() {
+        var input = document.createElement("input");
+
+        input.setAttribute("type", "hidden");
+
+        input.setAttribute("name", "question" + questionNum);
+
+        input.setAttribute("value", document.getElementById("newQuestion").value);
+        document.getElementById("questions").appendChild(input);
+
+        document.getElementById("num_of_questions").value = questionNum;
+
+        questionNum = questionNum + 1;
+        document.getElementById("question").innerHTML = "QUESTION " + questionNum;  
+    }
+</script>
+    
+
+</body>
+</html>
