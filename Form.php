@@ -40,7 +40,7 @@
       <h1 class="mt-5">There's some Questions and that</h1>
       <p class="lead">Just write answers into the boxes and im sure you'll be fine</p>
 
-        <form class="" action="index.html" method="post">
+        <form class="" action="" method="post">
 
           <?php
           $name = $_GET['survey'];
@@ -68,7 +68,10 @@
 
           <input class = "btn btn-info" type="submit" name="button" value = "Submit"></input>
         </form>
-
+        <?php
+        $answers = $_POST['answers'];
+        echo $answers[0];
+         ?>
 
     </main>
 
