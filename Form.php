@@ -46,14 +46,12 @@
           $sql = "SELECT * FROM `questions` WHERE `Questionnaire_Name` = 'test'";
           if($result = mysqli_query($link, $sql)){
               if(mysqli_num_rows($result) > 0){
-                echo "Questionaire starts now: ";
-                echo "<br>";
                 $val = 1;
                   while($row = mysqli_fetch_array($result)){
                           echo $row['Question'];
-                          echo "<div class=\"form-group\">"
-                          echo "<label>Question " . $val++ . ": " . $row['Question'] . "</label>"
-                          echo "<input type=\"text\" class = \"answers form-control\" placeholder = \"Answer\">"
+                          echo "<div class=\"form-group\">";
+                          echo "<label>Question " . $val++ . ": " . $row['Question'] . "</label>";
+                          echo "<input type=\"text\" class = \"answers form-control\" placeholder = \"Answer\">";
 
                   }
                   // Free result set
