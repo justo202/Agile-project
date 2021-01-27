@@ -55,7 +55,7 @@
                           echo "<label>Question " . $val++ . ": " . $row['Question'] . "</label>";
                           echo "<input type=\"text\" name = \"answers[]\"class = \"answers form-control\" placeholder = \"Answer\">";
                           echo "<input type = \"hidden\" value = \"".$row['Question']."\" name = \"Question[]\"";
-                          echo "<input type = \"hidden\" value = \"".$row['Question_Number']."\" name = \"Number[]\"";
+                          echo "<input type = \"hidden\" value = \"".strval($row['Question_Number'])."\" name = \"Number[]\"";
                           echo "</div>";
 
                   }
