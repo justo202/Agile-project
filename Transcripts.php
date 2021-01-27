@@ -22,7 +22,7 @@ if (isset($_POST['Transcript'] ) )
 	$txt = $_POST['Transcript'];
 	
 	//write to the file
-	$transcript = fopen("transcript.txt", "a") //or die("Unable to open file!");
+	$transcript = fopen("transcript.txt", "a"); //or die("Unable to open file!");
 	fwrite($transcript, $txt);
 	fclose($transcript);
 	}
