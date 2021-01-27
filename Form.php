@@ -54,6 +54,7 @@
                           echo "<div class=\"form-group\">";
                           echo "<label>Question " . $val++ . ": " . $row['Question'] . "</label>";
                           echo "<input type=\"text\" name = \"answers[]\"class = \"answers form-control\" placeholder = \"Answer\">";
+                          echo "<input type = \"hidden\" value = \"".$row."\" name = \"info[]\"";
                           echo "</div>";
 
                   }
@@ -65,7 +66,6 @@
           }
           mysqli_close($link);
           ?>
-          <input type = "hidden" value = "<?php $info;?>" name = "info[]"> </input>
           <input class = "btn btn-info" type="submit" name="button" value = "Submit"></input>
         </form>
 
