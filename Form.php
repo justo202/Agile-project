@@ -43,7 +43,7 @@
           <?php
           $name = $_GET['survey'];
 
-          $sql = "SELECT * FROM `questions` WHERE `Questionnaire_Name` = '$name'";
+          $sql = "SELECT * FROM `questions` WHERE `Questionnaire_Name` = '$name' ORDER BY `Question_Number` ASC";
           if($result = mysqli_query($link, $sql)){
               if(mysqli_num_rows($result) > 0){
                 $val = 1;
