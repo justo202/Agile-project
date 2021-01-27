@@ -47,9 +47,7 @@
 
       <div class="album py-5 bg-light">
         <div class="container">
-
-          <div class="row">
-
+          <div class="card-deck mb-3 text-center">
             <?php
 
 
@@ -57,15 +55,12 @@
             if($result = mysqli_query($link, $sql)){
                 if(mysqli_num_rows($result) > 0){
                     while($row = mysqli_fetch_array($result)){
-                      echo "<div class=\"col-md-4\">";
                       echo "<div class=\"card mb-4 box-shadow\">";
+                      echo "<div class=\"card-header\"><h4 class=\"my-0 font-weight-normal\">".$row['Questionnaire_Name']."</h4> </div>"
                       echo "<div class=\"card-body\">";
-                      echo "<p class=\"card-text\">" . $row['Questionnaire_Name'] ."</p>";
-                      echo "<p class=\"card-text\">" . $row['Creator_Name'] ."</p>";
-                      echo "<div class=\"d-flex justify-content-between align-items-center\">";
-                      echo "<div class=\"btn-group\">";
-                      echo "<button onclick = \"window.location.href = 'form.php?survey=". $row['Questionnaire_Name'] ."'\" type=\"button\" class=\"btn btn-sm btn-outline-secondary\">Take Questionaire</button>";
-                      echo "</div></div></div></div></div>";
+                      echo "<p class=\"card-text\">Questionaire by ".$row['Creator_Name']."</p>";
+                      echo "<button onclick = \"window.location.href = 'form.php?survey=". $row['Questionnaire_Name'] ."'\" type=\"button\" class=\"btn btn-lg btn-block btn-outline-primary\">Take Questionaire</button>";
+                      echo "</div></div>";
 
                     }
                     // Free result set
