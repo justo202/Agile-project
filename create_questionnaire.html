@@ -7,7 +7,11 @@
 <form id="questions" action="/create_questionnaire.php" method="post">
     <h3 id="question">QUESTION 1</h3>
     <textarea type="textarea" id="newQuestion" name="newQuestion"></textarea><br>
-    <input type="button" value="Add Question" onclick="addQuestion()">
+    <input type="button" value="Add Question" onclick="addQuestion()"><br>
+    <label>Name of Researcher:</label>
+    <input type="text" id="creator_name" name="creator_name"><br>
+    <label>Questionnaire Name:</label>
+    <input type="text" id="creator_name" name="creator_name"><br>
     <input type="hidden" id="num_of_questions">
     <input type="submit" value="Submit">
 </form> 
