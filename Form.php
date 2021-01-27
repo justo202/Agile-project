@@ -40,7 +40,7 @@
       <h1 class="mt-5">There's some Questions and that</h1>
       <p class="lead">Just write answers into the boxes and im sure you'll be fine</p>
 
-        <form class="" action="answerss.php?info=<?php ?>" method="post">
+        <form class="" action="answerss.php" method="post">
 
           <?php
           $name = $_GET['survey'];
@@ -50,7 +50,7 @@
               if(mysqli_num_rows($result) > 0){
                 $val = 1;
                   while($row = mysqli_fetch_array($result)){
-                    
+
                           echo "<div class=\"form-group\">";
                           echo "<label>Question " . $val++ . ": " . $row['Question'] . "</label>";
                           echo "<input type=\"text\" name = \"answers[]\"class = \"answers form-control\" placeholder = \"Answer\">";
