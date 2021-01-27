@@ -10,7 +10,7 @@ foreach($answers as $answer)
 {
   echo $answer." ".$question[$i]." ".$number[$i]."<br>";
   $i++;
-  $sql = "INSERT INTO `answers`(`Question_Number`, `Questionnaire_Name`, `Answer`) VALUES ($number[$i],$name,$answer)"
+  $sql = "INSERT INTO `answers`(`Question_Number`, `Questionnaire_Name`, `Answer`) VALUES ($number[$i],$name,$answer)";
   if(!$result = mysqli_query($link, $sql))
   {
     echo "something went wrong";
