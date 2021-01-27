@@ -26,7 +26,7 @@ function add_questionaire($questionnaire_name, $creator_name, $link)
     {
         echo "Questionnaire ".$questionnaire_name." created successfully <br>";
     } else {
-        echo "Error: " . $add_questionnaire_sql . "<br>" . $conn->error;
+        echo "Error: " . $add_questionnaire_sql . "<br>" . $link->error;
     }
 }
 
@@ -39,7 +39,7 @@ function add_questions($questions_array, $questionnaire_name, $num_of_questions,
         {
             echo $question_array[$x]."<br> added to questionnaire <br>";
         } else {
-            echo "Error: " . $add_question_sql . "<br>" . $conn->error;
+            echo "Error: " . $add_question_sql . "<br>" . $link->error;
         }
     }
 }
