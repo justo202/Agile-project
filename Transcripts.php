@@ -21,7 +21,7 @@ if (isset($_POST['Transcript']))
 	{ //retrieve the data in the form
 	$txt=$_POST['Transcript'];
 	
-	$file = 'transcript.txt'
+	$file = 'transcript.txt';
 	//write to the file
 	$transcript = fopen("$file", "w") or die("Unable to open file!");
 	fwrite($transcript, $txt);
