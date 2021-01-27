@@ -1,6 +1,7 @@
 <?php
 $answers = $_POST['answers'];
-$info = $_POST['info'];
-echo $answers[1]."<br>".$info[1]['Question']."<br>".$info[1]['Question_Number'];
+$question = $_POST['Question'];
+$number = $_POST['Number'];
+echo $answers[1]."<br>".$question[1]."<br>".$number[1];
 
  ?>
