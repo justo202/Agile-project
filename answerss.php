@@ -9,7 +9,7 @@ $i = 0;
 foreach($answers as $answer)
 {
   echo $answer." ".$name." ".$number[$i]."<br>";
-  $sql = "INSERT INTO `answers` (`Question_Number`, `Questionnaire_Name`, `Answer`) VALUES ('$number[$i]', '$name', '$answer');";
+  $sql = "INSERT INTO `answers` (`Question_Number`, `Questionnaire_Name`, `Answer`) VALUES ('1', '$name', '$answer');";
   if(!$result = mysqli_query($link, $sql))
   {
     echo "something went wrong";
