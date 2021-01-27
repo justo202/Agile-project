@@ -10,7 +10,7 @@ function get_questions($num_of_questions)
 {
     $questions = array();
 
-    for($x = 0; $x < $num_of_questions; $x++)
+    for($x = 1; $x <= $num_of_questions; $x++)
     {
         $questions[$x] = $_POST['question'.$x];
     }
@@ -33,7 +33,7 @@ function add_questionaire($questionnaire_name, $creator_name, $link)
 
 function add_questions($questions_array, $questionnaire_name, $num_of_questions, $link)
 {
-    for($x = 0; $x < $num_of_questions; $x++)
+    for($x = 1; $x <= $num_of_questions; $x++)
     {
         $add_question_sql = "INSERT INTO questions VALUES ('".$questions_array[$x]."', '".$questionnaire_name."')";
         if ($link->query($add_question_sql) === TRUE)
