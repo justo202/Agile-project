@@ -4,19 +4,15 @@ All information about your first sprint should be put into this folder. Addition
 
 ---
 
-## Day [X] - Scrum Meeting summary
-The Scrum Master for this meeting was **Mike Crabb**
+## Day [1] - Scrum Meeting summary
+The Scrum Master for this meeting was Vivien Prakash
 
 ### Members Present:
-Mike, Rachel, information
+Vivien, Justas, Dominic, Gerard, Abdulmalik, Brenyn, Mark
 
-### Members Not Present:
-Naughty Student 1, Naughty Student 2
-
-### Apologies:
-Ill Student 1.
 
 ### Summary of Conversation:
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
+We all agreed to do tasks to complete our sprint backlog, we considered the idea of embedding the questionnaire with a Microsoft form but it seemed too easy and as we asked Mike he said it would be better if we had a cool API to use with it.
+So we ended up carrying on with our assigned tasks to make our own questionnaire based site.
 ---
