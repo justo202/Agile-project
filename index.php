@@ -64,7 +64,7 @@
                       echo "<p class=\"card-text\">" . $row['Creator_Name'] ."</p>";
                       echo "<div class=\"d-flex justify-content-between align-items-center\">";
                       echo "<div class=\"btn-group\">";
-                      echo "<button href = \"form.php\" type=\"button\" class=\"btn btn-sm btn-outline-secondary\">Take Questionaire</button>";
+                      echo "<button onclick = \"form.php?survey=". $row['Questionnaire_Name'] ."\" type=\"button\" class=\"btn btn-sm btn-outline-secondary\">Take Questionaire</button>";
                       echo "</div></div></div></div></div>";
 
                     }
