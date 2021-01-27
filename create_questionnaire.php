@@ -35,7 +35,7 @@ function add_questions($questions_array, $questionnaire_name, $num_of_questions,
 {
     for($x = 1; $x <= $num_of_questions; $x++)
     {
-        $add_question_sql = "INSERT INTO questions VALUES ('".$questions_array[$x]."', '".$questionnaire_name."')";
+        $add_question_sql = "INSERT INTO questions VALUES ('".$questions_array[$x]."', '".$questionnaire_name."', '".$x."')";
         if ($link->query($add_question_sql) === TRUE)
         {
             echo $question_array[$x]."<br> added to questionnaire <br>";
