@@ -65,7 +65,7 @@
           }
           mysqli_close($link);
           ?>
-          <input type = "hidden" value = "<?php $info[];?>" name = "info[]"> </input>
+          <input type = "hidden" value = "<?php $info;?>" name = "info[]"> </input>
           <input class = "btn btn-info" type="submit" name="button" value = "Submit"></input>
         </form>
 
