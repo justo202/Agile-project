@@ -5,14 +5,18 @@
 </head>
 
 <body>
-<form method="post"> <input type="text" name="Transcript" placeholder="Enter text here" /> <input type="submit" name="submit" /> </form>
+<form method="post"> 
+<input type="text" name="Transcript" placeholder="Enter text here"/> 
+<input type="submit" name="submit"/> 
+
+</form>
 
 </body>
 </html>
 
 <?php
 //check if the form is submitted  
-if (isset($_POST['submit'] ) )
+if (isset($_POST['Transcript'] ) )
 	{ //retrieve the data in the form
 	$txt = $_POST['Transcript'];
 	
