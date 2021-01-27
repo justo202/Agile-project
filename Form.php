@@ -54,8 +54,8 @@
                           echo "<div class=\"form-group\">";
                           echo "<label>Question " . $val++ . ": " . $row['Question'] . "</label>";
                           echo "<input type=\"text\" name = \"answers[]\"class = \"answers form-control\" placeholder = \"Answer\">";
-                          echo "<input type = \"hidden\" value = \"".$row['Question']."\" name = \"Question[]\"";
-                          echo "<input type = \"hidden\" value = \"".$temp."\" name = \"num[]\"";
+                          echo "<input type = \"hidden\" value = \"".$row['Question']."\" name = \"Question[]\">";
+                          echo "<input type = \"hidden\" value = \"".$temp."\" name = \"num[]\">";
                           echo "</div>";
 
                   }
