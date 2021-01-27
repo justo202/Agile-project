@@ -70,7 +70,8 @@
         </form>
         <?php
         $answers = $_POST['answers'];
-        echo $answers[0];
+        echo $answers[1]."<br>".$info[1]['Question']."<br>".$info[1]['Question_Number'];
+
          ?>
 
     </main>
