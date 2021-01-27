@@ -41,9 +41,9 @@
       <p class="lead">Just write answers into the boxes and im sure you'll be fine</p>
 
           <?php
+          $name = $_GET['survey'];
 
-
-          $sql = "SELECT * FROM `questions` WHERE `Questionnaire_Name` = 'test'";
+          $sql = "SELECT * FROM `questions` WHERE `Questionnaire_Name` = '$name'";
           if($result = mysqli_query($link, $sql)){
               if(mysqli_num_rows($result) > 0){
                 $val = 1;
