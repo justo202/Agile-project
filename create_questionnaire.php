@@ -45,7 +45,7 @@ function add_questions($questions_array, $questionnaire_name, $num_of_questions,
     }
 }
 
-//add_questionaire($questionnaire_name, $creator_name, $link);
+add_questionaire($questionnaire_name, $creator_name, $link);
 add_questions($questions_array, $questionnaire_name, $num_of_questions, $link);
 
 
