@@ -50,7 +50,7 @@
               if(mysqli_num_rows($result) > 0){
                 $val = 1;
                   while($row = mysqli_fetch_array($result)){
-                    $temp = strval($row['Question_Number'])
+                    $temp = strval($row['Question_Number']);
                           echo "<div class=\"form-group\">";
                           echo "<label>Question " . $val++ . ": " . $row['Question'] . "</label>";
                           echo "<input type=\"text\" name = \"answers[]\"class = \"answers form-control\" placeholder = \"Answer\">";
