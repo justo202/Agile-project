@@ -5,8 +5,6 @@ $questionnaire_name = $_POST['questionnaire_name'];
 $creator_name = $_POST['creator_name'];
 $num_of_questions = $_POST['num_of_questions'];
 
-echo $questionnaire_name;
-echo $creator_name;
 
 function get_questions($num_of_questions)
 {
@@ -15,6 +13,7 @@ function get_questions($num_of_questions)
     for($x = 0; $x < $num_of_questions; $x++)
     {
         $questions[$x] = $_POST['question'.$x];
+        echo $questions[$x];
     }
 
     return $questions;
@@ -47,7 +46,7 @@ function add_questions($questions_array, $questionnaire_name, $num_of_questions,
     }
 }
 
-add_questionaire($questionnaire_name, $creator_name, $link);
+//add_questionaire($questionnaire_name, $creator_name, $link);
 add_questions($questions_array, $questionnaire_name, $num_of_questions, $link);
 
 
