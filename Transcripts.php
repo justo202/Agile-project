@@ -19,10 +19,10 @@
 //check if the form is submitted  
 if (isset($_POST['Transcript']))
 	{ //retrieve the data in the form
-	$txt = $_POST['Transcript'];
+	$txt=$_POST['Transcript'];
 	
 	//write to the file
-	$transcript = fopen('/Downloads/transcript.txt', 'a+'); //or die("Unable to open file!");
+	$transcript = fopen('/Downloads/transcript.txt', 'a'); //or die("Unable to open file!");
 	fwrite($transcript, $txt);
 	fclose($transcript);
 	}
