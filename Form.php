@@ -50,11 +50,12 @@
               if(mysqli_num_rows($result) > 0){
                 $val = 1;
                   while($row = mysqli_fetch_array($result)){
-                    $info[] = $row;
+                    
                           echo "<div class=\"form-group\">";
                           echo "<label>Question " . $val++ . ": " . $row['Question'] . "</label>";
                           echo "<input type=\"text\" name = \"answers[]\"class = \"answers form-control\" placeholder = \"Answer\">";
-                          echo "<input type = \"hidden\" value = \"".$row."\" name = \"info[]\"";
+                          echo "<input type = \"hidden\" value = \"".$row['Question']."\" name = \"Question[]\"";
+                          echo "<input type = \"hidden\" value = \"".$row['Question_Number']."\" name = \"Number[]\"";
                           echo "</div>";
 
                   }
