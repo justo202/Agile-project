@@ -52,7 +52,7 @@
                   while($row = mysqli_fetch_array($result)){
 
                           echo "<div class=\"form-group\">";
-                          echo "<label>Question " . $val++ . ": " . $row['Question_Number'] . "</label>";
+                          echo "<label>Question " . $val++ . ": " . $row['Question'] . "</label>";
                           echo "<input type=\"text\" name = \"answers[]\"class = \"answers form-control\" placeholder = \"Answer\">";
                           echo "<input type = \"hidden\" value = \"".$row['Question']."\" name = \"Question[]\"";
                           echo "<input type = \"hidden\" value = \"".$row['Question_Number']."\" name = \"Number[]\"";
