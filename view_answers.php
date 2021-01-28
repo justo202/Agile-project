@@ -95,14 +95,16 @@ while($row = $question_rows->fetch_assoc())
 
 while($row = $answer_rows->fetch_assoc())
 {
-    foreach($results_arr as $results)
-    {
-      echo $results->view_question_num;
-      if($results->view_question_num() == $row["Question_Number"])
-      {
-        $results->add_answer($row["Answer"]);
-      }
-    }
+
+    echo $row["Question_Number"];
+    // foreach($results_arr as $results)
+    // {
+    //   echo $results->view_question_num;
+    //   if($results->view_question_num() == $row["Question_Number"])
+    //   {
+    //     $results->add_answer($row["Answer"]);
+    //   }
+    // }
 
 }
 
@@ -114,7 +116,7 @@ for($t = 0; $t < 3; $t++)
     echo "<br><br>";
 }
 
-print_r($results_arr);
+//print_r($results_arr);
 
 ?>
 
