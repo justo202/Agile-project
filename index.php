@@ -48,6 +48,7 @@
       <div class="album py-5 bg-light">
         <div class="container">
           <div class="card-deck mb-3 text-center">
+
             <?php
 
 
@@ -60,6 +61,7 @@
                       echo "<div class=\"card-body\">";
                       echo "<p class=\"card-text\">Questionaire by ".$row['Creator_Name']."</p>";
                       echo "<button onclick = \"window.location.href = 'form.php?survey=". $row['Questionnaire_Name'] ."'\" type=\"button\" class=\"btn btn-lg btn-block btn-outline-primary\">Take Questionaire</button>";
+                      echo "<button onclick = \"window.location.href = 'download.php?name=". $row['Questionnaire_Name'] ."'\" type=\"button\" class=\"btn btn-lg btn-block btn-outline-primary\">Download answer data</button>";
                       echo "</div></div>";
 
                     }
