@@ -155,14 +155,14 @@ print_r($results_arr);
 
             <?php
 
-            for($x=sizeof($results_arr); $x >= 0; $x++)
+            for($x=3; $x >= 0; $x++)
             {
 
                   $qNum = $results_arr[$x]->view_question_num();
 
                   echo "hello im working";
                   echo $qNum;
-                  //echo "<label>Question $qNum :</label><br>";
+                  echo "<label>Question $qNum :</label><br>";
                   echo "<small id='Question'>"+ $results_arr[$x]->view_question() +"</small>";
                   echo "<br><br>";
 
