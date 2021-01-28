@@ -92,14 +92,14 @@ while($row = $question_rows->fetch_assoc())
     $x++;
 }
 
+print_r($results_arr[0]);
+print_r($results_arr[1]);
+print_r($results_arr[2]);
+
 while($row = $answer_rows->fetch_assoc())
 {
     $x = $row["Question_Number"]-1;
     $results_arr[$x]->add_answer[$row["Answer"]];
 }
-
-print_r($results_arr[0]);
-print_r($results_arr[1]);
-print_r($results_arr[2]);
 
 ?>
