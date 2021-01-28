@@ -95,6 +95,8 @@ while($row = $answer_rows->fetch_assoc())
     $results_arr[$x]->add_answer($row["Answer"]);
 }
 
+echo 'working till this point';
+
 ?>
 
 <!doctype html>
