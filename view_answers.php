@@ -80,6 +80,27 @@ function getQuestions($questionnaire_name, $link)
 $answer_rows = getAnswers($questionnaire_name, $link);
 $question_rows = getQuestions($questionnaire_name, $link);
 
+function addAnswerTooClass($a_rows, $result)
+{
+  while($row = $a_rows->fetch_assoc())
+    {
+      $qNum = $result->view_question_num();
+      $aNum = $row["Question_Number"];
+
+      echo $qNum;
+      echo "<br>";
+      echo $aNum;
+      echo "<br><br>";
+        if($qNum == $aNum)
+        {
+          echo "match";
+          // $results_arr[$x]->add_answer($rowx["Answer"]);
+          // echo $rowx["Answer"];
+          // echo "<br><br>";
+        }
+    }
+}
+
 while($row = $question_rows->fetch_assoc())
 {
     $x = 0;
@@ -93,23 +114,8 @@ while($row = $question_rows->fetch_assoc())
     echo $results_arr[$x]->view_question();
     echo "<br>";
 
-    while($rowx = $answer_rows->fetch_assoc())
-    {
-      $qNum = $results_arr[$x]->view_question_num();
-      $aNum = $rowx["Question_Number"];
+    addAnswerTooClass($answer_rows->fetchAssoc(), $results_arr[$x]);
 
-      echo $qNum;
-      echo "<br>";
-      echo $aNum;
-      echo "<br><br>";
-        if($qNum == $aNum)
-        {
-          break;
-          // $results_arr[$x]->add_answer($rowx["Answer"]);
-          // echo $rowx["Answer"];
-          // echo "<br><br>";
-        }
-    }
     $x++;
 }
 
