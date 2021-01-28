@@ -5,7 +5,7 @@
   $sql = "SELECT * FROM `answers` WHERE `Questionnaire_Name` = '$name' ORDER BY `Question_Number` ASC";
   if($result = mysqli_query($link, $sql)){
       if(mysqli_num_rows($result) > 0){
-        fwrite($myfile, "'$name'\n")
+        fwrite($myfile, "'$name'\n");
           while($row = mysqli_fetch_array($result)){
             $txt = "Answers to question 1";
             fwrite($myfile, $txt);
