@@ -34,7 +34,7 @@
           <h1 class="jumbotron-heading">Big 'ol Question Webpage</h1>
           <p class="lead text-muted">This project should definatly be software based...</p>
           <p>
-            <a href="#" class="btn btn-primary my-2">Create Survey</a>
+            <a href="CreateForm.html" class="btn btn-primary my-2">Create Survey</a>
             <a href="#" class="btn btn-secondary my-2">Don't Create Survey</a>
           </p>
         </div>
