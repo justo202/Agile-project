@@ -54,11 +54,12 @@
                           echo "<div class=\"form-group\">";
                           echo "<label>Question " . $val++ . ": " . $row['Question'] . "</label>";
                           echo "<input type=\"text\" name = \"answers[]\"class = \"answers form-control\" placeholder = \"Answer\">";
-                          echo "<input type = \"hidden\" value = \"".$row['Question']."\" name = \"Question[]\"";
-                          echo "<input type = \"hidden\" value = \"".$row['Question_Number']."\" name = \"Number[]\"";
+
+                          echo "<input type = \"hidden\" value = \"".$row['Question_Number']."\" name = \"num[]\">";
                           echo "</div>";
 
                   }
+                  echo "<input type = \"hidden\" value = \"".$name."\" name = \"name\">";
                   // Free result set
                   mysqli_free_result($result);
               } else{

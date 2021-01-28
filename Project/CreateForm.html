@@ -40,7 +40,7 @@
         <h1 class="mt-5">Quiz Creator</h1>
         <p class="lead">Below you can find a load of things to fill in</p>
       
-      <form id="questions" action="/create_questionnaire.php" method="post" class="form-group">
+      <div id="questions" action="/create_questionnaire.php" method="post" class="form-group">
         <label id="question" for="QuestionNumber">Question 1</label>
         <input type="textarea" id="newQuestion" name="newQuestion" class="form-control">
         <input type="button" value="Add Question" onclick="addQuestion()" class="btn btn-primary"><br>
@@ -50,7 +50,7 @@
         <input type="text" id="questionnaire_name" name="questionnaire_name" class="form-control"><br>
         <input type="hidden" id="num_of_questions" name="num_of_questions">
         <input type="submit" value="Submit" class="btn btn-primary">
-      </form>
+      </div>
 
       <div id="displayQuestions"></div>
 

@@ -2,25 +2,28 @@
 <html>
 <head>
 <title>Transcript Analysis</title>
+<h1>I swear there is more to this</h1>
 </head>
 
 <body>
-<form method="post"> <input type="text" name="Transcript" placeholder="Enter text here" /> <input type="submit" name="submit" /> </form>
+<form method="post"> 
+<input type="text" name="Transcript" placeholder="Enter text here"/> 
+<input type="submit" name="submit"/> 
+
+</form>
 
 </body>
 </html>
 
 <?php
 //check if the form is submitted  
-if (isset($_POST['submit'] ) )
+if (isset($_POST['Transcript']))
 	{ //retrieve the data in the form
-	$txt = $_POST['Transcript'];
+	$txt=$_POST['Transcript'];
 	
-	//display the results
-	echo $txt;
-	
+	$file = 'transcript.txt';
 	//write to the file
-	$transcript = fopen("transcript.txt", "a") or die("Unable to open file!");
+	$transcript = fopen("$file", "w") or die("Unable to open file!");
 	fwrite($transcript, $txt);
 	fclose($transcript);
 	}
