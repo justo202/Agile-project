@@ -46,7 +46,7 @@ function getAnswers($questionnaire_name, $link)
     if ($results->num_rows > 0)
     {
         echo "successfully retrieved answers<br>";
-        return $results->fetch_assoc();
+        return $results;
     } 
     else 
     {
@@ -62,7 +62,7 @@ function getQuestions($questionnaire_name, $link)
     if ($results->num_rows > 0)
     {
         echo "successfully retrieved questions<br>";
-        return $results->fetch_assoc();
+        return $results;
     } 
     else 
     {
@@ -73,7 +73,7 @@ function getQuestions($questionnaire_name, $link)
 $answer_rows = getAnswers($questionnaire_name, $link);
 $question_rows = getQuestions($questionnaire_name, $link);
 
-while($row = $question_rows)
+while($row = $question_rows->fetch_assoc())
 {
     $x = 0;
 
