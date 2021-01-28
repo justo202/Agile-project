@@ -4,6 +4,29 @@ include 'db.php';
 
 // $questionnaire_name = $_POST['questionnaire_name'];
 $questionnaire_name = 'Test Questionnaire';
+$results_arr = array();
+
+class results {
+
+    public $question_num;
+    public $question;
+    public $answers_arr = array();
+
+    function set_question_num($question_num)
+    {
+        $this->question_num = $question_num;
+    }
+
+    function set_question($question)
+    {
+        $this->question = $question;
+    }
+
+    function add_answer($answer)
+    {
+        $this->answers_arr[] = $answer;
+    }
+}
 
 function getAnswers($questionnaire_name, $link)
 {
@@ -38,7 +61,18 @@ function getQuestions($questionnaire_name, $link)
     }
 }
 
-getAnswers($questionnaire_name, $link);
-getQuestions($questionnaire_name, $link);
+$answer_rows = getAnswers($questionnaire_name, $link);
+$question_rows = getQuestions($questionnaire_name, $link);
+
+while($row = $question_rows)
+{
+    $x = 0;
+
+    $results_arr[$x] = new results();
+    $results_arr[$x]->set_question_num($row["Question_Number"]);
+    $results_arr[$x]->set_question($row["Question"]);
+
+    $x++;
+}
 
 ?>
