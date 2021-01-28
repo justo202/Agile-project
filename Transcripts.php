@@ -35,14 +35,17 @@ if (isset($_POST["Transcript"]))
 	}
 	
 //Check file type
-if($fileType != "txt")
+if (isset($_POST["submit"]))
 	{
-	echo "Wrong file type, please pick a txt file";
+	if($fileType != "txt")
+		{
+		echo "Wrong file type, please pick a txt file";
+		}
+	else
+		{
+		echo "File uploaded! (ssshhhhhh, just pretend for now...)";
+		}	
 	}
-else
-	{
-	echo "File uploaded! (ssshhhhhh, just pretend for now...)";
-	}	
 
 
 	
