@@ -41,7 +41,7 @@ if($fileType != "txt")
 	}
 else
 	{
-	echo "File uploaded! (ssshhhhhh, just pretend for now...)"
+	echo "File uploaded! (ssshhhhhh, just pretend for now...)";
 	}	
 
 
