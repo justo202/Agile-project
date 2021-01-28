@@ -18,7 +18,8 @@
 
 <?php
 //check if the form is submitted 
-$upload=$_POST['upload'];
+
+$upload=$_POST["upload"];
  
 if (isset($_POST['Transcript']))
 	{ //retrieve the data in the form
@@ -33,7 +34,7 @@ if (isset($_POST['Transcript']))
 	
 if ($upload)
 	{
-	echo 'here is your file';	
+	echo "here is your file";	
 	}
 
 	
