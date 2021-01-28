@@ -103,8 +103,7 @@ while($row = $question_rows->fetch_assoc())
 {
     $x = 0;
 
-    $row->data_seek($x);
-    $results_arr[] = new results();
+    $results_arr[$x] = new results();
     $results_arr[$x]->set_question_num($row["Question_Number"]);
     $results_arr[$x]->set_question($row["Question"]);
 
