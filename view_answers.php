@@ -155,19 +155,19 @@ print_r($results_arr);
 
             <?php
 
-            for($x=sizeof($results_arr); $x > 0; $x--)
+            for($x=sizeof($results_arr); $x >= 0; $x++)
             {
-                  echo 'hello im working';
-                  echo "<label>Question ". $results_arr[$x]->view_question_num() .":</label><br>";
-                  echo "<small id='Question'>". $results_arr[$x]->view_question() ."</small>";
+                  echo "hello im working";
+                  echo "<label>Question " + $results_arr[$x]->view_question_num() +":</label><br>";
+                  echo "<small id='Question'>"+ $results_arr[$x]->view_question() +"</small>";
                   echo "<br><br>";
 
                   
                         for($i=0; $i < $results_arr[$x]->get_arr_size(); $i++)
                         {
                             
-                        echo "<label>Answer " .$i+1 . ":</label><br>";
-                        echo "<small id='Answer'" .$results_arr[$x]->view_answer($i)."</small>";
+                        echo "<label>Answer " + $i+1 + ":</label><br>";
+                        echo "<small id='Answer'" +$results_arr[$x]->view_answer($i)+"</small>";
                             
                         }
             }
