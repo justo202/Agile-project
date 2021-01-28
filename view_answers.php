@@ -98,9 +98,8 @@ while($row = $answer_rows->fetch_assoc())
     $results_arr[$x]->add_answer[$row["Answer"]];
 }
 
-for($x = 0; $x < 3; $x++)
-{
-   print_r($results_arr[$x]);
-}
+print_r($results_arr[0]);
+print_r($results_arr[1]);
+print_r($results_arr[2]);
 
 ?>
