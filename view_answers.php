@@ -27,17 +27,17 @@ class results {
         $this->answers_arr[] = $answer;
     }
 
-    function get_question_num()
+    function view_question_num()
     {
         echo $this->question_num;
     }
 
-    function get_question()
+    function view_question()
     {
         echo $this->question;
     }
 
-    function get_answers()
+    function view_answers()
     {
         for($x = 0; $x < sizeof($this->answer_arr); $x++)
         {
