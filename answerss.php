@@ -60,7 +60,7 @@ mysqli_close($link);
      <form class="form-signin">
        <img class="mb-4" src="logo.png" alt="" width="72" height="72">
        <h1 class="h3 mb-3 font-weight-normal">Thank you for completing our survey!</h1>
-       <a class="btn btn-lg btn-block btn-outline-primary" href="Index.html">Back Home</a>
+      
      </form>
      </div>
    </body>
