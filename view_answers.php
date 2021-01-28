@@ -97,6 +97,7 @@ while($row = $answer_rows->fetch_assoc())
 {
     foreach($results_arr as $results)
     {
+      echo $results->view_question_num;
       if($results->view_question_num() == $row["Question_Number"])
       {
         $results->add_answer($row["Answer"]);
