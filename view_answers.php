@@ -93,9 +93,9 @@ while($row = $question_rows->fetch_assoc())
 while($row = $answer_rows->fetch_assoc())
 {
     $x = $row["Question_Number"]-1;
-    $results_arr[$x]->add_answer[$row["Answer"]];
+    $results_arr[$x]->add_answer($row["Answer"]);
 }
 
-$results_arr[0]->view_answers;
+print_r($results_arr);
 
 ?>
