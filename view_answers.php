@@ -97,7 +97,7 @@ function addAnswerTooClass($a_rows, $result)
           $result->add_answer($row["Answer"]);
         }
     }
-    echo $result->view_answer(0);
+    echo $result->view_all_answers();
     echo "<br><br>";
 }
 
