@@ -17,15 +17,15 @@
 </html>
 
 <?php
+//varaible that contains details fo files
+$fileName = $_FILES["file"]["name"];
 //check if the form is submitted 
-
-$upload=$_POST["upload"];
-//
-$fileType = strtolower(pathinfo(PATHINFO_EXTENSION));
-$filename = $_FILES[""]["name"];
+$upload = $_POST["upload"];
+//locates the file
+$fileType = strtolower(pathinfo($filename, PATHINFO_EXTENSION));
  
 if (isset($_POST["Transcript"]))
-	{ //retrieve the data in the form
+{ //retrieve the data in the form
 	$txt=$_POST["Transcript"];
 	
 	$file = "transcript.txt";
@@ -33,20 +33,18 @@ if (isset($_POST["Transcript"]))
 	$transcript = fopen("$file", "w") or die("Unable to open file!");
 	fwrite($transcript, $txt);
 	fclose($transcript);
-	}
+}
 	
 //Check file type
-if (isset($_POST["submit"]))
-	{
-	if($_FILES["file"]["type"] == "text/plain")
-		{
-		echo "File uploaded! (ssshhhhhh, just pretend for now...)";
-		}
-	else
-		{
-		echo "Wrong file type, make sure its a txt file";
-		}	
-	}
+if ($fileType != "txt")
+{
+	echo "Wrong file type, Please ensure the file is a txt file.";
+}
+else
+{
+	echo "Your file has been uploaded! (Just believe me it is there, just invisibile)";
+}
+	
 
 
 	
