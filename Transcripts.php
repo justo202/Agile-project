@@ -18,9 +18,7 @@
 
 <?php
 //varaible that contains details fo files
-$fileName = $_FILES["file"]["name"];
-//check if the form is submitted 
-$upload = $_POST["upload"];
+$fileName = basename($_FILES["file"]["name"]);
 //locates the file
 $fileType = strtolower(pathinfo($filename, PATHINFO_EXTENSION));
  
@@ -36,17 +34,16 @@ if (isset($_POST["Transcript"]))
 }
 	
 //Check file type
-if ($fileType != "txt")
-{
-	echo "Wrong file type, Please ensure the file is a txt file.";
-}
-else
-{
-	echo "Your file has been uploaded! (Just believe me it is there, just invisibile)";
-}
-	
 
-
-	
-	
+if (isset($_POST["submit"]))
+{
+	if ($fileType != "txt")
+	{
+		echo "Wrong file type, Please ensure the file is a txt file.";
+	}
+	else
+	{
+		echo "Your file has been uploaded! (Just believe me it is there, just invisibile)";
+	}
+}	
 ?>

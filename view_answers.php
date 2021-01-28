@@ -142,7 +142,7 @@ echo 'working till this point';
         <h1 class="mt-5">View Answers</h1>
         <p class="lead">Below you can choose the results you want to see</p>
 
-        <form action="view_answers.php" method="post">
+        <form action="/view_answers.php" method="post">
           <label>Enter Name of Questionnaire:</label>
           <input type="text" id="questionnaire_name" name="questionnaire_name">
           <input type="submit" value="Get Results" class="btn btn-primary"> 
@@ -170,11 +170,11 @@ echo 'working till this point';
             }
             ?>
             
-            <!-- <label>Question 1:</label><br>
+            <label>Question 1:</label><br>
             <small id="Question">Eample Question?</small>
             <br><br>
             <label>Answer 1:</label><br>
-            <small id="Answer">Eample Answer.</small> -->
+            <small id="Answer">Eample Answer.</small>
 
         </div>
 
