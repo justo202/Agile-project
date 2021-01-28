@@ -27,21 +27,21 @@ class results {
         $this->answers_arr[] = $answer;
     }
 
-    function view_question_num()
+    function get_question_num()
     {
         echo $this->question_num;
     }
 
-    function view_question()
+    function get_question()
     {
         echo $this->question;
     }
 
-    function view_answers()
+    function get_answers()
     {
-        for($x = 0; $x < sizeof($answer_arr); $x++)
+        for($x = 0; $x < sizeof($this->answer_arr); $x++)
         {
-            echo $answer_arr[$x];
+            echo $this->answer_arr[$x];
         }
     }
 }
@@ -96,7 +96,13 @@ while($row = $answer_rows->fetch_assoc())
 {
     $x = $row["Question_Number"]-1;
     $results_arr[$x]->add_answer[$row["Answer"]];
-    echo $row["Answer"];
+}
+
+for($x = 0; $x < 3; $x++)
+{
+    $results_arr[$x]->view_question_num();
+    $results_arr[$x]->view_question();
+    $results_arr[$x]->view_answers();
 }
 
 ?>
