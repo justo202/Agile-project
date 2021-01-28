@@ -158,18 +158,16 @@ print_r($results_arr);
             echo sizeof($results_arr);
             for($x=sizeof($results_arr)-1; $x >= 0; $x--)
             {
-
-                  $qNum = $results_arr[$x]->view_question_num();
-                  echo "<label>Question" +$results_arr[$x]->view_question_num()+ ":</label><br>";
-                  echo "<small id='Question'>"+ $results_arr[$x]->view_question() +"</small>";
+                  echo "<label>Question". $results_arr[$x]->view_question_num() .":</label><br>";
+                  echo "<small id='Question'>". $results_arr[$x]->view_question() ."</small>";
                   echo "<br><br>";
 
                   
                         for($i=0; $i < $results_arr[$x]->get_arr_size(); $i++)
                         {
                             
-                        echo "<label>Answer " + $i+1 + ":</label><br>";
-                        echo "<small id='Answer'" +$results_arr[$x]->view_answer($i)+"</small>";
+                        echo "<label>Answer " . $i+1 . ":</label><br>";
+                        echo "<small id='Answer'" .$results_arr[$x]->view_answer($i)."</small><br>";
                             
                         }
             }
