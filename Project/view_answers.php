@@ -2,6 +2,8 @@
 
 include 'db.php';
 
+echo 'hello';
+
 // $questionnaire_name = $_POST['questionnaire_name'];
 $questionnaire_name = 'Test Questionnaire';
 $results_arr = array();
