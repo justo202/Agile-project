@@ -97,6 +97,7 @@ while($row = $answer_rows->fetch_assoc())
 {
 
     echo $row["Question_Number"];
+    echo $row["Answer"];
     // foreach($results_arr as $results)
     // {
     //   echo $results->view_question_num;
