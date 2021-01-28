@@ -35,6 +35,15 @@ if (isset($_POST["submit"]))
 	{
 		echo "Your file has been uploaded! (Just believe me it is there, just invisibile)";
 	}
+	
+	if (move_uploaded_file($_FILES["file"]["name"], $fileName))
+	{
+		echo "Your file " . htmlspecialchars (basename($_FILES["file"]["name"])). "has been uploaded!";
+	}
+	else
+	{
+		"Something went wrong, please try again.";
+	}
 }
  
 if (isset($_POST["Transcript"]))
