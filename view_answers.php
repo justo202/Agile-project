@@ -96,6 +96,6 @@ while($row = $answer_rows->fetch_assoc())
     $results_arr[$x]->add_answer($row["Answer"]);
 }
 
-print_r($results_arr);
+$results_arr[0]->view_answers();
 
 ?>
