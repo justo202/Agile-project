@@ -23,8 +23,8 @@ $extension = end(explode(".", $_FILES["file"]["name"]));
 
 //Check file type
 
-//if (isset($_POST["submit"]))
-//{
+if (isset($_POST["submit"]))
+{
 	if ($_FILES["file"]["type"] != "text/plain" || !in_array($extension, $allowedExts))
 	{
 		echo "Invaild file type, please upload a txt file";
@@ -33,7 +33,7 @@ $extension = end(explode(".", $_FILES["file"]["name"]));
 	{
 		echo "Wohoo it finally works! I mean... file uploaded successfully!";
 	}
-//}	
+}	
  	
 	$file = fopen($_FILES["file"]["tmp_name"], "rb");
 	while ( ($line = fgets($fp)) !== false) 
