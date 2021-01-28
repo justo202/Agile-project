@@ -4,6 +4,7 @@ include 'db.php';
 
 // $questionnaire_name = $_POST['questionnaire_name'];
 $questionnaire_name = 'Maths Test Quiz';
+echo 'im working';
 
 function getAnswers($questionnaire_name, $link)
 {
