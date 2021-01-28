@@ -26,7 +26,7 @@ $fileType = strtolower(pathinfo($fileName, PATHINFO_EXTENSION));
 
 if (isset($_POST["submit"]))
 {
-	if (preg_match('\.txt$', $fileName))
+	if (preg_match("\.txt$", $fileName))
 	{
 		echo "Your file has been uploaded! (Just believe me it is there, just invisibile)";
 	}
@@ -34,7 +34,7 @@ if (isset($_POST["submit"]))
 	{
 		echo "Wrong file type, please ensure the file is a txt file.";
 	}
-	
+}	
  
 if (isset($_POST["Transcript"]))
 { //retrieve the data in the form
