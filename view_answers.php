@@ -36,6 +36,11 @@ class results {
     {
         echo $this->question;
     }
+
+    function view_answers()
+    {
+        print_r($this->answers_arr);
+    }
 }
 
 function getAnswers($questionnaire_name, $link)
@@ -46,7 +51,7 @@ function getAnswers($questionnaire_name, $link)
     if ($results->num_rows > 0)
     {
         echo "successfully retrieved answers<br>";
-        return $results->fetch_assoc();
+        return $results;
     } 
     else 
     {
@@ -62,7 +67,7 @@ function getQuestions($questionnaire_name, $link)
     if ($results->num_rows > 0)
     {
         echo "successfully retrieved questions<br>";
-        return $results->fetch_assoc();
+        return $results;
     } 
     else 
     {
@@ -73,19 +78,24 @@ function getQuestions($questionnaire_name, $link)
 $answer_rows = getAnswers($questionnaire_name, $link);
 $question_rows = getQuestions($questionnaire_name, $link);
 
-while($row = $question_rows)
+while($row = $question_rows->fetch_assoc())
 {
     $x = 0;
 
-    $results_arr[$x] = new results();
+    $results_arr[] = new results();
     $results_arr[$x]->set_question_num($row["Question_Number"]);
     $results_arr[$x]->set_question($row["Question"]);
 
-    $results_arr[$x]->view_question_num();
-    $results_arr[$x]->view_question();
-    echo 'im working here';
-
     $x++;
 }
+
+
+while($row = $answer_rows->fetch_assoc())
+{
+    $x = $row["Question_Number"]-1;
+    $results_arr[$x]->add_answer($row["Answer"]);
+}
+
+$results_arr[0]->view_answers();
 
 ?>
