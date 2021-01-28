@@ -79,9 +79,9 @@ function getQuestions($questionnaire_name, $link)
 
 $answer_rows = getAnswers($questionnaire_name, $link)->fetch_assoc();
 $question_rows = getQuestions($questionnaire_name, $link)->fetch_assoc();
-print_r($answer_rows);
+var_dump($answer_rows);
 echo "<br>";
-print_r($question_rows);
+var_dump($question_rows);
 
 // while($row = $question_rows->fetch_assoc())
 // {
