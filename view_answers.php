@@ -155,7 +155,8 @@ print_r($results_arr);
 
             <?php
 
-            for($x=2; $x >= 0; $x--)
+            echo sizeof($results_arr);
+            for($x=sizeof($results_arr); $x >= 0; $x--)
             {
 
                   $qNum = $results_arr[$x]->view_question_num();
