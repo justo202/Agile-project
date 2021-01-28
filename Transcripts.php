@@ -28,11 +28,11 @@ if (isset($_POST["submit"]))
 {
 	if (preg_match('\.txt$', $fileName))
 	{
-		echo "Wrong file type, please ensure the file is a txt file.";
+		echo "Your file has been uploaded! (Just believe me it is there, just invisibile)";
 	}
 	else
 	{
-		echo "Your file has been uploaded! (Just believe me it is there, just invisibile)";
+		echo "Wrong file type, please ensure the file is a txt file.";
 	}
 	
  
