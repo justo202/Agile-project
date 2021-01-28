@@ -28,7 +28,7 @@ $fileType = strtolower(pathinfo($fileName, PATHINFO_EXTENSION));
 
 if (isset($_POST["submit"]))
 {
-	if ($_FILES["file"]["type"] != "text/plain" || !in_array($extension, $allowedExts)
+	if ($_FILES["file"]["type"] != "text/plain" || !in_array($extension, $allowedExts))
 	{
 		echo "Invaild file type, please upload a txt file";
 	}
