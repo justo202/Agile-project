@@ -41,6 +41,11 @@ class results {
     {
         echo $this->answers_arr[$i];
     }
+
+    function get_arr_size()
+    {
+      return sizeof($this->answers_arr);
+    }
 }
 
 function getAnswers($questionnaire_name, $link)
@@ -151,7 +156,7 @@ print_r($results_arr);
 
             <?php
 
-            for($x=sizeof($results_arr); $x > 0; $x++)
+            for($x=sizeof($results_arr); $x > 0; $x--)
             {
                   echo 'hello im working';
                   echo "<label>Question ". $results_arr[$x]->view_question_num() .":</label><br>";
@@ -159,7 +164,7 @@ print_r($results_arr);
                   echo "<br><br>";
 
                   
-                        for($i=0; $i < sizeof($results_arr[$answers_arr]); $i++)
+                        for($i=0; $i < $results_arr[$x]->get_arr_size(); $i++)
                         {
                             
                         echo "<label>Answer " .$i+1 . ":</label><br>";
