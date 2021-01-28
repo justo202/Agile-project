@@ -28,17 +28,17 @@ class results {
 
     function view_question_num()
     {
-        echo $this->question_num;
+        return $this->question_num;
     }
 
     function view_question()
     {
-        echo $this->question;
+        return $this->question;
     }
 
     function view_answer($i)
     {
-        echo $this->answers_arr[$i];
+        return $this->answers_arr[$i];
     }
 
     function get_arr_size()
@@ -84,14 +84,12 @@ function addAnswerTooClass($a_rows, $result)
 {
   while($row = $a_rows->fetch_assoc())
     {
-      $qNum = $result->view_question_num();
-      $aNum = $row["Question_Number"];
-
-        if (($qNum - $aNum) == 0) 
+        if ($result->view_question_num() == $row["Question_Number"])
         {
-          // $results_arr[$x]->add_answer($rowx["Answer"]);
-          // echo $rowx["Answer"];
-          // echo "<br><br>";
+          echo 'match';
+          $results_arr[$x]->add_answer($rowx["Answer"]);
+          echo $rowx["Answer"];
+          echo "<br><br>";
         }
 
     }
