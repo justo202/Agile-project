@@ -98,6 +98,8 @@ function addAnswerTooClass($a_rows, $result)
           // echo $rowx["Answer"];
           // echo "<br><br>";
         }
+
+        $a_rows->data_seek(0);
     }
 }
 
