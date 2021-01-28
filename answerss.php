@@ -8,8 +8,7 @@ $number = $_POST['num'];
 $i = 0;
 foreach($answers as $answer)
 {
-  echo $answer." ".$name." ".$number[$i]."<br>";
-  $sql = "INSERT INTO `answers` (`Question_Number`, `Questionnaire_Name`, `Answer`) VALUES ('1', '$name', '$answer')";
+  $sql = "INSERT INTO `answers` (`Question_Number`, `Questionnaire_Name`, `Answer`) VALUES ('$number[$i]', '$name', '$answer')";
 
   if ($link->query($sql) === TRUE) {
   echo "New record created successfully";
