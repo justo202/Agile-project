@@ -155,11 +155,10 @@ print_r($results_arr);
 
             <?php
 
-            echo sizeof($results_arr);
             for($x=sizeof($results_arr)-1; $x >= 0; $x--)
             {
                   echo "<label>Question". $results_arr[$x]->view_question_num() .":</label><br>";
-                  echo "<small id='Question'>". $results_arr[$x]->view_question() ."</small>";
+                  echo "<label id='Question'>". $results_arr[$x]->view_question() ."</label>";
                   echo "<br><br>";
 
                   
@@ -167,7 +166,7 @@ print_r($results_arr);
                         {
                             
                         echo "<label>Answer " . $i+1 . ":</label><br>";
-                        echo "<small id='Answer'" .$results_arr[$x]->view_answer($i)."</small><br>";
+                        echo "<label id='Answer'" .$results_arr[$x]->view_answer($i)."</label><br>";
                             
                         }
             }
