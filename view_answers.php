@@ -1,7 +1,6 @@
 <?php
 
 include 'db.php';
-echo 'im working here';
 
 // $questionnaire_name = $_POST['questionnaire_name'];
 $questionnaire_name = 'Test Questionnaire';
@@ -29,7 +28,6 @@ class results {
     }
 }
 
-echo 'im working here';
 function getAnswers($questionnaire_name, $link)
 {
     $get_answers_sql = "SELECT Question_Number, Answer FROM answers WHERE Questionnaire_Name = '".$questionnaire_name."'";
@@ -46,7 +44,6 @@ function getAnswers($questionnaire_name, $link)
     }
 }
 
-echo 'im working here';
 function getQuestions($questionnaire_name, $link)
 {
     $get_questions_sql = "SELECT Question_Number, Question FROM questions WHERE Questionnaire_Name = '".$questionnaire_name."'";
@@ -64,7 +61,9 @@ function getQuestions($questionnaire_name, $link)
 }
 
 $answer_rows = getAnswers($questionnaire_name, $link);
+echo 'im working here';
 $question_rows = getQuestions($questionnaire_name, $link);
+echo 'im working here';
 
 while($row = $question_rows)
 {
