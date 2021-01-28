@@ -45,6 +45,9 @@ function getAnswers($questionnaire_name, $link)
 
     if ($results->num_rows > 0)
     {
+        while($row = $result->fetch_assoc()) {
+            echo $row["Question_Number"] . $row["Answer"]. "<br>";
+          }
         echo "successfully retrieved answers<br>";
         return $results->fetch_assoc();
     } 
@@ -61,6 +64,9 @@ function getQuestions($questionnaire_name, $link)
 
     if ($results->num_rows > 0)
     {
+        while($row = $result->fetch_assoc()) {
+            echo $row["Question_Number"] . $row["Question"]. "<br>";
+          }
         echo "successfully retrieved questions<br>";
         return $results->fetch_assoc();
     } 
