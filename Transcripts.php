@@ -17,6 +17,12 @@
 </html>
 
 <?php
+$dir = "Uploads/";
+$file = $dir . basename($_FILES["file"]["name"]);
+$upload = 1;
+$isTxt = strtolower(pathinfo($dir,PATHINFO_EXTENSION));
+
+
 $allowedExts = array("txt");
 $extension = end(explode(".", $_FILES["file"]["name"]));
 
@@ -25,21 +31,41 @@ $extension = end(explode(".", $_FILES["file"]["name"]));
 
 if (isset($_POST["submit"]))
 {
-	if ($_FILES["file"]["type"] != "text/plain" || !in_array($extension, $allowedExts))
+	if ($isTxt != "txt")
 	{
-		echo "Invaild file type, please upload a txt file";
+		echo "Invaild file type, please upload a .txt file";
 	}
 	else
 	{
 		echo "Wohoo it finally works! I mean... file uploaded successfully!";
+		//$upload = 0;
 	}
-	
-	$file = fopen($_FILES["file"]["tmp_name"], "rb");
-	while ( ($line = fgets($fp)) !== false) 
+}
+
+if ($upload == 0)
+{
+	echo "Something went wrong, please try again.";
+}
+else
+{
+	if (move_uploaded_file($_FILES["file"]["tmp_name"], $file))
 	{
-		echo "$line<br>";
+		echo "The file ". htmlspecialchars( basename( $_FILES["file"]["name"])). "has been uploaded.";
 	}
+	else 
+	{
+		echo "Sorry, there was an error uploading your file.";
+	}
+}
+
+		
+	
+	
+	//$file = fopen($_FILES["file"]["tmp_name"], "rb");
+	//while ( ($line = fgets($fp)) !== false) 
+	//{
+		//echo "$line<br>";
+	//}
 
 }
-	
 ?>
