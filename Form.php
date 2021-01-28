@@ -68,7 +68,7 @@
           }
           mysqli_close($link);
           ?>
-          <input class = "btn btn-info" type="submit" name="button" value = "Submit"></input>
+          <input style = "visibility:hidden; "class = "btn btn-info" type="submit" name="button" id = "submitbtn" value = "Submit"></input>
         </form>
 
 
@@ -82,3 +82,25 @@
 
   </body>
 </html>
+<script>
+var fields = document.getElementsByClassName("answers");
+for (var i = 0; i < fields.length; i++) {
+  fields[i].addEventListener('input', checkAll);
+}
+function checkAll()
+{
+  var empty = "done";
+  for (var i = 0; i < fields.length; i++) {
+    if(fields[i].value == "")
+      empty = "empty";
+  }
+  if(empty == "done")
+    {
+      document.getElementById("submitbtn").style = "visibility:visible"
+    }
+  else {
+
+    document.getElementById("submitbtn").style = "visibility:hidden"
+  }
+}
+</script>
