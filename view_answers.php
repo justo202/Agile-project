@@ -99,6 +99,7 @@ while($row = $answer_rows->fetch_assoc())
 }
 
 print_r($results_arr);
+echo $results_arr[0]->view_question_num();
 
 ?>
 
