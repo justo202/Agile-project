@@ -160,9 +160,6 @@ print_r($results_arr);
             {
 
                   $qNum = $results_arr[$x]->view_question_num();
-
-                  echo "hello im working";
-                  echo $qNum;
                   echo "<label>Question $qNum :</label><br>";
                   echo "<small id='Question'>"+ $results_arr[$x]->view_question() +"</small>";
                   echo "<br><br>";
