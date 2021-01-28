@@ -9,7 +9,7 @@
 <form method="post"> 
 <input type="text" name="Transcript" placeholder="Enter text here"/> 
 <input type="submit" name="submit"/> 
-<input type="submit" name="upload" value="upload"/>
+<input type="file" name="upload" value="upload"/>
 
 </form>
 
@@ -21,11 +21,11 @@
 
 $upload=$_POST["upload"];
  
-if (isset($_POST['Transcript']))
+if (isset($_POST["Transcript"]))
 	{ //retrieve the data in the form
-	$txt=$_POST['Transcript'];
+	$txt=$_POST["Transcript"];
 	
-	$file = 'transcript.txt';
+	$file = "transcript.txt";
 	//write to the file
 	$transcript = fopen("$file", "w") or die("Unable to open file!");
 	fwrite($transcript, $txt);
@@ -34,7 +34,8 @@ if (isset($_POST['Transcript']))
 	
 if ($upload)
 	{
-	echo "here is your file";	
+	echo "WHAT HAVE YOU DONE!";	
+	
 	}
 
 	
