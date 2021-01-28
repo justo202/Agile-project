@@ -35,8 +35,8 @@ function getAnswers($questionnaire_name, $link)
 
     if ($results->num_rows > 0)
     {
-        return $results;
         echo "successfully retrieved answers<br>";
+        return $results;
     } 
     else 
     {
@@ -51,8 +51,8 @@ function getQuestions($questionnaire_name, $link)
 
     if ($results->num_rows > 0)
     {
-        return $results;
         echo "successfully retrieved questions<br>";
+        return $results;
     } 
     else 
     {
@@ -61,9 +61,7 @@ function getQuestions($questionnaire_name, $link)
 }
 
 $answer_rows = getAnswers($questionnaire_name, $link);
-echo 'im working here';
 $question_rows = getQuestions($questionnaire_name, $link);
-echo 'im working here';
 
 while($row = $question_rows)
 {
