@@ -99,7 +99,6 @@ while($row = $answer_rows->fetch_assoc())
 }
 
 print_r($results_arr);
-echo $results_arr[0]->view_question_num();
 
 ?>
 
@@ -163,7 +162,7 @@ echo $results_arr[0]->view_question_num();
 
                   echo "hello im working";
                   echo $qNum;
-                  echo "<label>Question $qNum :</label><br>";
+                  //echo "<label>Question $qNum :</label><br>";
                   echo "<small id='Question'>"+ $results_arr[$x]->view_question() +"</small>";
                   echo "<br><br>";
 
