@@ -22,6 +22,7 @@
 $upload=$_POST["upload"];
 //
 $fileType = strtolower(pathinfo(PATHINFO_EXTENSION));
+$filename = $_FILES[""]["name"];
  
 if (isset($_POST["Transcript"]))
 	{ //retrieve the data in the form
@@ -37,13 +38,13 @@ if (isset($_POST["Transcript"]))
 //Check file type
 if (isset($_POST["submit"]))
 	{
-	if($fileType != "txt")
+	if($_FILES["file"]["type"] == "text/plain")
 		{
-		echo "Wrong file type, please pick a txt file";
+		echo "File uploaded! (ssshhhhhh, just pretend for now...)";
 		}
 	else
 		{
-		echo "File uploaded! (ssshhhhhh, just pretend for now...)";
+		echo "Wrong file type, make sure its a txt file";
 		}	
 	}
 
