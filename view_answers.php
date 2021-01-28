@@ -99,7 +99,6 @@ function addAnswerTooClass($a_rows, $result)
           // echo "<br><br>";
         }
 
-        $a_rows->data_seek(0);
     }
 }
 
@@ -117,6 +116,8 @@ while($row = $question_rows->fetch_assoc())
     echo "<br>";
 
     addAnswerTooClass($answer_rows, $results_arr[$x]);
+
+    $answer_rows->data_seek(0);
 
     $x++;
 }
