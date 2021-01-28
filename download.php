@@ -27,9 +27,6 @@
       }
 
 //$fp = fopen("data.txt", "r");
-
-echo "hello, this is a test";
-
   }
   fclose($myfile);
   mysqli_close($link);

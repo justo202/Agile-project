@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
 
-    <title>Question</title>
+    <title>Home</title>
 
     <!-- Style Links -->
     <link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css">

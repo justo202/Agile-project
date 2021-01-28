@@ -22,7 +22,7 @@ mysqli_close($link);
  <html lang="en">
    <head>
 
-     <title>Login</title>
+     <title>Thank you!</title>
 
      <!-- Style Links -->
      <link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css">
@@ -60,7 +60,7 @@ mysqli_close($link);
      <form class="form-signin">
        <img class="mb-4" src="logo.png" alt="" width="72" height="72">
        <h1 class="h3 mb-3 font-weight-normal">Thank you for completing our survey!</h1>
-      
+
      </form>
      </div>
    </body>
