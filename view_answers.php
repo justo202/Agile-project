@@ -95,8 +95,8 @@ while($row = $question_rows->fetch_assoc())
 
     while($rowx = $answer_rows->fetch_assoc())
     {
-      echo $rowx["Question_Number"];
-      echo $rowx["Answer"];
+      // echo $rowx["Question_Number"];
+      // echo $rowx["Answer"];
       echo "<br>";
         // if($results_arr[$x]->view_question_num() == $rowx["Question_Number"])
         // {
