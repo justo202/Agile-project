@@ -87,7 +87,7 @@ function addAnswerTooClass($a_rows, $result)
       $qNum = $result->view_question_num();
       $aNum = $row["Question_Number"];
 
-        if($qNum == $aNum)
+        if (($qNum - $aNum) == 0) 
         {
           // $results_arr[$x]->add_answer($rowx["Answer"]);
           // echo $rowx["Answer"];
@@ -104,11 +104,6 @@ while($row = $question_rows->fetch_assoc())
     $results_arr[] = new results();
     $results_arr[$x]->set_question_num($row["Question_Number"]);
     $results_arr[$x]->set_question($row["Question"]);
-
-    // echo $results_arr[$x]->view_question_num();
-    // echo "<br>";
-    // echo $results_arr[$x]->view_question();
-    // echo "<br>";
 
     addAnswerTooClass($answer_rows, $results_arr[$x]);
 
