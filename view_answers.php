@@ -111,10 +111,11 @@ while($row = $question_rows->fetch_assoc())
 
     $answer_rows->data_seek(0);
 
+    print_r($results_arr[$x]);
     $x++;
 }
 
-print_r($results_arr);
+
 
 ?>
 
