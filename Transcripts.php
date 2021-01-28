@@ -21,7 +21,7 @@
 
 $upload=$_POST["upload"];
 //
-$fileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+$fileType = strtolower(pathinfo(PATHINFO_EXTENSION));
  
 if (isset($_POST["Transcript"]))
 	{ //retrieve the data in the form
