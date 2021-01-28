@@ -150,31 +150,12 @@ echo 'working till this point';
       
       <form class="form-group">
         <div class="border border-primary rounded">
-
-            <?php
-
-            for($x=0; $x < sizeof($results_arr); $x++)
-            {
-                ?>  <label>Question <?php $results_arr[$x]->view_question_num() ?>:</label><br>
-                    <small id="Question"><?php $results_arr[$x]->view_question() ?></small>
-                    <br><br>
-
-                    <?php 
-                        for($i=0; $i < sizeof($results_arr[$answers_arr]); $i++)
-                        {
-                            ?>
-                            <label>Answer <?php echo $i+1 ?>:</label><br>
-                            <small id="Answer"><?php $results_arr[$x]->view_answer($i) ?></small>
-                            <?php
-                        }
-            }
-            ?>
             
-            <!-- <label>Question 1:</label><br>
+            <label>Question 1:</label><br>
             <small id="Question">Eample Question?</small>
             <br><br>
             <label>Answer 1:</label><br>
-            <small id="Answer">Eample Answer.</small> -->
+            <small id="Answer">Eample Answer.</small>
 
         </div>
 
