@@ -9,7 +9,7 @@
 <form method="post"> 
 <input type="text" name="Transcript" placeholder="Enter text here"/> 
 <input type="submit" name="submit"/> 
-<input type="submit" name="upload" placeholder="upload"/>
+<input type="submit" name="upload" value="upload"/>
 
 </form>
 
