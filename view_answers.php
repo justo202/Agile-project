@@ -100,9 +100,7 @@ while($row = $answer_rows->fetch_assoc())
 
 for($x = 0; $x < 3; $x++)
 {
-    $results_arr[$x]->view_question_num();
-    $results_arr[$x]->view_question();
-    $results_arr[$x]->view_answers();
+   print_r($results_arr[$x]);
 }
 
 ?>
