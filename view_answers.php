@@ -2,8 +2,7 @@
 
 include 'db.php';
 
-// $questionnaire_name = $_POST['questionnaire_name'];
-$questionnaire_name = 'Test Questionnaire';
+$questionnaire_name = $_POST['questionnaire_name'];
 $results_arr = array();
 
 class results {
