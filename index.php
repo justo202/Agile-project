@@ -48,11 +48,7 @@
       <div class="album py-5 bg-light">
         <div class="container">
           <div class="card-deck mb-3 text-center">
-            <form class="" action="index.html" method="post">
 
-              <input type="hidden" name="Questionaire" value="<?php echo  ?>">
-              <button class=\"btn btn-lg btn-block btn-outline-primary\" value = "Submit" type="button" name="button"></button>
-            </form>
             <?php
 
 
