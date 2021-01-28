@@ -142,7 +142,7 @@ echo 'working till this point';
         <h1 class="mt-5">View Answers</h1>
         <p class="lead">Below you can choose the results you want to see</p>
 
-        <form action="view_answers.php" method="post">
+        <form action="/view_answers.php" method="post">
           <label>Enter Name of Questionnaire:</label>
           <input type="text" id="questionnaire_name" name="questionnaire_name">
           <input type="submit" value="Get Results" class="btn btn-primary"> 
@@ -150,6 +150,25 @@ echo 'working till this point';
       
       <form class="form-group">
         <div class="border border-primary rounded">
+
+            <?php
+
+            for($x=0; $x < sizeof($results_arr); $x++)
+            {
+                ?>  <label>Question <?php $results_arr[$x]->view_question_num() ?>:</label><br>
+                    <small id="Question"><?php $results_arr[$x]->view_question() ?></small>
+                    <br><br>
+
+                    <?php 
+                        for($i=0; $i < sizeof($results_arr[$answers_arr]); $i++)
+                        {
+                            ?>
+                            <label>Answer <?php echo $i+1 ?>:</label><br>
+                            <small id="Answer"><?php $results_arr[$x]->view_answer($i) ?></small>
+                            <?php
+                        }
+            }
+            ?>
             
             <label>Question 1:</label><br>
             <small id="Question">Eample Question?</small>
