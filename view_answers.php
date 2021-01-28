@@ -78,33 +78,35 @@ function getQuestions($questionnaire_name, $link)
 }
 
 $answer_rows = getAnswers($questionnaire_name, $link)->fetch_assoc();
-$question_rows = getQuestions($questionnaire_name, $link);
+$question_rows = getQuestions($questionnaire_name, $link)->fetch_assoc();
 print_r($answer_rows);
+echo "<br>";
+print_r($question_rows);
 
-while($row = $question_rows->fetch_assoc())
-{
-    $x = 0;
+// while($row = $question_rows->fetch_assoc())
+// {
+//     $x = 0;
 
-    $results_arr[] = new results();
-    $results_arr[$x]->set_question_num($row["Question_Number"]);
-    $results_arr[$x]->set_question($row["Question"]);
+//     $results_arr[] = new results();
+//     $results_arr[$x]->set_question_num($row["Question_Number"]);
+//     $results_arr[$x]->set_question($row["Question"]);
 
-    echo $results_arr[$x]->view_question_num();
-    echo "<br>";
-    echo $results_arr[$x]->view_question();
-    echo "<br>";
+//     echo $results_arr[$x]->view_question_num();
+//     echo "<br>";
+//     echo $results_arr[$x]->view_question();
+//     echo "<br>";
 
-    // while($row = $answer_rows->fetch_assoc())
-    // {
-    //     if($results_arr[$x]->view_question_num() == $row["Question_Number"])
-    //     {
-    //       $results_arr[$x]->add_answer($row["Answer"]);
-    //       echo $row["Answer"];
-    //       echo "<br><br>";
-    //     }
-    // }
-    $x++;
-}
+//     while($row = $answer_rows->fetch_assoc())
+//     {
+//         if($results_arr[$x]->view_question_num() == $row["Question_Number"])
+//         {
+//           $results_arr[$x]->add_answer($row["Answer"]);
+//           echo $row["Answer"];
+//           echo "<br><br>";
+//         }
+//     }
+//     $x++;
+// }
 
 
 ?>
