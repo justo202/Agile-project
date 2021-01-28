@@ -40,32 +40,23 @@
         <h1 class="mt-5">Quiz Creator</h1>
         <p class="lead">Below you can find a load of things to fill in</p>
       
-      <div class="form-group">
-        <label for="QuestionNumber">How many questions would you like the quiz to have?</label>
-        <input type="email" class="form-control" id="QuestionNumber" placeholder="Answer">
-        <small id="QuestionNumberHelp" class="form-text text-muted">Please only enter numbers (1,2, etc...)</small>
+      <form id="questions" action="/create_questionnaire.php" method="post" class="form-group">
+        <label id="question" for="QuestionNumber">Question 1</label>
+        <input type="textarea" id="newQuestion" name="newQuestion" class="form-control">
+        <input type="button" value="Add Question" onclick="addQuestion()" class="btn btn-primary"><br>
+        <label>Name of Researcher:</label>
+        <input type="text" id="creator_name" name="creator_name" class="form-control"><br>
+        <label>Questionnaire Name:</label>
+        <input type="text" id="questionnaire_name" name="questionnaire_name" class="form-control"><br>
+        <input type="hidden" id="num_of_questions" name="num_of_questions">
+        <input type="submit" value="Submit" class="btn btn-primary">
+      </form>
+
+      <div id="displayQuestions">
+        <h1 class="mt-5">Your Quiz</h1>
+        <p class="lead">Below you can view your quiz so far</p>
       </div>
 
-      <div class="form-group">
-        <label for="QuestionType">What type of Question would you like to create?</label>
-        <select class="form-control" id="QuestionType">
-          <option>Long Hand</option>
-          <option>Multiple Choice</option>
-        </select>
-        <small id="QuestionType" class="form-text text-muted">Select from drop down box.</small>
-      </div>
-
-      <div class="form-group">
-        <label for="QuestionContent">Enter Question</label>
-        <input type="email" class="form-control" id="QuestionContent" placeholder="Answer">
-        <small id="QuestionContentHelp" class="form-text text-muted"></small>
-      </div>
-
-     <!-- <div class="form-group">
-        <label for="Question3">Question 3</label>
-        <input type="email" class="form-control" id="Question1" placeholder="Answer">
-        <small id="Question3Help" class="form-text text-muted"></small>
-      </div> -->
 
     </main>
 
@@ -74,6 +65,40 @@
         <span class="text-muted">Place sticky footer content here.</span>
       </div>
     </footer> -->
+
+    <script>
+        var questionNum = 1  //variable to keep track of the number of question that are being added
+    
+        function addQuestion() {
+
+            //create a hidden element and set its value to the question that has just been entered so that it is stored
+            var input = document.createElement("input");
+    
+            input.setAttribute("type", "hidden");
+    
+            input.setAttribute("name", "question" + questionNum);
+    
+            input.setAttribute("value", document.getElementById("newQuestion").value);
+            document.getElementById("questions").appendChild(input);
+
+
+            //create two new elements to display most recent question number and the question
+            var number = document.createElement("label");
+            var question = document.createElement("p");
+
+            number.innerHTML = "Question " + questionNum + ":";
+            question.innerHTML = document.getElementById("newQuestion").value;
+
+            document.getElementById("displayQuestions").appendChild(number);
+            document.getElementById("displayQuestions").appendChild(question);
+    
+            document.getElementById("num_of_questions").value = questionNum;
+            document.getElementById("newQuestion").value = "";
+    
+            questionNum = questionNum + 1;
+            document.getElementById("question").innerHTML = "Question " + questionNum;  
+        }
+    </script>
 
   </body>
 </html>

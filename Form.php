@@ -40,19 +40,26 @@
       <h1 class="mt-5">There's some Questions and that</h1>
       <p class="lead">Just write answers into the boxes and im sure you'll be fine</p>
 
+        <form class="" action="answerss.php" method="post">
+
           <?php
           $name = $_GET['survey'];
 
-          $sql = "SELECT * FROM `questions` WHERE `Questionnaire_Name` = '$name'";
+          $sql = "SELECT * FROM `questions` WHERE `Questionnaire_Name` = '$name' ORDER BY `Question_Number` ASC";
           if($result = mysqli_query($link, $sql)){
               if(mysqli_num_rows($result) > 0){
                 $val = 1;
                   while($row = mysqli_fetch_array($result)){
+
                           echo "<div class=\"form-group\">";
                           echo "<label>Question " . $val++ . ": " . $row['Question'] . "</label>";
-                          echo "<input type=\"text\" class = \"answers form-control\" placeholder = \"Answer\">";
+                          echo "<input type=\"text\" name = \"answers[]\"class = \"answers form-control\" placeholder = \"Answer\">";
+
+                          echo "<input type = \"hidden\" value = \"".$row['Question_Number']."\" name = \"num[]\">";
+                          echo "</div>";
 
                   }
+                  echo "<input type = \"hidden\" value = \"".$name."\" name = \"name\">";
                   // Free result set
                   mysqli_free_result($result);
               } else{
@@ -61,6 +68,8 @@
           }
           mysqli_close($link);
           ?>
+          <input class = "btn btn-info" type="submit" name="button" value = "Submit"></input>
+        </form>
 
 
     </main>
