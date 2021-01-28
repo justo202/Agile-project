@@ -18,9 +18,7 @@
 
 <?php
 //varaible that contains details fo files
-$fileName = $_FILES["file"]["name"];
-//check if the form is submitted 
-$upload = $_POST["upload"];
+$fileName = basename($_FILES["file"]["name"]);
 //locates the file
 $fileType = strtolower(pathinfo($filename, PATHINFO_EXTENSION));
  
