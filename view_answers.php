@@ -98,10 +98,9 @@ while($row = $question_rows->fetch_assoc())
         if($results_arr[$x]->view_question_num() == $row["Question_Number"])
         {
           $results_arr[$x]->add_answer($row["Answer"]);
+          echo $row["Answer"];
+          echo "<br><br>";
         }
-
-        echo $row["Answer"];
-        echo "<br><br>";
     }
     $x++;
 }
