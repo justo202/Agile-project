@@ -17,9 +17,10 @@
 </html>
 
 <?php
-$dir = "Uploads/";
+$allowedExts = array("txt");
+$extension = end(explode(".", $_FILES["file"]["name"]));
 //varaible that contains details fo files
-$fileName = $dir . basename($_FILES["file"]["name"]);
+$fileName = $_FILES["file"]["name"];
 //locates the file
 $fileType = strtolower(pathinfo($fileName, PATHINFO_EXTENSION));
 
@@ -27,24 +28,15 @@ $fileType = strtolower(pathinfo($fileName, PATHINFO_EXTENSION));
 
 if (isset($_POST["submit"]))
 {
-	if ($fileType != "txt")
+	if ($_FILES["file"]["type"] != "text/plain" || !in_array($extension, $allowedExts))
 	{
-		echo "Wrong file type, please ensure the file is a txt file.";
+		echo "Invaild file type, please upload a txt file";
 	}
 	else
 	{
-		echo "Your file has been uploaded! (Just believe me it is there, just invisibile)";
+		echo "Wohoo it finally works! I mean... file uploaded successfully!";
 	}
-	
-	if (move_uploaded_file($_FILES["file"]["name"], $fileName))
-	{
-		echo "Your file " . htmlspecialchars (basename($_FILES["file"]["name"])). "has been uploaded!";
-	}
-	else
-	{
-		"Something went wrong, please try again.";
-	}
-}
+}	
  
 if (isset($_POST["Transcript"]))
 { //retrieve the data in the form
