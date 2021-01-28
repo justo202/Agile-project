@@ -14,7 +14,8 @@ function getAnswers($questionnaire_name, $link)
     } else {
         echo "Error: <br>" . $link->error;
     }
-
 }
+
+getAnswers($questionnaire_name, $link);
 
 ?>
