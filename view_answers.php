@@ -73,20 +73,16 @@ function getQuestions($questionnaire_name, $link)
 $answer_rows = getAnswers($questionnaire_name, $link);
 $question_rows = getQuestions($questionnaire_name, $link);
 
-echo $answer_rows["Question_Number"];
+while($row = $question_rows)
+{
+    $x = 0;
 
-// while($row = $question_rows)
-// {
-//     $x = 0;
+    $results_arr[$x] = new results();
+    $results_arr[$x]->set_question_num($row["Question_Number"]);
+    $results_arr[$x]->set_question($row["Question"]);
 
-//     $results_arr[$x] = new results();
-//     $results_arr[$x]->set_question_num($row["Question_Number"]);
-//     $results_arr[$x]->set_question($row["Question"]);
-
-//     $results_arr[$x]->view_question_num();
-//     $results_arr[$x]->view_question();
-
-//     $x++;
-// }
+    $results_arr[$x]->view_question_num();
+    $results_arr[$x]->view_question();
+}
 
 ?>
