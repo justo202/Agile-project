@@ -93,15 +93,15 @@ while($row = $question_rows->fetch_assoc())
     echo $results_arr[$x]->view_question();
     echo "<br>";
 
-    while($row = $answer_rows->fetch_assoc())
+    while($rowx = $answer_rows->fetch_assoc())
     {
       echo 'working here <br>';
 
-        if($results_arr[$x]->view_question_num() === $row["Question_Number"])
+        if($results_arr[$x]->view_question_num() === $rowx["Question_Number"])
         {
           echo 'working here here <br>';
-          $results_arr[$x]->add_answer($row["Answer"]);
-          // echo $row["Answer"];
+          $results_arr[$x]->add_answer($rowx["Answer"]);
+          echo $rowx["Answer"];
           echo "<br><br>";
         }
     }
