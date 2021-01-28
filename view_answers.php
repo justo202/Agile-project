@@ -110,7 +110,8 @@ while($row = $answer_rows->fetch_assoc())
 }
 
 for($t = 0; $t < 3; $t++)
-{
+{  
+    echo "hello";
     echo $results_arr[$x]->view_question_num();
     echo "<br>";
     echo $results_arr[$x]->view_question();
