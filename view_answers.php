@@ -87,7 +87,7 @@ function addAnswerTooClass($a_rows, $result)
         if ($result->view_question_num() == $row["Question_Number"])
         {
           $result->add_answer($row["Answer"]);
-          echo $rowx["Answer"];
+          echo $row["Answer"];
           echo "<br><br>";
         }
 
