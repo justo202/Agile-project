@@ -85,21 +85,20 @@ while($row = $question_rows->fetch_assoc())
 {
     $x = 0;
 
-    $results_arr[$x] = new results();
+    $results_arr[] = new results();
     $results_arr[$x]->set_question_num($row["Question_Number"]);
     $results_arr[$x]->set_question($row["Question"]);
 
     $x++;
 }
 
-print_r($results_arr[0]);
-print_r($results_arr[1]);
-print_r($results_arr[2]);
 
 while($row = $answer_rows->fetch_assoc())
 {
     $x = $row["Question_Number"]-1;
     $results_arr[$x]->add_answer[$row["Answer"]];
 }
+
+print_r($results_arr);
 
 ?>
