@@ -87,16 +87,11 @@ function addAnswerTooClass($a_rows, $result)
       $qNum = $result->view_question_num();
       $aNum = $row["Question_Number"];
 
-      echo $qNum;
-      echo "<br>";
-      echo $aNum;
-      echo "<br><br>";
         if($qNum == $aNum)
         {
-          echo "match";
-          // $results_arr[$x]->add_answer($rowx["Answer"]);
-          // echo $rowx["Answer"];
-          // echo "<br><br>";
+          $results_arr[$x]->add_answer($rowx["Answer"]);
+          echo $rowx["Answer"];
+          echo "<br><br>";
         }
 
     }
