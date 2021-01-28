@@ -95,8 +95,14 @@ while($row = $question_rows->fetch_assoc())
 
 while($row = $answer_rows->fetch_assoc())
 {
-    $x = $row["Question_Number"]-1;
-    $results_arr[$x]->add_answer($row["Answer"]);
+    foreach($results_arr as $results)
+    {
+      if($results->view_question_num() == $row["Question_Number"])
+      {
+        $results->add_answer($row["Answer"]);
+      }
+    }
+
 }
 
 for($t = 0; $t < 3; $t++)
@@ -107,7 +113,7 @@ for($t = 0; $t < 3; $t++)
     echo "<br><br>";
 }
 
-//print_r($results_arr);
+print_r($results_arr);
 
 ?>
 
