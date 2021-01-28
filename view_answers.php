@@ -106,7 +106,7 @@ while($row = $question_rows->fetch_assoc())
     $new_result = new results();
     $new_result->set_question_num($row["Question_Number"]);
     $new_result->set_question($row["Question"]);
-    $results_arr[$x] = $new_result;
+    $results_arr[] = $new_result;
 
     addAnswerTooClass($answer_rows, $results_arr[$x]);
 
@@ -178,7 +178,7 @@ print_r($results_arr[2]);
 
             for($x=sizeof($results_arr)-1; $x >= 0; $x--)
             {
-                  echo "<label>Question". $results_arr[$x]->view_question_num() .":</label><br>";
+                  echo "<label>Question ". $results_arr[$x]->view_question_num() .":</label><br>";
                   echo "<label id='Question'>". $results_arr[$x]->view_question() ."</label><br>";
 
                   
