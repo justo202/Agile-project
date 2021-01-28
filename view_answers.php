@@ -52,8 +52,8 @@ function getAnswers($questionnaire_name, $link)
     {
         echo "successfully retrieved answers<br>";
         return $results;
-    } 
-    else 
+    }
+    else
     {
         echo "Error: <br>" . $link->error;
     }
@@ -68,8 +68,8 @@ function getQuestions($questionnaire_name, $link)
     {
         echo "successfully retrieved questions<br>";
         return $results;
-    } 
-    else 
+    }
+    else
     {
         echo "Error: <br>" . $link->error;
     }

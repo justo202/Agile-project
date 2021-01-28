@@ -1,93 +1,124 @@
+<?php
+
+session_start();
+if(isset($_SESSION["loggedin"])&&$_SESSION["loggedin"]==true){
+    header("location: test.php");
+    exit;
+}
+
+
+// Include config file
+require_once "db.php";
+
+$email = $password = "";
+$email_err = $password_err = "";
+
+// Processing form data when form is submitted
+if($_SERVER["REQUEST_METHOD"] == "POST"){
+
+    // Validate email
+    if(empty(trim($_POST["email"]))){
+        $email_err = "Please enter your email.";
+    }else
+    {
+        $email = trim($_POST["email"]);
+    }
+
+    // Validate password
+    if(empty(trim($_POST["password"]))){
+        $password_err = "Please enter your password.";
+    } else{
+        $password = trim($_POST["password"]);
+    }
+
+    // Check input errors before inserting in database
+    if(empty($email_err) && empty($password_err)){
+
+        // Prepare an Select statement
+        $sql = "SELECT Username, Password FROM user";
+
+        if($stmt = $mysql->prepare($sql)){
+            // Bind variables to the prepared statement as parameters
+            $stmt->bindParam(":email", $param_email, PDO::PARAM_STR);
+            // Set parameters
+            $param_email = $email;
+            // Attempt to execute the prepared statement
+            if($stmt->execute()){
+                if ($stmt->rowCount()==1) {
+                    if ($row = $stmt->fetch()) {
+                        $id = $row["ID"];
+                        $email = $row["email"];
+                        $hashed_password = $row["password"];
+                        //if password matches start the session
+                        if ($password == $hashed_password) {
+                            session_start();
+                            //store data in session variables
+                            $_SESSION["loggedin"] = true;
+                            $_SESSION["id"] = $id;
+                            $_SESSION["email"] = $email;
+
+                            header("location: test.php");
+                        }else{
+                            $password_err = "The password you entered was not valid";
+                        }
+                    }
+                }else{
+                    $email_err = "No account found with that username" ;
+                }
+            } else{
+                echo "Something went wrong. Please try again later.";
+            }
+
+            // Close statement
+            unset($stmt);
+        }
+    }
+    // Close connection
+    unset($mysql);
+}
+?>
+
 <!doctype html>
 <html lang="en">
   <head>
 
-    <title>Home</title>
+    <title>Login</title>
 
     <!-- Style Links -->
     <link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css">
+    <link rel="stylesheet" href="LoginStyle.css">
 
   </head>
 
   <body>
-    <?php
-    include 'db.php';
-    ?>
+
     <header>
-      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="Index.php">Home</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 
-        <a class="navbar-brand" href="Login.php">Login</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <a class="navbar-brand" href="Form.php">Form</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-
+          </nav>
     </header>
 
-    <main role="main">
+    <div class="text-center">
 
-      <section class="jumbotron text-center">
-        <div class="container">
-          <h1 class="jumbotron-heading">Big 'ol Question Webpage</h1>
-          <p class="lead text-muted">This project should definatly be software based...</p>
-          <p>
-            <a href="#" class="btn btn-primary my-2">Create Survey</a>
-            <a href="#" class="btn btn-secondary my-2">Don't Create Survey</a>
-          </p>
-        </div>
-      </section>
+    <form class="form-signin">
+      <img class="mb-4" src="logo.png" alt="" width="72" height="72">
+      <h1 class="h3 mb-3 font-weight-normal">Please Sign In</h1>
 
-      <div class="album py-5 bg-light">
-        <div class="container">
-          <div class="card-deck mb-3 text-center">
+      <label for="inputEmail" class="sr-only">Email address</label>
+      <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
 
-            <?php
+      <label for="inputPassword" class="sr-only">Password</label>
+      <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
 
-
-            $sql = "SELECT * FROM `questionnaires`";
-            if($result = mysqli_query($link, $sql)){
-                if(mysqli_num_rows($result) > 0){
-                    while($row = mysqli_fetch_array($result)){
-                      echo "<div class=\"card mb-4 box-shadow\">";
-                      echo "<div class=\"card-header\"><h4 class=\"my-0 font-weight-normal\">".$row['Questionnaire_Name']."</h4> </div>";
-                      echo "<div class=\"card-body\">";
-                      echo "<p class=\"card-text\">Questionaire by ".$row['Creator_Name']."</p>";
-                      echo "<button onclick = \"window.location.href = 'form.php?survey=". $row['Questionnaire_Name'] ."'\" type=\"button\" class=\"btn btn-lg btn-block btn-outline-primary\">Take Questionaire</button>";
-                      echo "<button onclick = \"window.location.href = 'download.php?name=". $row['Questionnaire_Name'] ."'\" type=\"button\" class=\"btn btn-lg btn-block btn-outline-primary\">Download answer data</button>";
-                      echo "</div></div>";
-
-                    }
-                    // Free result set
-                    mysqli_free_result($result);
-                } else{
-                    echo "No records matching your query were found.";
-                }
-            }
-            mysqli_close($link);
-            ?>
-          </div>
-        </div>
+      <div class="checkbox mb-3">
+        <label>
+          <input type="checkbox" value="remember-me"> Remember me
+        </label>
       </div>
 
-    </main>
-
-    <footer class="text-muted">
-      <div class="container">
-        <p class="float-right">
-          <a href="#">Back to top</a>
-        </p>
-        <p>This is the bottom of the page</p>
-      </div>
-    </footer>
-
-
+      <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+      <p class="mt-5 mb-3 text-muted">&copy; 1066-2003</p>
+    </form>
+    </div>
   </body>
 </html>
