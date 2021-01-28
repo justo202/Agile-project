@@ -9,7 +9,7 @@
 <form method="post"> 
 <input type="text" name="Transcript" placeholder="Enter text here"/> 
 <input type="submit" name="submit"/> 
-<input type="submit" name="upload" placeholder="upload"/>
+<input type="submit" name="upload" value="upload"/>
 
 </form>
 
@@ -18,7 +18,8 @@
 
 <?php
 //check if the form is submitted 
-$upload=['upload'];
+
+$upload=$_POST["upload"];
  
 if (isset($_POST['Transcript']))
 	{ //retrieve the data in the form
@@ -33,7 +34,7 @@ if (isset($_POST['Transcript']))
 	
 if ($upload)
 	{
-	echo 'here is your file';	
+	echo "here is your file";	
 	}
 
 	
