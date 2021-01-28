@@ -97,8 +97,6 @@ function addAnswerTooClass($a_rows, $result)
           $result->add_answer($row["Answer"]);
         }
     }
-    echo $result->view_all_answers();
-    echo "<br><br>";
 }
 
 while($row = $question_rows->fetch_assoc())
@@ -116,6 +114,7 @@ while($row = $question_rows->fetch_assoc())
     $x++;
 }
 
+print_r($results_arr);
 
 ?>
 
