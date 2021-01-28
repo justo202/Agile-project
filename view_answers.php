@@ -89,9 +89,9 @@ function addAnswerTooClass($a_rows, $result)
 
         if($qNum == $aNum)
         {
-          $results_arr[$x]->add_answer($rowx["Answer"]);
-          echo $rowx["Answer"];
-          echo "<br><br>";
+          // $results_arr[$x]->add_answer($rowx["Answer"]);
+          // echo $rowx["Answer"];
+          // echo "<br><br>";
         }
 
     }
