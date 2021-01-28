@@ -33,8 +33,7 @@ if (isset($_POST["submit"]))
 	{
 		echo "Wohoo it finally works! I mean... file uploaded successfully!";
 	}
-}	
- 	
+	
 	$file = fopen($_FILES["file"]["tmp_name"], "rb");
 	while ( ($line = fgets($fp)) !== false) 
 	{
