@@ -1,3 +1,18 @@
+<!doctype html>
+<html lang="en">
+  <head>
+
+    <title>Form</title>
+
+    <!-- Style Links -->
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css">
+
+  </head>
+
+  <body>
+
+
+
 <?php
 include 'db.php';
 
@@ -50,3 +65,7 @@ add_questions($questions_array, $questionnaire_name, $num_of_questions, $link);
 
 
 ?>
+
+
+</body>
+</html>
