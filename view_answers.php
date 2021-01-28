@@ -2,8 +2,6 @@
 
 include 'db.php';
 
-echo 'hello';
-
 // $questionnaire_name = $_POST['questionnaire_name'];
 $questionnaire_name = 'Test Questionnaire';
 $results_arr = array();
@@ -28,6 +26,16 @@ class results {
     {
         $this->answers_arr[] = $answer;
     }
+
+    function view_question_num()
+    {
+        echo $this->question_num;
+    }
+
+    function view_question()
+    {
+        echo $this->question;
+    }
 }
 
 function getAnswers($questionnaire_name, $link)
@@ -37,15 +45,14 @@ function getAnswers($questionnaire_name, $link)
 
     if ($results->num_rows > 0)
     {
-        return $results;
         echo "successfully retrieved answers<br>";
+        return $results;
     } 
     else 
     {
         echo "Error: <br>" . $link->error;
     }
 }
-
 
 function getQuestions($questionnaire_name, $link)
 {
@@ -54,8 +61,8 @@ function getQuestions($questionnaire_name, $link)
 
     if ($results->num_rows > 0)
     {
-        return $results;
         echo "successfully retrieved questions<br>";
+        return $results;
     } 
     else 
     {
@@ -73,6 +80,9 @@ while($row = $question_rows)
     $results_arr[$x] = new results();
     $results_arr[$x]->set_question_num($row["Question_Number"]);
     $results_arr[$x]->set_question($row["Question"]);
+
+    $results_arr[$x]->view_question_num();
+    $results_arr[$x]->view_question();
 
     $x++;
 }
