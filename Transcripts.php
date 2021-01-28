@@ -18,7 +18,7 @@
 
 <?php
 //check if the form is submitted 
-$upload=['upload'];
+$upload=$_POST['upload'];
  
 if (isset($_POST['Transcript']))
 	{ //retrieve the data in the form
