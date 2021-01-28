@@ -97,7 +97,7 @@ while($row = $question_rows->fetch_assoc())
     {
       echo 'working here <br>';
 
-        if($results_arr[$x]->view_question_num() == $row["Question_Number"])
+        if($results_arr[$x]->view_question_num() === $row["Question_Number"])
         {
           echo 'working here here <br>';
           $results_arr[$x]->add_answer($row["Answer"]);
