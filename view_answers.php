@@ -159,7 +159,6 @@ print_r($results_arr);
             {
                   echo "<label>Question". $results_arr[$x]->view_question_num() .":</label>";
                   echo "<label id='Question'>". $results_arr[$x]->view_question() ."</label>";
-                  echo "<br><br>";
 
                   
                         for($i=0; $i < $results_arr[$x]->get_arr_size(); $i++)
@@ -169,6 +168,7 @@ print_r($results_arr);
                         echo "<label id='Answer'" .$results_arr[$x]->view_answer($i)."</label><br>";
                             
                         }
+                        echo "<br><br>";
             }
             ?>
 
