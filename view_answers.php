@@ -118,10 +118,6 @@ while($row = $question_rows->fetch_assoc())
     $x++;
 }
 
-echo $results_arr[0]->view_answer(0);
-echo $results_arr[1]->view_answer(0);
-echo $results_arr[2]->view_answer(0);
-
 ?>
 
 <!doctype html>
@@ -187,7 +183,7 @@ echo $results_arr[2]->view_answer(0);
                         {
                             
                         echo "<label>Answer ". $i+1 .":</label><br>";
-                        echo "<label id='Answer'". $results_arr[$x]->view_answer($i) ."</label><br>";
+                        echo "<label id='Answer'>". $results_arr[$x]->view_answer($i) ."</label><br>";
                             
                         }
                         echo "<br><br>";
