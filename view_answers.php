@@ -94,7 +94,7 @@ while($row = $question_rows->fetch_assoc())
 
 while($row = $answer_rows->fetch_assoc())
 {
-    
+    echo $x;
     $results_arr[$x]->add_answer[$row["Answer"]];
 }
 
