@@ -114,7 +114,7 @@ while($row = $question_rows->fetch_assoc())
     echo $results_arr[$x]->view_question();
     echo "<br>";
 
-    addAnswerTooClass($answer_rows->fetchAssoc(), $results_arr[$x]);
+    addAnswerTooClass($answer_rows, $results_arr[$x]);
 
     $x++;
 }
