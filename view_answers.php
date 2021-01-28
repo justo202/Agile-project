@@ -103,9 +103,10 @@ while($row = $question_rows->fetch_assoc())
 {
     $x = 0;
 
-    $results_arr[$x] = new results();
-    $results_arr[$x]->set_question_num($row["Question_Number"]);
-    $results_arr[$x]->set_question($row["Question"]);
+    $new_result = new results();
+    $new_result->set_question_num($row["Question_Number"]);
+    $new_result->set_question($row["Question"]);
+    $results_arr[$x] = $new_result;
 
     addAnswerTooClass($answer_rows, $results_arr[$x]);
 
@@ -184,7 +185,7 @@ print_r($results_arr[2]);
                         for($i=0; $i < $results_arr[$x]->get_arr_size(); $i++)
                         {
                             
-                        echo "<label>Answer " . $i+1 . ":</label><br>";
+                        echo "<label>Answer ". $i+1 .":</label><br>";
                         echo "<label id='Answer'" .$results_arr[$x]->view_answer($i)."</label><br>";
                             
                         }
