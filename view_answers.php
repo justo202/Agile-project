@@ -26,6 +26,16 @@ class results {
     {
         $this->answers_arr[] = $answer;
     }
+
+    function view_question_num()
+    {
+        echo $this->question_num;
+    }
+
+    function view_question()
+    {
+        echo $this->question;
+    }
 }
 
 function getAnswers($questionnaire_name, $link)
@@ -70,6 +80,9 @@ while($row = $question_rows)
     $results_arr[$x] = new results();
     $results_arr[$x]->set_question_num($row["Question_Number"]);
     $results_arr[$x]->set_question($row["Question"]);
+
+    $results_arr[$x]->view_question_num();
+    $results_arr[$x]->view_question();
 
     $x++;
 }
