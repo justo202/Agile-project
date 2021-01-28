@@ -41,6 +41,14 @@ class results {
         return $this->answers_arr[$i];
     }
 
+    function view_all_answers()
+    {
+      for($x=0; $x<sizeof($this->answers_arr); $x++)
+      {
+        echo $this->answers_arr[x];
+      }
+    }
+
     function get_arr_size()
     {
       return sizeof($this->answers_arr);
@@ -87,12 +95,10 @@ function addAnswerTooClass($a_rows, $result)
         if ($result->view_question_num() == $row["Question_Number"])
         {
           $result->add_answer($row["Answer"]);
-          echo $result->view_answer(0);
-          echo $row["Answer"];
-          echo "<br><br>";
         }
-
     }
+    echo $result->view_answer(0);
+    echo "<br><br>";
 }
 
 while($row = $question_rows->fetch_assoc())
