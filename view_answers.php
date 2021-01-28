@@ -179,14 +179,14 @@ print_r($results_arr[2]);
             for($x=sizeof($results_arr)-1; $x >= 0; $x--)
             {
                   echo "<label>Question". $results_arr[$x]->view_question_num() .":</label><br>";
-                  echo "<label id='Question'>". $results_arr[$x]->view_question() ."</label>";
+                  echo "<label id='Question'>". $results_arr[$x]->view_question() ."</label><br>";
 
                   
                         for($i=0; $i < $results_arr[$x]->get_arr_size(); $i++)
                         {
                             
                         echo "<label>Answer ". $i+1 .":</label><br>";
-                        echo "<label id='Answer'" .$results_arr[$x]->view_answer($i)."</label><br>";
+                        echo "<label id='Answer'".$results_arr[$x]->view_answer($i)."</label><br>";
                             
                         }
                         echo "<br><br>";
