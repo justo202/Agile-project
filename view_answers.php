@@ -83,7 +83,6 @@ while($row = $question_rows)
 
     $results_arr[$x]->view_question_num();
     $results_arr[$x]->view_question();
-    echo 'im working here';
 
     $x++;
 }
