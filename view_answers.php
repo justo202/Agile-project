@@ -106,9 +106,11 @@ while($row = $question_rows->fetch_assoc())
     $new_result = new results();
     $new_result->set_question_num($row["Question_Number"]);
     $new_result->set_question($row["Question"]);
-    $results_arr[] = $new_result;
+    
 
-    addAnswerTooClass($answer_rows, $results_arr[$x]);
+    addAnswerTooClass($answer_rows, $new_result);
+
+    $results_arr[] = $new_result;
 
     $answer_rows->data_seek(0);
 
