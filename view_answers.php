@@ -102,13 +102,13 @@ while($row = $question_rows->fetch_assoc())
       echo "<br>";
       echo $aNum;
       echo "<br><br>";
-        // if()
-        // {
-        //   echo "we have a match <br>";
-        //   // $results_arr[$x]->add_answer($rowx["Answer"]);
-        //   // echo $rowx["Answer"];
-        //   // echo "<br><br>";
-        // }
+        if($qNum == $aNum)
+        {
+          break;
+          // $results_arr[$x]->add_answer($rowx["Answer"]);
+          // echo $rowx["Answer"];
+          // echo "<br><br>";
+        }
     }
     $x++;
 }
