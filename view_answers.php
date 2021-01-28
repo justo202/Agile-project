@@ -101,7 +101,7 @@ while($row = $question_rows->fetch_assoc())
         {
           echo 'working here here <br>';
           $results_arr[$x]->add_answer($row["Answer"]);
-          echo $row["Answer"];
+          // echo $row["Answer"];
           echo "<br><br>";
         }
     }
