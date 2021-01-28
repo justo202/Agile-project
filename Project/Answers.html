@@ -37,8 +37,14 @@
 
     <!-- Begin page content -->
     <main role="main" class="container">
-        <h1 class="mt-5">Quiz Creator</h1>
-        <p class="lead">Below you can find a load of things to fill in</p>
+        <h1 class="mt-5">View Answers</h1>
+        <p class="lead">Below you can choose the results you want to see</p>
+
+        <form action="view_answers.php" method="post">
+          <label>Enter Name of Questionnaire:</label>
+          <input type="text" id="questionnaire_name" name="questionnaire_name">
+          <input type="submit" value="Get Results" class="btn btn-primary"> 
+        </form>
       
       <form class="form-group">
         <div class="border border-primary rounded">
