@@ -153,26 +153,20 @@ print_r($results_arr);
 
             for($x=0; $x < sizeof($results_arr); $x++)
             {
-                ?>  <label>Question <?php $results_arr[$x]->view_question_num() ?>:</label><br>
-                    <small id="Question"><?php $results_arr[$x]->view_question() ?></small>
-                    <br><br>
+                  echo "<label>Question ". $results_arr[$x]->view_question_num() .":</label><br>";
+                  echo "<small id='Question'>". $results_arr[$x]->view_question() ."</small>";
+                  echo "<br><br>";
 
-                    <?php 
+                  
                         for($i=0; $i < sizeof($results_arr[$answers_arr]); $i++)
                         {
-                            ?>
-                            <label>Answer <?php echo $i+1 ?>:</label><br>
-                            <small id="Answer"><?php $results_arr[$x]->view_answer($i) ?></small>
-                            <?php
+                            
+                        echo "<label>Answer ".$i+1 . ":</label><br>";
+                        echo "<small id='Answer'" .$results_arr[$x]->view_answer($i)."</small>";
+                            
                         }
             }
             ?>
-            
-            <label>Question 1:</label><br>
-            <small id="Question">Eample Question?</small>
-            <br><br>
-            <label>Answer 1:</label><br>
-            <small id="Answer">Eample Answer.</small>
 
         </div>
 
