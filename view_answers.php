@@ -177,7 +177,7 @@ print_r($results_arr[2]);
 
             for($x=sizeof($results_arr)-1; $x >= 0; $x--)
             {
-                  echo "<label>Question". $results_arr[$x]->view_question_num() .":</label>";
+                  echo "<label>Question". $results_arr[$x]->view_question_num() .":</label><br>";
                   echo "<label id='Question'>". $results_arr[$x]->view_question() ."</label>";
 
                   
