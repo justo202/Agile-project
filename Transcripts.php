@@ -34,16 +34,13 @@ $extension = end(explode(".", $_FILES["file"]["name"]));
 		echo "Wohoo it finally works! I mean... file uploaded successfully!";
 	}
 //}	
- 
-if (isset($_POST["Transcript"]))
-{ //retrieve the data in the form
-	$txt=$_POST["Transcript"];
-	
-	$file = "transcript.txt";
-	//write to the file
-	$transcript = fopen("$file", "w") or die("Unable to open file!");
-	fwrite($transcript, $txt);
-	fclose($transcript);
+ 	
+	$file = fopen($_FILES["file"]["tmp_name"], "rb");
+	while ( ($line = fgets($fp)) !== false) 
+	{
+		echo "$line<br>";
+	}
+
 }
 	
 ?>
