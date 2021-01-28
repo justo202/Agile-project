@@ -45,10 +45,6 @@ function getAnswers($questionnaire_name, $link)
 
     if ($results->num_rows > 0)
     {
-        echo $results;
-        // while($row = $results->fetch_assoc()) {
-        //     echo $row["Question_Number"] . $row["Answer"]. "<br>";
-        //   }
         echo "successfully retrieved answers<br>";
         return $results->fetch_assoc();
     } 
@@ -65,10 +61,6 @@ function getQuestions($questionnaire_name, $link)
 
     if ($results->num_rows > 0)
     {
-        echo $results;
-        // while($row = $results->fetch_assoc()) {
-        //     echo $row["Question_Number"] . $row["Question"]. "<br>";
-        //   }
         echo "successfully retrieved questions<br>";
         return $results->fetch_assoc();
     } 
@@ -81,8 +73,8 @@ function getQuestions($questionnaire_name, $link)
 $answer_rows = getAnswers($questionnaire_name, $link);
 $question_rows = getQuestions($questionnaire_name, $link);
 
-echo $answer_rows;
-echo $question_rows;
+echo $answer_rows[1];
+echo $question_rows[1];
 
 // while($row = $question_rows)
 // {
