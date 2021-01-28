@@ -84,10 +84,10 @@ function addAnswerTooClass($a_rows, $result)
 {
   while($row = $a_rows->fetch_assoc())
     {
-        print_r($row);
         if ($result->view_question_num() == $row["Question_Number"])
         {
           $result->add_answer($row["Answer"]);
+          echo $result->view_answer(0);
           echo $row["Answer"];
           echo "<br><br>";
         }
