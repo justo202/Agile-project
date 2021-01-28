@@ -8,8 +8,8 @@
 <body>
 <form method="post"> 
 <input type="text" name="Transcript" placeholder="Enter text here"/> 
-<input type="submit" name="submit"/> 
-<input type="file" name="upload" value="upload"/>
+<input type="submit" name="submit" value="upload"/> 
+<input type="file" name="file"/>
 
 </form>
 
@@ -20,6 +20,8 @@
 //check if the form is submitted 
 
 $upload=$_POST["upload"];
+//
+$fileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
  
 if (isset($_POST["Transcript"]))
 	{ //retrieve the data in the form
@@ -32,11 +34,16 @@ if (isset($_POST["Transcript"]))
 	fclose($transcript);
 	}
 	
-if ($upload)
+//Check file type
+if($fileType != "txt")
 	{
-	echo "WHAT HAVE YOU DONE!";	
-	
+	echo "Wrong file type, please pick a txt file";
 	}
+else
+	{
+	echo "File uploaded! (ssshhhhhh, just pretend for now...)"
+	}	
+
 
 	
 	
