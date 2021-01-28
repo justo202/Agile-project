@@ -36,6 +36,14 @@ class results {
     {
         echo $this->question;
     }
+
+    function view_answers()
+    {
+        for($x = 0; $x < sizeof($answer_arr); $x++)
+        {
+            echo $answer_arr[$x];
+        }
+    }
 }
 
 function getAnswers($questionnaire_name, $link)
@@ -81,10 +89,19 @@ while($row = $question_rows->fetch_assoc())
     $results_arr[$x]->set_question_num($row["Question_Number"]);
     $results_arr[$x]->set_question($row["Question"]);
 
+    $x++;
+}
+
+while($row = $answer_rows->fetch_assoc())
+{
+    $results_arr[$row["Question_Number"]-1]->add_answer[$row["answer"]];
+}
+
+for($x = 0; $x < 3; $x++)
+{
     $results_arr[$x]->view_question_num();
     $results_arr[$x]->view_question();
-
-    $x++;
+    $results_arr[$x]->view_answers();
 }
 
 ?>
