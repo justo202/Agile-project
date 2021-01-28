@@ -94,16 +94,15 @@ while($row = $question_rows->fetch_assoc())
 
 while($row = $answer_rows->fetch_assoc())
 {
-    $x = $row["Question_Number"]-1;
-    echo $x;
+    
     $results_arr[$x]->add_answer[$row["Answer"]];
 }
 
-// for($x = 0; $x < 3; $x++)
-// {
-//     $results_arr[$x]->view_question_num();
-//     $results_arr[$x]->view_question();
-//     $results_arr[$x]->view_answers();
-// }
+for($x = 0; $x < 3; $x++)
+{
+    $results_arr[$x]->view_question_num();
+    $results_arr[$x]->view_question();
+    $results_arr[$x]->view_answers();
+}
 
 ?>
