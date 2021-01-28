@@ -118,9 +118,9 @@ while($row = $question_rows->fetch_assoc())
     $x++;
 }
 
-echo $results_arr[0]->view_answer[0];
-echo $results_arr[1]->view_answer[0];
-echo $results_arr[2]->view_answer[0];
+echo $results_arr[0]->view_answer(0);
+echo $results_arr[1]->view_answer(0);
+echo $results_arr[2]->view_answer(0);
 
 ?>
 
