@@ -77,7 +77,7 @@ function getQuestions($questionnaire_name, $link)
     }
 }
 
-$answer_rows = getAnswers($questionnaire_name, $link);
+$answer_rows = getAnswers($questionnaire_name, $link)->fetch_assoc();
 $question_rows = getQuestions($questionnaire_name, $link);
 
 while($row = $question_rows->fetch_assoc())
@@ -93,7 +93,7 @@ while($row = $question_rows->fetch_assoc())
     echo $results_arr[$x]->view_question();
     echo "<br>";
 
-    while($row = $answer_rows->fetch_assoc())
+    while($row = $answer_rows)
     {
         if($results_arr[$x]->view_question_num() == $row["Question_Number"])
         {
