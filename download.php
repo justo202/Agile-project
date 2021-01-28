@@ -1,10 +1,10 @@
 <?php
   include 'db.php';
   $name = $_GET['name'];
-  $myfile = fopen("data.pdf", "w") or die("Unable to open file!");
+  $myfile = fopen("data.txt", "w") or die("Unable to open file!");
   header('Content-Type: application/download');
-  header('Content-Disposition: attachment; filename="data.pdf"');
-  header("Content-Length: " . filesize("data.pdf"));
+  header('Content-Disposition: attachment; filename="data.txt"');
+  header("Content-Length: " . filesize("data.txt"));
   fpassthru($myfile);
 
   $sql = "SELECT * FROM `answers` WHERE `Questionnaire_Name` = '$name' ORDER BY `Question_Number` ASC";
