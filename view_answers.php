@@ -39,10 +39,7 @@ class results {
 
     function view_answers()
     {
-        for($x = 0; $x < sizeof($this->answer_arr); $x++)
-        {
-            echo $this->answer_arr[$x];
-        }
+        print_r($this->answers_arr);
     }
 }
 
@@ -101,11 +98,8 @@ while($row = $answer_rows->fetch_assoc())
 
 print_r($results_arr);
 
-for($x = 0; $x < 3; $x++)
-{
-    $results_arr[$x]->view_question_num();
-    $results_arr[$x]->view_question();
-    $results_arr[$x]->view_answers();
-}
+$results_arr[0]->view_answers;
+$results_arr[1]->view_answers;
+$results_arr[2]->view_answers;
 
 ?>
