@@ -73,8 +73,7 @@ function getQuestions($questionnaire_name, $link)
 $answer_rows = getAnswers($questionnaire_name, $link);
 $question_rows = getQuestions($questionnaire_name, $link);
 
-echo $answer_rows[1];
-echo $question_rows[1];
+echo $answer_rows["Question_Number"];
 
 // while($row = $question_rows)
 // {
