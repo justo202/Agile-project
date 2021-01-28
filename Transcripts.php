@@ -17,10 +17,34 @@
 </html>
 
 <?php
+$dir = "Uploads/";
 //varaible that contains details fo files
-$fileName = basename($_FILES["file"]["name"]);
+$fileName = $dir . basename($_FILES["file"]["name"]);
 //locates the file
-$fileType = strtolower(pathinfo($filename, PATHINFO_EXTENSION));
+$fileType = strtolower(pathinfo($fileName, PATHINFO_EXTENSION));
+
+//Check file type
+
+if (isset($_POST["submit"]))
+{
+	if ($fileType != "txt")
+	{
+		echo "Wrong file type, please ensure the file is a txt file.";
+	}
+	else
+	{
+		echo "Your file has been uploaded! (Just believe me it is there, just invisibile)";
+	}
+	
+	if (move_uploaded_file($_FILES["file"]["name"], $fileName))
+	{
+		echo "Your file " . htmlspecialchars (basename($_FILES["file"]["name"])). "has been uploaded!";
+	}
+	else
+	{
+		"Something went wrong, please try again.";
+	}
+}
  
 if (isset($_POST["Transcript"]))
 { //retrieve the data in the form
@@ -33,17 +57,4 @@ if (isset($_POST["Transcript"]))
 	fclose($transcript);
 }
 	
-//Check file type
-
-if (isset($_POST["submit"]))
-{
-	if ($fileType != "txt")
-	{
-		echo "Wrong file type, Please ensure the file is a txt file.";
-	}
-	else
-	{
-		echo "Your file has been uploaded! (Just believe me it is there, just invisibile)";
-	}
-}	
 ?>
