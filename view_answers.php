@@ -100,7 +100,7 @@ while($row = $question_rows->fetch_assoc())
       // echo "<br>";
         if($results_arr[$x]->view_question_num() == $rowx["Question_Number"])
         {
-          // echo "we have a match <br>";
+          echo "we have a match <br>";
           // $results_arr[$x]->add_answer($rowx["Answer"]);
           // echo $rowx["Answer"];
           // echo "<br><br>";
