@@ -52,6 +52,11 @@
         <input type="submit" value="Submit" class="btn btn-primary">
       </form>
 
+      <div id="displayQuestions">
+        <h1 class="mt-5">Your Quiz</h1>
+        <p class="lead">Below you can veiw your quiz so far</p>
+      </div>
+
 
     </main>
 
@@ -62,9 +67,11 @@
     </footer> -->
 
     <script>
-        var questionNum = 1
+        var questionNum = 1  //variable to keep track of the number of question that are being added
     
         function addQuestion() {
+
+            //create a hidden element and set its value to the question that has just been entered so that it is stored
             var input = document.createElement("input");
     
             input.setAttribute("type", "hidden");
@@ -73,8 +80,20 @@
     
             input.setAttribute("value", document.getElementById("newQuestion").value);
             document.getElementById("questions").appendChild(input);
+
+
+            //create two new elements to display most recent question number and the question
+            var number = document.createElement("label");
+            var question = document.createElement("p");
+
+            number.innerHTML = "Question " + questionNum + ":";
+            question.innerHTML = document.getElementById("newQuestion").value;
+
+            document.getElementById("displayQuestions").appendChild(number);
+            document.getElementById("displayQuestions").appendChild(question);
     
             document.getElementById("num_of_questions").value = questionNum;
+            document.getElementById("newQuestion").value = "";
     
             questionNum = questionNum + 1;
             document.getElementById("question").innerHTML = "Question " + questionNum;  
