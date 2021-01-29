@@ -58,9 +58,7 @@ else
 	}
 }
 
-		
-	
-	
+
 	//$file = fopen($_FILES["file"]["tmp_name"], "rb");
 	//while ( ($line = fgets($fp)) !== false) 
 	//{
