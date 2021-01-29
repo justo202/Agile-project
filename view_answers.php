@@ -66,7 +66,7 @@ function getAnswers($questionnaire_name, $link)
     }
     else
     {
-        echo "Error: <br>" . $link->error;
+        echo "No Answers Found: <br>";
     }
 }
 
