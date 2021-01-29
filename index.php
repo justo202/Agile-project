@@ -2,7 +2,7 @@
 
 session_start();
 if(isset($_SESSION["loggedin"])&&$_SESSION["loggedin"]==true){
-    header("location: Form.php");
+    header( "refresh:3;url=https://agile-project.azurewebsites.net/home.php" );
     exit;
 }
 
@@ -57,7 +57,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             $_SESSION["id"] = $id;
                             $_SESSION["email"] = $email;
 
-                            header("location: Form.php");
+                            header( "refresh:3;url=https://agile-project.azurewebsites.net/home.php" );
                         }else{
                             $password_err = "The password you entered was not valid";
                         }
