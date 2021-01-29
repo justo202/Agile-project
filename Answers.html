@@ -46,10 +46,8 @@
         </div>
 
         <br>
-        <input type="submit" value="Export" class="btn btn-primary btn-outline-primary">
-        <button onclick = "window.location.href = 'download.php?name=". $row['Questionnaire_Name'] ." " type="button" class="btn btn-lg btn-block btn-outline-primary">Download answer data</button>
+        <button id = "export"onclick = "data()" type="button" class="btn btn-lg btn-block btn-outline-primary">Export</button>
       </form>
-      <button id = "export"onclick = "data()" type="button" class="btn btn-lg btn-block btn-outline-primary">Download answer data</button>
 
     </main>
 
@@ -63,12 +61,11 @@
 </html>
 <script type="text/javascript">
   var btn = document.getElementById('export');
-  var name = document.getElementById("questionaire_name");
+  var name = document.getElementById("questionnaire_name");
 
   function data()
   {
     var url = "/download.php?name="+name.value;
-    alert(url);
     window.open(url);
   }
 
