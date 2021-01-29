@@ -55,7 +55,7 @@
                 if(mysqli_num_rows($result) > 0){
                     while($row = mysqli_fetch_array($result)){
                       echo "<div class = \"col-6\">";
-                      echo "<div class=\"card mb-4 box-shadow\">";
+                      echo "<div style = \"min-width:320px\"class=\"card mb-4 box-shadow\">";
                       echo "<div class=\"card-header\"><h4 class=\"my-0 font-weight-normal\">".$row['Questionnaire_Name']."</h4> </div>";
                       echo "<div class=\"card-body\">";
                       echo "<p class=\"card-text\">Questionaire by ".$row['Creator_Name']."</p>";
