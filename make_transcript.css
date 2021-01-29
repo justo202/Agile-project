@@ -122,9 +122,10 @@ button:hover{
   text-decoration: underline;
 }
 /* justify-content: center; */
-.transcript_box{
+#transcript_box{
   float: right;
   width: 45%;
+  visibility: hidden;
 }
 #transcript{
   width: 100%;
