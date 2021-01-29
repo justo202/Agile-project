@@ -69,7 +69,9 @@ Vivien, Justas, Dominic, Gerard, Abdulmalik, Brenyn, Mark
 
 ### Summary of Conversation:
 
-
+Today we all finalized what we got and unfortunately couln't get the login function working so we were discussing what we were going to showcase the stakeholders for the sprint review. Dominic, Gerard and Justas were making some adjustements to fix the remaining errors we had.
+We were discussing what questions we wanted to ask the stakeholders for our next sprint and also wanted to make sure that we got a presentable product to demonstrate.
+Other than the login issue we were overall satisfied with what we were going to present and we discussed about the implementations we'd work on for the second sprint and also the improvements that need to be made from this sprint.
 
 
 ---
