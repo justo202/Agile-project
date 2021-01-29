@@ -33,6 +33,7 @@
         <div class="container">
           <h1 class="jumbotron-heading">Dundee University Questionnaires</h1>
           <p class="lead text-muted">place holder</p>
+          <img class="mb-4" src="logo.png" alt="" width="100" height="100"><br>
           <p>
             <a href="CreateForm.html" class="btn btn-primary my-2">Create Survey</a>
             <a href="Answers.html" class="btn btn-secondary my-2">Questionnaire Insights</a>
@@ -54,8 +55,8 @@
             if($result = mysqli_query($link, $sql)){
                 if(mysqli_num_rows($result) > 0){
                     while($row = mysqli_fetch_array($result)){
-                      echo "<div class = \"col-6\">";
-                      echo "<div style = \"min-width:320px\"class=\"card mb-4 box-shadow\">";
+                      echo "<div class = \"col-4\">";
+                      echo "<div class=\"card mb-4 box-shadow\">";
                       echo "<div class=\"card-header\"><h4 class=\"my-0 font-weight-normal\">".$row['Questionnaire_Name']."</h4> </div>";
                       echo "<div class=\"card-body\">";
                       echo "<p class=\"card-text\">Questionaire by ".$row['Creator_Name']."</p>";
