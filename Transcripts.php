@@ -31,15 +31,16 @@ $extension = end(explode(".", $_FILES["file"]["name"]));
 
 if (isset($_POST["submit"]))
 {
-	if ($isTxt != "txt")
-	{
-		echo "Invaild file type, please upload a .txt file";
-	}
-	else
-	{
-		echo "Wohoo it finally works! I mean... file uploaded successfully!";
-		//$upload = 0;
-	}
+
+	//if ($isTxt != "txt")
+	//{
+	//	echo "Invaild file type, please upload a .txt file";
+	//}
+	//else
+	//{
+	//	echo "Wohoo it finally works! I mean... file uploaded successfully!";
+	//	$upload = 0;
+	//}
 }
 
 if ($upload == 0)
