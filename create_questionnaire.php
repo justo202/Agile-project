@@ -63,44 +63,69 @@
 
     ?>
 
-    <!doctype html>
-    <html lang="en">
-      <head>
 
-        <title>Create Questionaire</title>
+<!doctype html>
+<html lang="en">
+  <head>
 
-        <!-- Style Links -->
-        <link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css">
+    <title>Anwers</title>
 
-      </head>
+    <!-- Style Links -->
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css">
 
-      <body>
-        <!-- Display the countdown timer in an element -->
-        <p id="demo"></p>
+  </head>
 
-        <script>
-          // Set the date we're counting down to
-          var countDownDate = new Date().getSeconds() +6;
+  <body>
 
-          // Update the count down every 1 second
-          var x = setInterval(function() {
+    <header>
+      <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+          <a class="navbar-brand" href="home.php">Home</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
 
-            // Get today's date and time
-            var now = new Date().getSeconds();
+          <a class="navbar-brand" href="index.php">Log out</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+    </header>
 
-            // Find the distance between now and the count down date
-            var distance = countDownDate - now;
+    <!-- Begin page content -->
+    <main role="main" class="container">
+      <!-- Display the countdown timer in an element -->
+      <p id="demo"></p>
 
-            // Display the result in the element with id="demo"
-            document.getElementById("demo").innerHTML = "You will be redirected in: " + distance + "s ";
+      <script>
+        // Set the date we're counting down to
+        var countDownDate = new Date().getSeconds() +6;
 
-            // If the count down is finished, write some text
-            if (distance < 0) {
-              clearInterval(x);
-              document.getElementById("demo").innerHTML = "EXPIRED";
-            }
-          }, 1000);
-        </script>
+        // Update the count down every 1 second
+        var x = setInterval(function() {
+
+          // Get today's date and time
+          var now = new Date().getSeconds();
+
+          // Find the distance between now and the count down date
+          var distance = countDownDate - now;
+
+          // Display the result in the element with id="demo"
+          document.getElementById("demo").innerHTML = "You will be redirected in: " + distance + "s ";
+
+          // If the count down is finished, write some text
+          if (distance < 0) {
+            clearInterval(x);
+            document.getElementById("demo").innerHTML = "EXPIRED";
+          }
+        }, 1000);
+      </script>
+    </main>
+
+     <!--<footer class="footer">
+      <div class="container">
+        <span class="text-muted">Place sticky footer content here.</span>
+      </div>
+    </footer> -->
 
   </body>
 </html>
