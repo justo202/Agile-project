@@ -35,7 +35,7 @@
           <p class="lead text-muted">This project should definitely be software based...</p>
           <p>
             <a href="CreateForm.html" class="btn btn-primary my-2">Create Survey</a>
-            <a href="view_answes.php" class="btn btn-secondary my-2">Questionnaire Insights</a>
+            <a href="view_answers.php" class="btn btn-secondary my-2">Questionnaire Insights</a>
           </p>
         </div>
       </section>
