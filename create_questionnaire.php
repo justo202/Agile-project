@@ -32,7 +32,7 @@
 
         if ($link->query($add_questionnaire_sql) === TRUE)
         {
-            echo "Questionnaire ".$questionnaire_name." created successfully <br>";
+            echo "<label>Questionnaire ".$questionnaire_name." created successfully</label> <br>";
         } else {
             echo "Error: " . $add_questionnaire_sql . "<br>" . $link->error;
         }
@@ -50,7 +50,7 @@
             $add_question_sql = "INSERT INTO questions VALUES ('".$questions_array[$x]."', '".$questionnaire_name."', '".$x."')";
             if ($link->query($add_question_sql) === TRUE)
             {
-                echo $question_array[$x]."<br> added to questionnaire <br>";
+                echo "<label>".$question_array[$x]."<br> added to questionnaire</label> <br>";
             } else {
                 echo "Error: " . $add_question_sql . "<br>" . $link->error;
             }
