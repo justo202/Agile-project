@@ -2,7 +2,7 @@
 AC31007/AC51003 Agile Software Engineering - Group Number [11]
 
 Group Members:
-- Justas Labeikis (Matriculation Number)
+- Justas Labeikis (180012794)
 - Vivien Prakash (Matriculation Number)
 - Gerard Blanco Bernal (Matriculation Number)
 - Mark Capewell (Matriculation Number)
