@@ -1,6 +1,6 @@
  <?php
     include 'db.php';
-    header( "refresh:3;url=https://agile-project.azurewebsites.net/home.php" );
+    header( "refresh:6;url=https://agile-project.azurewebsites.net/home.php" );
     $questionnaire_name = $_POST['questionnaire_name'];
     $creator_name = $_POST['creator_name'];
     $num_of_questions = $_POST['num_of_questions'];
