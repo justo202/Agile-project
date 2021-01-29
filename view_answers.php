@@ -201,7 +201,7 @@ while($row = $question_rows->fetch_assoc())
 <script type="text/javascript">
   function data()
   {
-    var url = "/download.php?name="+ <?php echo $questionnaire_name; ?>;
+    var url = "/download.php?name=<?php echo $questionnaire_name; ?>";
     alert(url);
     window.open(url);
   }
