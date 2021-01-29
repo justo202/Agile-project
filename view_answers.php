@@ -106,7 +106,7 @@ while($row = $question_rows->fetch_assoc())
     $new_result = new results();
     $new_result->set_question_num($row["Question_Number"]);
     $new_result->set_question($row["Question"]);
-    
+
 
     addAnswerTooClass($answer_rows, $new_result);
 
@@ -136,25 +136,14 @@ while($row = $question_rows->fetch_assoc())
     <header>
       <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <a class="navbar-brand" href="Index.html">Home</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
 
-            <a class="navbar-brand" href="Login.html">Login</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <a class="navbar-brand" href="Form.html">Form</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <a class="navbar-brand" href="CreateForm.html">Create Form</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
+          <a class="navbar-brand" href="index.php">Log out</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
     </header>
 
     <!-- Begin page content -->
@@ -165,9 +154,9 @@ while($row = $question_rows->fetch_assoc())
         <form action="/view_answers.php" method="post">
           <label>Enter Name of Questionnaire:</label>
           <input type="text" id="questionnaire_name" name="questionnaire_name">
-          <input type="submit" value="Get Results" class="btn btn-primary"> 
+          <input type="submit" value="Get Results" class="btn btn-primary">
         </form>
-      
+
       <form class="form-group">
         <div class="border border-primary rounded">
 
@@ -178,13 +167,13 @@ while($row = $question_rows->fetch_assoc())
                   echo "<label>Question ". $results_arr[$x]->view_question_num() .":</label><br>";
                   echo "<label id='Question'>". $results_arr[$x]->view_question() ."</label><br>";
 
-                  
+
                         for($i=0; $i < $results_arr[$x]->get_arr_size(); $i++)
                         {
-                            
+
                         // echo "<label>Answer ". $i+1 .":</label><br>";
                         echo "<label id='Answer'>-  ". $results_arr[$x]->view_answer($i) ."</label><br>";
-                            
+
                         }
                         echo "<br><br>";
             }
