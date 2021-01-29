@@ -83,7 +83,7 @@
             var distance = countDownDate - now;
 
             // Display the result in the element with id="demo"
-            document.getElementById("demo").innerHTML = distace + "s ";
+            document.getElementById("demo").innerHTML = distance + "s ";
 
             // If the count down is finished, write some text
             if (distance < 0) {
