@@ -182,8 +182,8 @@ while($row = $question_rows->fetch_assoc())
                         for($i=0; $i < $results_arr[$x]->get_arr_size(); $i++)
                         {
                             
-                        echo "<label>Answer ". $i+1 .":</label><br>";
-                        echo "<label id='Answer'>". $results_arr[$x]->view_answer($i) ."</label><br>";
+                        // echo "<label>Answer ". $i+1 .":</label><br>";
+                        echo "<label id='Answer'>-  ". $results_arr[$x]->view_answer($i) ."</label><br>";
                             
                         }
                         echo "<br><br>";
