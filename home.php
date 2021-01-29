@@ -31,8 +31,8 @@
 
       <section class="jumbotron text-center">
         <div class="container">
-          <h1 class="jumbotron-heading">Big 'ol Question Webpage</h1>
-          <p class="lead text-muted">This project should definitely be software based...</p>
+          <h1 class="jumbotron-heading">Dundee University Questionnaires</h1>
+          <p class="lead text-muted">place holder</p>
           <p>
             <a href="CreateForm.html" class="btn btn-primary my-2">Create Survey</a>
             <a href="Answers.html" class="btn btn-secondary my-2">Questionnaire Insights</a>
@@ -83,7 +83,7 @@
         <p class="float-right">
           <a href="#">Back to top</a>
         </p>
-        <p>This is the bottom of the page</p>
+        <p>place holder</p>
       </div>
     </footer>
 

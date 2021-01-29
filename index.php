@@ -112,12 +112,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
       <div class="checkbox mb-3">
         <label>
-          <input type="checkbox" value="remember-me"> Remember me
+          <input type="checkbox" value="remember-me">Remember me
         </label>
       </div>
 
       <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-      <p class="mt-5 mb-3 text-muted">&copy; 1066-2003</p>
+      <p class="mt-5 mb-3 text-muted">&copy; place holder</p>
     </form>
     </div>
   </body>
