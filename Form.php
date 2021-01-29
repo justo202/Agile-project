@@ -31,8 +31,8 @@
 
     <!-- Begin page content -->
     <main role="main" class="container">
-      <h1 class="mt-5">There's some Questions and that</h1>
-      <p class="lead">Just write answers into the boxes and im sure you'll be fine</p>
+      <h1 class="mt-5">Questionnaire Name</h1>
+      <p class="lead">Please fill out all answers</p>
 
         <form class="" action="answerss.php" method="post">
 
