@@ -7,7 +7,7 @@ Group Members:
 - Gerard Blanco Bernal (Matriculation Number)
 - Mark Capewell (Matriculation Number)
 - Brenyn Goodwin (Matriculation Number)
-- Abdulmalik Adegoke (Matriculation Number)
+- Abdulmalik Adegoke (180024430)
 - Dominic McGraw (Matriculation Number)
 
 ## Hints:
