@@ -183,7 +183,7 @@ while($row = $question_rows->fetch_assoc())
         </div>
 
         <br>
-        <input type="submit" value="Export" class="btn btn-primary btn-outline-primary">
+        <button id = "export"onclick = "data()" type="button" class="btn btn-primary btn-outline-primary">Export</button>
 
       </form>
 
@@ -197,3 +197,14 @@ while($row = $question_rows->fetch_assoc())
 
   </body>
 </html>
+</html>
+<script type="text/javascript">
+  function data()
+  {
+    var url = "/download.php?name="+document.getElementById("questionnaire_name").value;
+    alert(url);
+    window.open(url);
+  }
+
+
+</script>
