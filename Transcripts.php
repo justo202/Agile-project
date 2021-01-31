@@ -62,7 +62,7 @@ if (isset($_POST["submit"]))
 		echo "Please ensure the file is a txt file.";
 	}
 	
-	*/
+	
 }
-
+*/
 ?>
