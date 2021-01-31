@@ -35,7 +35,7 @@ if (isset($_POST["submit"]))
 	$allowedExts = array("txt");
 	
 	//if file is '.txt' and there is not an error then upload file
-	if (in_array($lowerExt, $allowedExts)
+	if (in_array($lowerExt, $allowedExts))
 	{
 		if ($fileError === 0)
 		{
