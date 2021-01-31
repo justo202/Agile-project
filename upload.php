@@ -3,7 +3,6 @@
 if (isset($_POST["submit"]))
 {
 	$test = $_FILES["file"];
-	print_r($test);
 	//the file to be uploaded
 	$file = $_FILES["file"]["name"];
 	//file tmp name when uploading
@@ -16,9 +15,9 @@ if (isset($_POST["submit"]))
 	$extension = explode(".", $file);
 	//convert the txt to lowercase if needed
 	$lowerExt = strtolower(end($extension));
-	$allowedExts = array("txt");
+	$allowedExts = array("txt", "text/plain");
 	
-	/*
+	
 	//if file is '.txt' and there is not an error then upload file
 	if (in_array($lowerExt, $allowedExts))
 	{
@@ -42,7 +41,6 @@ if (isset($_POST["submit"]))
 		echo "Please ensure the file is a txt file.";
 	}
 	
-	*/
 }
 
 ?>
