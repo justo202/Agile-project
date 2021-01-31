@@ -6,8 +6,8 @@
 </head>
 
 <body>
+
 <form action="upload.php" method="POST"> 
-<input type="text" name="Transcript" placeholder="Enter text here"/> 
 <input type="submit" name="submit" value="upload"/> 
 <input type="file" name="file"/>
 
