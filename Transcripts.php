@@ -26,7 +26,7 @@ if (isset($_POST["submit"]))
 	$fileTmp = $_FILES["file"]["tmp_name"];
 	$fileType = $_FILES["file"]["type"];
 	//for any errors when uploading
-	$fileError = $_FILES["file"]["error"]
+	$fileError = $_FILES["file"]["error"];
 	
 	//seperate '.' from txt and file name 
 	$extension = explode(".", $file);
