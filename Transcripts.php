@@ -20,6 +20,8 @@
 //run when submit butten is clicked
 if (isset($_POST["submit"]))
 {
+	$test = $_FILES["file"];
+	print_r($test);
 	//the file to be uploaded
 	$file = $_FILES["file"]["name"];
 	//file tmp name when uploading
@@ -34,6 +36,7 @@ if (isset($_POST["submit"]))
 	$lowerExt = strtolower(end($extension));
 	$allowedExts = array("txt");
 	
+	/*
 	//if file is '.txt' and there is not an error then upload file
 	if (in_array($lowerExt, $allowedExts))
 	{
@@ -42,7 +45,7 @@ if (isset($_POST["submit"]))
 			//creates a new id 
 			$fileNewID = uniqid("", true).".".$lowerExt;
 			//the file path that the file will be moved to
-			$dir = "Uploads/". $fileNewID;
+			$dir = "Uploads/".$fileNewID;
 			//transfering file
 			move_uploaded_file($fileTmp, $dir);
 			header("Location: Transcripts.php?uploadsuccess");
@@ -54,10 +57,10 @@ if (isset($_POST["submit"]))
 	}
 	else
 	{
-		echo "Please ensure the file is an txt file.";
+		echo "Please ensure the file is a txt file.";
 	}
 	
-	
+	*/
 }
 
 ?>
