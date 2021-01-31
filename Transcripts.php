@@ -6,7 +6,7 @@
 </head>
 
 <body>
-<form method="post"> 
+<form action="upload.php" method="POST"> 
 <input type="text" name="Transcript" placeholder="Enter text here"/> 
 <input type="submit" name="submit" value="upload"/> 
 <input type="file" name="file"/>
@@ -16,7 +16,9 @@
 </body>
 </html>
 
+
 <?php
+/*
 //run when submit butten is clicked
 if (isset($_POST["submit"]))
 {
@@ -36,7 +38,7 @@ if (isset($_POST["submit"]))
 	$lowerExt = strtolower(end($extension));
 	$allowedExts = array("txt");
 	
-	/*
+	
 	//if file is '.txt' and there is not an error then upload file
 	if (in_array($lowerExt, $allowedExts))
 	{
