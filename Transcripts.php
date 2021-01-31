@@ -17,52 +17,47 @@
 </html>
 
 <?php
-$dir = "Uploads/";
-$file = $dir . basename($_FILES["file"]["name"]);
-$upload = 1;
-$isTxt = strtolower(pathinfo($dir,PATHINFO_EXTENSION));
-
-
-$allowedExts = array("txt");
-$extension = end(explode(".", $_FILES["file"]["name"]));
-
-
-//Check file type
-
+//run when submit butten is clicked
 if (isset($_POST["submit"]))
 {
-
-	//if ($isTxt != "txt")
-	//{
-	//	echo "Invaild file type, please upload a .txt file";
-	//}
-	//else
-	//{
-	//	echo "Wohoo it finally works! I mean... file uploaded successfully!";
-	//	$upload = 0;
-	//}
-}
-
-if ($upload == 0)
-{
-	echo "Something went wrong, please try again.";
-}
-else
-{
-	if (move_uploaded_file($_FILES["file"]["tmp_name"], $file))
+	//the file to be uploaded
+	$file = $_FILES["file"]["name"];
+	//file tmp name when uploading
+	$fileTmp = $_FILES["file"]["tmp_name"];
+	$fileType = $_FILES["file"]["type"];
+	//for any errors when uploading
+	$fileError = $_FILES["file"]["error"]
+	
+	//seperate '.' from txt and file name 
+	$extension = explode(".", $file);
+	//convert the txt to lowercase if needed
+	$lowerExt = strtolower(end($extension));
+	$allowedExts = array("txt");
+	
+	//if file is '.txt' and there is not an error then upload file
+	if (in_array($strtolower, $allowedExts)
 	{
-		echo "The file ". htmlspecialchars( basename( $_FILES["file"]["name"])). "has been uploaded.";
+		if ($fileError === 0)
+		{
+			//creates a new id 
+			$fileNewID = uniqid("", true).".".$lowerExt;
+			//the file path that the file will be moved to
+			$dir = "Uploads/". $fileNewID;
+			//transfering file
+			move_uploaded_file($fileTmp, $dir);
+			header("Location: Transcripts.php?uploadsuccess")
+		}
+		else 
+		{
+			echo "Something went wrong uploading your file, please try again.";
+		}
 	}
-	else 
+	else
 	{
-		echo "Sorry, there was an error uploading your file.";
+		echo "Please ensure the file is an txt file.";
 	}
+	
+	
 }
 
-
-	//$file = fopen($_FILES["file"]["tmp_name"], "rb");
-	//while ( ($line = fgets($fp)) !== false) 
-	//{
-		//echo "$line<br>";
-	//}
 ?>
