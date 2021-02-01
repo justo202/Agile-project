@@ -48,14 +48,18 @@
     function add_questionaire($questionnaire_name, $creator_name, $link)
     {
         //Store the sql statement in variable $add_questionnaire_sql
-        $add_questionnaire_sql = "INSERT INTO questionnaires VALUES ('".$questionnaire_name."', '".$creator_name."')";
+        $add_questionnaire_sql = $link->prepare("INSERT INTO questionnaires VALUES (?,?)");
+        $add_questionnaire_sql->bind_param("ss", $question_array, $creator_name);
+        
 
-        if ($link->query($add_questionnaire_sql) === TRUE)
+        if ($add_questionnaire_sql->execute() === TRUE)
         {
             echo "Questionnaire ".$questionnaire_name." created successfully <br>";
         } else {
             echo "Error: " . $add_questionnaire_sql . "<br>" . $link->error;
         }
+
+        $add_questionnaire_sql->close();
     }
 
     //This function creates new records in the question table in the database
@@ -67,13 +71,17 @@
         for($x = 1; $x <= $num_of_questions; $x++)
         {
             //Store the sql statement in variable $add_question_sql
-            $add_question_sql = "INSERT INTO questions VALUES ('".$questions_array[$x]."', '".$questionnaire_name."', '".$x."')";
-            if ($link->query($add_question_sql) === TRUE)
+            $add_question_sql = $link->prepare("INSERT INTO questions VALUES (?,?,?)");
+            $add_question_sql->bind_param("ssi", $questions_array[$x], $questionnaire_name, $x);
+
+            if ($add_question_sql->execute() === TRUE)
             {
                 echo $question_array[$x]."<br> added to questionnaire <br>";
             } else {
                 echo "Error: " . $add_question_sql . "<br>" . $link->error;
             }
+
+            $add_question_sql->close();
         }
     }
 
