@@ -48,8 +48,8 @@
                           echo "<div class=\"form-group\">";
                           echo "<label>Question " . $val++ . ": " . $row['Question'] . "</label>";
 
-                  $strval = strval($row['Question_type']);
-                  echo $row['Question_type'];
+                  //$strval = strval($row['Question_type']);
+                  echo $row['Question_Type'];
                   if($strval == "open")
                   {
                     echo "YESSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS";
