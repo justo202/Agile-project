@@ -28,7 +28,7 @@
         $does_exist_sql->bind_param("s", $questionnaire_name);
         $does_exist_sql->execute();
 
-        $results = $link->query($does_exist_sql);
+        $results = $does_exist_sql->get_result();
 
         $does_exist_sql->close();
         if ($results->num_rows > 0)
