@@ -31,7 +31,7 @@
 
     <!-- Begin page content -->
     <main role="main" class="container">
-      <h1 class="mt-5">Questionnaire Name</h1>
+      <h1 class="mt-5"><?php echo $_GET['survey']; ?></h1>
       <p class="lead">Please fill out all answers</p>
 
         <form class="" action="answerss.php" method="post">
@@ -49,13 +49,15 @@
                           echo "<label>Question " . $val++ . ": " . $row['Question'] . "</label>";
 
 
-                  if($row['Question_type'] == "open")
+
+                  if(strval($row['Question_Type']) == "open")
                   {
+
                     echo "<input type=\"text\" name = \"answers[]\"class = \"answers form-control\" placeholder = \"Answer\">";
                     echo "<input type = \"hidden\" value = \"".$row['Question_Number']."\" name = \"num[]\">";
                     echo "</div>";
                   }
-                  else if($row['Question_type'] == "multiple_choice")
+                  else if($row['Question_Type'] == "multiple_choice")
                   {
                     $answ = explode("||", $row['Options']);
                     foreach($answ as $a)
@@ -65,6 +67,7 @@
                       echo "<label class=\"form-check-label\" for=\"".$a."\">".$a."</label>";
                       echo "</div>";
                     }
+                    echo "<input type = \"hidden\" value = \"".$row['Question_Number']."\" name = \"num[]\">";
                     echo "</div>";
                   }
 
