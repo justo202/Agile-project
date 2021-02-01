@@ -24,8 +24,8 @@
 
     function does_questionnaire_exist($questionnaire_name, $link)
     {
-        $does_exist_sql = "SELECT * FROM questionnaires WHERE Questionnaire_Name = ?";
-        $does_exist_sql->bind_param("s", $questionnaire_name);
+        $does_exist_sql = "SELECT * FROM questionnaires WHERE Questionnaire_Name = '".$questionnaire_name."'";
+        // $does_exist_sql->bind_param("s", $questionnaire_name);
 
         $results = $link->query($does_exist_sql);
 
