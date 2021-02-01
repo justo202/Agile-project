@@ -24,7 +24,7 @@
 
     function does_questionnaire_exist($questionnaire_name, $link)
     {
-        $does_exist_sql = $mysqli->prepare("SELECT * FROM questionnaires WHERE Questionnaire_Name = ?");
+        $does_exist_sql = $link->prepare("SELECT * FROM questionnaires WHERE Questionnaire_Name = ?");
         $does_exist_sql->bind_param("s", $questionnaire_name);
         $does_exist_sql->execute();
 
