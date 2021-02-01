@@ -21,6 +21,24 @@
         return $questions;
     }
 
+
+    function does_questionnaire_exist($questionnaire_name, $link)
+    {
+        $does_exist_sql = "SELECT * FROM questionnaires WHERE Questionnaire_Name = ?";
+        $does_exist_sql->bind_param("s", $questionnaire_name);
+
+        $results = $link->query($does_exist_sql);
+
+        if ($results->num_rows > 0)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
     $questions_array = get_questions($num_of_questions);
 
     //This function creates new records in the questionnaire table in the database
@@ -57,8 +75,14 @@
         }
     }
 
-    add_questionaire($questionnaire_name, $creator_name, $link);
-    add_questions($questions_array, $questionnaire_name, $num_of_questions, $link);
+    if(does_questionnaire_exist($questionnaire_name, $link))
+    {
+        echo "Sorry questionnaire already exists, please edit the name";
+    }
+    else{
+        add_questionaire($questionnaire_name, $creator_name, $link);
+        add_questions($questions_array, $questionnaire_name, $num_of_questions, $link);
+    }
 
 
     ?>
