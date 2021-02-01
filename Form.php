@@ -47,10 +47,25 @@
 
                           echo "<div class=\"form-group\">";
                           echo "<label>Question " . $val++ . ": " . $row['Question'] . "</label>";
-                          echo "<input type=\"text\" name = \"answers[]\"class = \"answers form-control\" placeholder = \"Answer\">";
 
-                          echo "<input type = \"hidden\" value = \"".$row['Question_Number']."\" name = \"num[]\">";
-                          echo "</div>";
+
+                  if($row['Question_type'] == "open")
+                  {
+                    echo "<input type=\"text\" name = \"answers[]\"class = \"answers form-control\" placeholder = \"Answer\">";
+                    echo "<input type = \"hidden\" value = \"".$row['Question_Number']."\" name = \"num[]\">";
+                    echo "</div>";
+                  }
+                  else if($row['Question_type'] == "multiple_choice")
+                  {
+                    $answ = explode("||", $row['Options']);
+                    foreach($answ as $a)
+                    {
+                      echo " <div class=\"form-check\">";
+                      echo " <input class=\"form-check-input\" type=\"radio\" id = \"".$a."\"name=\"answers[]\" value=\"".$a."\" checked>";
+                      echo "<label class=\"form-check-label\" for=\"".$a."\">".$a."</label>";
+                      echo "</div>";
+                    }
+                  }
 
                   }
                   echo "<input type = \"hidden\" value = \"".$name."\" name = \"name\">";
@@ -64,7 +79,6 @@
           ?>
           <input style = "visibility:hidden; "class = "btn btn-info" type="submit" name="button" id = "submitbtn" value = "Submit"></input>
         </form>
-
 
     </main>
 
