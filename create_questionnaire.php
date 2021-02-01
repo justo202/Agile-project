@@ -52,7 +52,7 @@
         $add_questionnaire_sql->bind_param("ss", $question_array, $creator_name);
         $add_questionnaire_sql->execute();
 
-        if ($add_questionnaire_sql->affected_rows() > 0)
+        if ($add_questionnaire_sql->affected_rows > 0)
         {
             echo "Questionnaire ".$questionnaire_name." created successfully <br>";
         } else {
@@ -71,11 +71,11 @@
         for($x = 1; $x <= $num_of_questions; $x++)
         {
             //Store the sql statement in variable $add_question_sql
-            $add_question_sql = $link->prepare("INSERT INTO questions VALUES (?,?,?)");
+            $add_question_sql = $link->prepare("INSERT INTO questions VALUES (?, ?, ?)");
             $add_question_sql->bind_param("ssi", $questions_array[$x], $questionnaire_name, $x);
             $add_question_sql->execute();
 
-            if ($add_question_sql->affected_rows() > 0)
+            if ($add_question_sql->affected_rows > 0)
             {
                 echo $question_array[$x]."<br> added to questionnaire <br>";
             } else {
