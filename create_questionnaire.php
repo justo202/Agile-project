@@ -30,6 +30,7 @@
 
         $results = $link->query($does_exist_sql);
 
+        $does_exist_sql->close();
         if ($results->num_rows > 0)
         {
             return true;
