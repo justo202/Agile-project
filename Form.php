@@ -52,7 +52,7 @@
 
                   if(strval($row['Question_Type']) == "open")
                   {
-                    echo "YESSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS";
+
                     echo "<input type=\"text\" name = \"answers[]\"class = \"answers form-control\" placeholder = \"Answer\">";
                     echo "<input type = \"hidden\" value = \"".$row['Question_Number']."\" name = \"num[]\">";
                     echo "</div>";
@@ -67,6 +67,7 @@
                       echo "<label class=\"form-check-label\" for=\"".$a."\">".$a."</label>";
                       echo "</div>";
                     }
+                    echo "<input type = \"hidden\" value = \"".$row['Question_Number']."\" name = \"num[]\">";
                     echo "</div>";
                   }
 
