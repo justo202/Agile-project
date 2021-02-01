@@ -48,16 +48,16 @@
                           echo "<div class=\"form-group\">";
                           echo "<label>Question " . $val++ . ": " . $row['Question'] . "</label>";
 
-                  //$strval = strval($row['Question_type']);
-                  echo $row['Question_Type'];
-                  if($strval == "open")
+
+
+                  if(strval($row['Question_Type']) == "open")
                   {
                     echo "YESSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS";
                     echo "<input type=\"text\" name = \"answers[]\"class = \"answers form-control\" placeholder = \"Answer\">";
                     echo "<input type = \"hidden\" value = \"".$row['Question_Number']."\" name = \"num[]\">";
                     echo "</div>";
                   }
-                  else if($strval == "multiple_choice")
+                  else if($row['Question_Type'] == "multiple_choice")
                   {
                     $answ = explode("||", $row['Options']);
                     foreach($answ as $a)
