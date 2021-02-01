@@ -49,9 +49,8 @@
     {
         //Store the sql statement in variable $add_questionnaire_sql
         $add_questionnaire_sql = $link->prepare("INSERT INTO questionnaires VALUES (?,?)");
-        $add_questionnaire_sql->bind_param("ss", $question_array, $creator_name);
+        $add_questionnaire_sql->bind_param("ss", $questionnaire_name, $creator_name);
         $add_questionnaire_sql->execute();
-        echo $add_questionnaire_sql->affected_rows;
 
         if ($add_questionnaire_sql->affected_rows > 0)
         {
@@ -75,7 +74,6 @@
             $add_question_sql = $link->prepare("INSERT INTO questions VALUES (?, ?, ?)");
             $add_question_sql->bind_param("ssi", $questions_array[$x], $questionnaire_name, $x);
             $add_question_sql->execute();
-            echo $add_questionnaire_sql->affected_rows;
 
             if ($add_question_sql->affected_rows > 0)
             {
