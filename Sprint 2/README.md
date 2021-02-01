@@ -8,7 +8,7 @@ All information about your first sprint should be put into this folder. Addition
 The Scrum Master for this meeting was **Vivien Prakash**
 
 ### Members Present:
-Vivien, Justas, Dominic, Gerard, Mark, Abdulmalik,Brenyn
+Vivien, Justas, Dominic, Gerard, Mark, Abdulmalik, Brenyn
 
 ### Members Not Present:
 Mark
