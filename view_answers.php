@@ -11,35 +11,17 @@ class results {
     public $question;
     public $answers_arr = array();
 
-    function set_question_num($question_num)
-    {
-        $this->question_num = $question_num;
-    }
+    function set_question_num($question_num){$this->question_num = $question_num;}
 
-    function set_question($question)
-    {
-        $this->question = $question;
-    }
+    function set_question($question){$this->question = $question;}
 
-    function add_answer($answer)
-    {
-        $this->answers_arr[] = $answer;
-    }
+    function add_answer($answer){$this->answers_arr[] = $answer;}
 
-    function view_question_num()
-    {
-        return $this->question_num;
-    }
+    function view_question_num(){return $this->question_num;}
 
-    function view_question()
-    {
-        return $this->question;
-    }
+    function view_question(){return $this->question;}
 
-    function view_answer($i)
-    {
-        return $this->answers_arr[$i];
-    }
+    function view_answer($i){return $this->answers_arr[$i];}
 
     function view_all_answers()
     {
@@ -49,16 +31,16 @@ class results {
       }
     }
 
-    function get_arr_size()
-    {
-      return sizeof($this->answers_arr);
-    }
+    function get_arr_size(){return sizeof($this->answers_arr);}
 }
 
 function getAnswers($questionnaire_name, $link)
 {
-    $get_answers_sql = "SELECT Question_Number, Answer FROM answers WHERE Questionnaire_Name = '".$questionnaire_name."'";
-    $results = $link->query($get_answers_sql);
+    $get_answers_sql = $link->prepare("SELECT Question_Number, Answer FROM answers WHERE Questionnaire_Name = ?");
+    $get_answers_sql->bind_param("s", $questionnaire_name);
+    $get_answers_sql->execute();
+    $results = $get_answers_sql->get_result();
+    $get_answers_sql->close();
 
     if ($results->num_rows > 0)
     {
@@ -72,8 +54,11 @@ function getAnswers($questionnaire_name, $link)
 
 function getQuestions($questionnaire_name, $link)
 {
-    $get_questions_sql = "SELECT Question_Number, Question FROM questions WHERE Questionnaire_Name = '".$questionnaire_name."'";
-    $results = $link->query($get_questions_sql);
+    $get_questions_sql = $link->prepare("SELECT Question_Number, Question FROM questions WHERE Questionnaire_Name = ?");
+    $get_questions_sql->bind_param("s", $questionnaire_name);
+    $get_questions_sql->execute();
+    $results = $get_questions_sql->get_result();
+    $get_questions_sql->close();
 
     if ($results->num_rows > 0)
     {
