@@ -32,12 +32,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     } else{
         $password = trim($_POST["password"]);
     }
+	
+}
     
     // Check input errors before inserting in database
     if(empty($username_err) && empty($password_err)){
         
         // Prepare an Select statement
-        $sql = "SELECT * from user where Username=;
+        $sql = "SELECT username, password FROM participant WHERE username = :username and password = :password";
          
         if($stmt = $mysql->prepare($sql)){
             // Bind variables to the prepared statement as parameters
@@ -83,7 +85,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
             // Close statement
             unset($stmt);
-        }
+		}
+        
+	
     
     // Close connection
     unset($mysql);
