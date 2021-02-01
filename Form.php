@@ -49,7 +49,7 @@
                           echo "<label>Question " . $val++ . ": " . $row['Question'] . "</label>";
 
                   $strval = strval($row['Question_type']);
-                  echo $strval;
+                  echo $row['Question_type'];
                   if($strval == "open")
                   {
                     echo "YESSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS";
