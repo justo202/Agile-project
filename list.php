@@ -32,7 +32,7 @@
     <!-- Begin page content -->
     <main role="main" class="container">
       <div class="container">
-          <input type="text" id = "inputText"class="mt-1 mb-1 form-control" placeholder="Questionaire_name">
+          <input type="text" onkeyup="myFunction()" id = "inputText"class="mt-2 mb-2 form-control" placeholder="Enter questionaire name to search for...">
         <div class="table-responsive table-parent" style = "max-height: 500px;background-color: white;">
       <table class="table table-hover table-striped" id = "inputTable" style = "background-color: white;">
         <thead>
@@ -84,7 +84,7 @@ function myFunction() {
   tr = table.getElementsByTagName("tr");
 
   // Loop through all table rows, and hide those who don't match the search query
-  for (i = 0; i < tr.length; i++) {
+  for (i = 1; i < tr.length; i++) {
     td = tr[i].getElementsByTagName("td")[0];
     if (td) {
       txtValue = td.textContent || td.innerText;
