@@ -20,7 +20,7 @@
           <label for="login">Login</label>
         </p>
         <p>
-          <input type="radio" id="signup" name="signup" value="signup" checked>
+          <input type="radio" id="signup" name="signup" value="signup">
           <label for="signup">Sign up</label>
         </p>
         <p>
