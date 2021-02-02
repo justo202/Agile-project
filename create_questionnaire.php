@@ -86,11 +86,12 @@
         {
             //Store the sql statement in variable $add_question_sql
             $add_question_sql = $link->prepare("INSERT INTO questions VALUES (?, ?, ?, ?, ?)");
-            if(substr($options_array[$x], 0, 5) === "openQ")
+            if(str_starts_with($options_array[$x], "openQ"))
             {
                 $add_question_sql->bind_param("ssi", $questions_array[$x], $questionnaire_name, $x, "open", "NULL");
             }
             else{
+                echo "str_starts_with works";
                 $add_question_sql->bind_param("ssi", $questions_array[$x], $questionnaire_name, $x, "multiple_choice", $options_array[$x]);
             }
             
@@ -112,9 +113,7 @@
         echo "Sorry questionnaire already exists, please edit the name";
     }
     else{
-        echo "im working before the questionnaire is added";
         add_questionaire($questionnaire_name, $creator_name, $link);
-        echo "im working after";
         add_questions($questions_array, $questionnaire_name, $num_of_questions, $link);
     }
 
