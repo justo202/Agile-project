@@ -62,7 +62,7 @@ h3,h4{
 h5{
   color: red;
 }
-#error_msg{
+#error_msg,#name_error_msg{
   visibility: hidden;
 }
 button{
@@ -122,9 +122,10 @@ button:hover{
   text-decoration: underline;
 }
 /* justify-content: center; */
-.transcript_box{
+#transcript_box{
   float: right;
   width: 45%;
+  visibility: hidden;
 }
 #transcript{
   width: 100%;
@@ -140,21 +141,31 @@ button:hover{
 
 }
 .available_transcripts{
-
+  margin-top: 10px;
+  width: 100%;
+}
+#available_ts{
+  text-align: center;
 }
 .save_transcript_options{
   /* visibility: hidden; */
   /* z-index: 1; */
-  min-width: 350px;
-  max-width: 500px;
-  height: 300px;
+  /* min-width: 350px;
+  max-width: 500px; */
+  padding: 10px;
+}
+#s_t_options{
+  text-align: center;
 }
 .save_to_server_box{
   /* visibility: hidden; */
   /* z-index: 1; */
-  min-width: 350px;
-  max-width: 500px;
-  height: 300px;
+  /* min-width: 350px;
+  max-width: 500px; */
+  padding: 10px;
+}
+#transcript_name{
+  
 }
 /* #-id */
 
