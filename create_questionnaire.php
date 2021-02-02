@@ -112,7 +112,9 @@
         echo "Sorry questionnaire already exists, please edit the name";
     }
     else{
+        echo "im working before the questionnaire is added";
         add_questionaire($questionnaire_name, $creator_name, $link);
+        echo "im working after";
         add_questions($questions_array, $questionnaire_name, $num_of_questions, $link);
     }
 
