@@ -8,6 +8,6 @@ if(isset($_POST["save"]))
 	$txt = "";
 	fwrite($file, $txt);
 	fclose($file);
-		
+	header("Location: Transcripts.php?savesuccess");	
 }
 ?>
