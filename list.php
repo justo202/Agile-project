@@ -33,8 +33,8 @@
     <main role="main" class="container">
       <div class="container">
           <input type="text" onkeyup="myFunction()" id = "inputText"class="mt-2 mb-2 form-control" placeholder="Enter questionaire name to search for...">
-        <div class="table-responsive table-parent" style = "max-height: 500px;background-color: white; margin-bottom:0px;">
-      <table class="table table-hover table-striped" id = "inputTable" style = "background-color: white;">
+        <div class="table-responsive table-parent" style = "max-height: 500px;background-color: white;">
+      <table class="table table-hover table-striped" id = "inputTable" style = "background-color: white;margin-bottom:0px;">
         <thead>
             <tr>
               <th scope="col">Qutesionaire</th>
