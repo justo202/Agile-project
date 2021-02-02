@@ -90,10 +90,12 @@
 
             if(strcmp($options_array[$x], "openQ") == 0)
             {
-                $add_question_sql->bind_param("ssiss", $questions_array[$x], $questionnaire_name, $x, "open", null);
+                $type = "open";
+                $add_question_sql->bind_param("ssiss", $questions_array[$x], $questionnaire_name, $x, $type, null);
             }
             else{
-                $add_question_sql->bind_param("ssiss", $questions_array[$x], $questionnaire_name, $x, "multiple_choice", $options_array[$x]);
+                $type = "multiple_choice";
+                $add_question_sql->bind_param("ssiss", $questions_array[$x], $questionnaire_name, $x, $type, $options_array[$x]);
             }
             
             $add_question_sql->execute();
