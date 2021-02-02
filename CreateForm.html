@@ -33,6 +33,16 @@
       <form id="questions" action="/create_questionnaire.php" method="post" class="form-group">
         <label id="question" for="QuestionNumber">Question 1</label>
         <input type="textarea" id="newQuestion" name="newQuestion" class="form-control">
+
+        <label>Multiple Choice:</label> 
+        <input type="checkbox" id="is_multiple" onclick="showChoiceInput()"><br>
+
+        <div style="display: none" id="answerChoice">
+            <label id="optionNum">Option 1</label><br>
+            <input type="text" id="newOption" name="newOption">
+            <input type="button" value="Add Option" onclick="addOption()">
+        </div>
+
         <input type="button" value="Add Question" onclick="addQuestion()" class="btn btn-primary"><br>
         <label>Name of Researcher:</label>
         <input type="text" id="creator_name" name="creator_name" class="form-control"><br>
@@ -57,38 +67,97 @@
     </footer> -->
 
     <script>
-        var questionNum = 1  //variable to keep track of the number of question that are being added
+      function showChoiceInput(){
+          var x = document.getElementById("answerChoice");
+          var is_multiple = document.getElementById("is_multiple");
+          if (is_multiple.checked === true) {
+              x.style.display = "block";
+          } else {
+              x.style.display = "none";
+          }
+      }
 
-        function addQuestion() {
-
-            //create a hidden element and set its value to the question that has just been entered so that it is stored
-            var input = document.createElement("input");
-
-            input.setAttribute("type", "hidden");
-
-            input.setAttribute("name", "question" + questionNum);
-
-            input.setAttribute("value", document.getElementById("newQuestion").value);
-            document.getElementById("questions").appendChild(input);
+      var optionNum = 1;
 
 
-            //create two new elements to display most recent question number and the question
-            var number = document.createElement("label");
-            var question = document.createElement("p");
+      function addOption()
+      {
+          if(optionNum == 1)
+          {
+              optionsStr = document.createElement("input");
+              optionsStr.setAttribute("type", "hidden");
+              optionsStr.setAttribute("name", "options_for_" + questionNum);
+              optionsStr.setAttribute("id", "options_for_" + questionNum);
+              optionsStr.setAttribute("value", document.getElementById("newOption").value);
+              document.getElementById("answerChoice").appendChild(optionsStr);
+          }else{
+              document.getElementById("options_for_" + questionNum).value = document.getElementById("options_for_" + questionNum).value + "||" + document.getElementById("newOption").value;
+          }
 
-            number.innerHTML = "Question " + questionNum + ":";
-            question.innerHTML = document.getElementById("newQuestion").value;
+          var option = document.createElement("p");
+          option.setAttribute("name", "option" + optionNum);
+          option.innerHTML = document.getElementById("newOption").value;
+          option.setAttribute("id", "option" + optionNum);
+          document.getElementById("answerChoice").appendChild(option);
+          optionNum = optionNum + 1;
 
-            document.getElementById("displayQuestions").appendChild(number);
-            document.getElementById("displayQuestions").appendChild(question);
+          document.getElementById("optionNum").innerHTML = "Option " + optionNum;
+          document.getElementById("newOption").value = "";
+      }
 
-            document.getElementById("num_of_questions").value = questionNum;
-            document.getElementById("newQuestion").value = "";
+      var questionNum = 1  //variable to keep track of the number of question that are being added
 
-            questionNum = questionNum + 1;
-            document.getElementById("question").innerHTML = "Question " + questionNum;
-        }
-    </script>
+      function addQuestion() {
+
+          //create a hidden element and set its value to the question that has just been entered so that it is stored
+          var input = document.createElement("input");
+
+          input.setAttribute("type", "hidden");
+
+          input.setAttribute("name", "question" + questionNum);
+
+          input.setAttribute("value", document.getElementById("newQuestion").value);
+          document.getElementById("questions").appendChild(input);
+
+
+          //create two new elements to display most recent question number and the question
+          var number = document.createElement("label");
+          var question = document.createElement("p");
+
+          number.innerHTML = "Question " + questionNum + ":";
+          question.innerHTML = document.getElementById("newQuestion").value;
+
+          document.getElementById("displayQuestions").appendChild(number);
+          document.getElementById("displayQuestions").appendChild(question);
+
+          document.getElementById("num_of_questions").value = questionNum;
+          document.getElementById("newQuestion").value = "";
+
+          if(!(document.body.contains(document.getElementById('test')))){
+              optionsStr = document.createElement("input");
+              optionsStr.setAttribute("type", "hidden");
+              optionsStr.setAttribute("name", "options_for_" + questionNum);
+              optionsStr.setAttribute("id", "options_for_" + questionNum);
+              optionsStr.setAttribute("value", "openQ");
+              document.getElementById("answerChoice").appendChild(optionsStr);
+          }
+
+          questionNum = questionNum + 1;
+          document.getElementById("question").innerHTML = "Question " + questionNum;
+
+          for(x=1; x<optionNum; x++)
+          {
+              document.getElementById("option" + x).remove();
+          }
+
+          optionNum = 1;
+          document.getElementById("optionNum").innerHTML = "Option 1"
+          document.getElementById("is_multiple").checked = false;
+          document.getElementById("answerChoice").style.display = "none";
+
+
+      }
+  </script>
 
 <footer>
   <div class="row justify-content-center mb-0 pt-5 pb-0 row-2 px-3">

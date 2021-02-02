@@ -21,6 +21,18 @@
         return $questions;
     }
 
+    function get_options($num_of_questions)
+    {
+        $options = array();
+
+        for($x = 1; $x <= $num_of_questions; $x++)
+        {
+            //Add each question to the the array
+            $options[$x] = $_POST['options_for_'.$x];
+        }
+
+        return $options();
+    }
 
     function does_questionnaire_exist($questionnaire_name, $link)
     {
@@ -42,6 +54,7 @@
     }
 
     $questions_array = get_questions($num_of_questions);
+    $options_array = get_options($num_of_questions);
 
     //This function creates new records in the questionnaire table in the database
     //It will add the name of the questionnaire and the name of the user who created it
@@ -64,15 +77,25 @@
 
     //This function creates new records in the question table in the database
     //It will add the name of the questionnaire and each question in the questionnaire
-    function add_questions($questions_array, $questionnaire_name, $num_of_questions, $link)
+    function add_questions($questions_array, $options_array, $questionnaire_name, $num_of_questions, $link)
     {
         //each question in the questions array will need to be added so the next bit of code is
         //iterates through the array.
         for($x = 1; $x <= $num_of_questions; $x++)
         {
             //Store the sql statement in variable $add_question_sql
-            $add_question_sql = $link->prepare("INSERT INTO questions VALUES (?, ?, ?)");
-            $add_question_sql->bind_param("ssi", $questions_array[$x], $questionnaire_name, $x);
+            $add_question_sql = $link->prepare("INSERT INTO questions VALUES (?, ?, ?, ?, ?)");
+            if(substr($options_array[$x], 0, 5) === "openQ")
+            {
+                echo "working here 1";
+                $add_question_sql->bind_param("ssi", $questions_array[$x], $questionnaire_name, $x, "open", "NULL");
+                echo "working here 2";
+            }
+            else{
+                echo "working here 3";
+                $add_question_sql->bind_param("ssi", $questions_array[$x], $questionnaire_name, $x, "multiple_choice", $options_array[$x]);
+            }
+            
             $add_question_sql->execute();
 
             if ($add_question_sql->affected_rows > 0)
