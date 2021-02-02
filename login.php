@@ -17,7 +17,7 @@
         </p>
         <div>
           <input type="radio" id="login" name="buttn" value="login" checked>
-          <label for="login">Login</label>
+          <label for="login">Log in</label>
         </div>
         <div>
           <input type="radio" id="signup" name="buttn" value="signup">
