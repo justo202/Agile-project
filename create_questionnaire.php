@@ -32,7 +32,7 @@
             echo $options[$x];
         }
 
-        return $options();
+        return $options;
     }
 
     function does_questionnaire_exist($questionnaire_name, $link)
