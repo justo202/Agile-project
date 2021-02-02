@@ -117,6 +117,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
       </div>
 
       <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+      <button class="btn btn-lg btn-primary btn-block" type="submit">Sign up</button>
+
       <p class="mt-5 mb-3 text-muted">&copy; place holder</p>
     </form>
     </div>
