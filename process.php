@@ -2,6 +2,14 @@
   include 'db.php';
   $username = $_POST['user'];
   $password = $_POST['pass'];
+//  $buttonvalue= $_POST['btn'];
+
+//  if ($buttonvalue == signup) {
+    // code...
+//  }
+//  else {
+    // login code
+//  }
 
   $username = stripcslashes($username);
   $password = stripcslashes($password);

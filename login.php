@@ -15,16 +15,16 @@
           <label>Password:</label>
           <input type="password" id="pass" name="pass">
         </p>
-        <p>
+        <div>
           <input type="radio" id="login" name="login" value="login" checked>
           <label for="login">Login</label>
-        </p>
-        <p>
+        </div>
+        <div>
           <input type="radio" id="signup" name="signup" value="signup">
           <label for="signup">Sign up</label>
-        </p>
+        </div>
         <p>
-          <input type="submit" id="Login" name="btn" value="login" placeholder="Go!">
+          <input type="submit" id="Login" name="btn" value="Submit" placeholder="Go!">
         </p>
       </form>
     </div>
