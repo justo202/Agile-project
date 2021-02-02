@@ -86,11 +86,8 @@
         {
             //Store the sql statement in variable $add_question_sql
             $add_question_sql = $link->prepare("INSERT INTO questions VALUES (?, ?, ?, ?, ?)");
-            echo $options_array[$x];
-            $isequal = ($options_array[$x] == "openQ");
-            echo $isequal;
-            
-            if($options_array[$x] == "openQ")
+
+            if(strcmp($options_array[$x], "openQ") == 0)
             {
                 $add_question_sql->bind_param("ssiss", $questions_array[$x], $questionnaire_name, $x, "open", null);
             }
