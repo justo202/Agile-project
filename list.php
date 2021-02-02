@@ -42,13 +42,20 @@
         </thead>
         <tbody>
           <?php
-              $stmt = $link->query("SELECT * FROM `completed_questionnaires` WHERE 1");
-              while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
+              $sql = "SELECT * FROM `completed_questionnaires` WHERE 1";
+              $result = mysqli_query($link, $sql)
+                if(mysqli_num_rows($result) > 0){
+
+              while($row = mysqli_fetch_array($result)){
                   echo "<tr>";
                   echo "<td>".$row['Questionnaire_Name']."</td>";
                   echo "<td>".$row['Username']."</td>";
                   echo "</tr>";
                 }
+              }
+              else{
+                  echo "No records matching your query were found.";
+              }
           ?>
         </tbody>
 
