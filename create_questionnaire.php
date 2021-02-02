@@ -86,13 +86,12 @@
         {
             //Store the sql statement in variable $add_question_sql
             $add_question_sql = $link->prepare("INSERT INTO questions VALUES (?, ?, ?, ?, ?)");
-            if(str_starts_with($options_array[$x], "openQ"))
+            if($options_array[$x] === "openQ")
             {
-                $add_question_sql->bind_param("ssi", $questions_array[$x], $questionnaire_name, $x, "open", "NULL");
+                $add_question_sql->bind_param("ssiss", $questions_array[$x], $questionnaire_name, $x, "open", null);
             }
             else{
-                echo "str_starts_with works";
-                $add_question_sql->bind_param("ssi", $questions_array[$x], $questionnaire_name, $x, "multiple_choice", $options_array[$x]);
+                $add_question_sql->bind_param("ssiss", $questions_array[$x], $questionnaire_name, $x, "multiple_choice", $options_array[$x]);
             }
             
             $add_question_sql->execute();
