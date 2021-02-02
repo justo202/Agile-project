@@ -16,11 +16,11 @@
           <input type="password" id="pass" name="pass">
         </p>
         <div>
-          <input type="radio" id="login" name="login" value="login" checked>
+          <input type="radio" id="login" name="buttn" value="login" checked>
           <label for="login">Login</label>
         </div>
         <div>
-          <input type="radio" id="signup" name="signup" value="signup">
+          <input type="radio" id="signup" name="buttn" value="signup">
           <label for="signup">Sign up</label>
         </div>
         <p>
