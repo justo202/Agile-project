@@ -40,8 +40,8 @@
         <div id="transcript_box">
           <div class="transcript_options">
 			<!-- Load transcript --> 
-            <button id="import_transcript" type ="file" name ="file">Import Existing Transcript</button>
 			 <form class="transcript" action="load.php" method="POST">
+			 <button id="import_transcript" type ="file" name ="file">Import Existing Transcript</button>
             <!-- <br> -->
             <button id="create_transcript">Create New Transcript</button>
           </div>
@@ -51,8 +51,6 @@
             <textarea id="transcript" name="transcript" rows="14"></textarea>
           </form>
           <div class="">
-		  <!-- Save transcript -->
-		  <form action="save.php" method="POST">
             <button id="save_transcript" type="submit">Save Transcript</button>
             <button onclick="tag_button()">Tag/ Make Theme</button>
             <br>
@@ -75,8 +73,12 @@
         <!-- <br> -->
         <div class="save_transcript_options">
           <h1 id="s_t_options">Save Transcript Options</h1>
-          <button onclick="save_to_server()">Save Transcript to server only</button>
+		    <!-- Save transcript -->
+		    <form action="save.php" method="POST">
+          <button type="submit" name="save">Save Transcript to server only</button>
+		  </form>
           <button onclick="save_and_export()">Save Transcript and Export</button>
+		  
           <button onclick="exit()">Don't Save</button>
         </div>
         <!-- <br> -->
