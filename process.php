@@ -14,7 +14,7 @@
   //            or die("Failed to query database ".mysql_error());
   $row = mysql_fetch_array($result);
   if ($row['username'] == $username && $row['password'] == $password) {
-    echo "Login Successful " + $row['username'];
+    echo "Login Successful ".$row['username'].;
   } else {
     echo "Failed to Login!";
   }
