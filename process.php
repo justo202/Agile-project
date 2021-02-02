@@ -8,7 +8,9 @@
   $username = mysql_real_escape_string($username);
   $password = mysql_real_escape_string($password);
 
-  include 'db.php';
+mysql_connect("https://agile-project.scm.azurewebsites.net/", "root", "");
+mysql_select_db("localdb")
+
 
   $result = mysql_query("select * from users where username = '$username' and password = '$password'")
               or die("Failed to query database ".mysql_error());
