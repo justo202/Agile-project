@@ -29,6 +29,7 @@
         {
             //Add each question to the the array
             $options[$x] = $_POST['options_for_'.$x];
+            echo $options[$x];
         }
 
         return $options();
@@ -87,12 +88,9 @@
             $add_question_sql = $link->prepare("INSERT INTO questions VALUES (?, ?, ?, ?, ?)");
             if(substr($options_array[$x], 0, 5) === "openQ")
             {
-                echo "working here 1";
                 $add_question_sql->bind_param("ssi", $questions_array[$x], $questionnaire_name, $x, "open", "NULL");
-                echo "working here 2";
             }
             else{
-                echo "working here 3";
                 $add_question_sql->bind_param("ssi", $questions_array[$x], $questionnaire_name, $x, "multiple_choice", $options_array[$x]);
             }
             
