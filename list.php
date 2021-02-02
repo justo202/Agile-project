@@ -32,8 +32,9 @@
     <!-- Begin page content -->
     <main role="main" class="container">
       <div class="container">
-        <div class="table-responsive table-parent" style = "height: 500px;background-color: white;">
-      <table class="table table-hover table-striped" id = "table_to_highlight" style = "background-color: white;">
+          <input type="text" id = "inputText"class="mt-1 mb-1 form-control" placeholder="Questionaire_name">
+        <div class="table-responsive table-parent" style = "max-height: 500px;background-color: white;">
+      <table class="table table-hover table-striped" id = "inputTable" style = "background-color: white;">
         <thead>
             <tr>
               <th scope="col">Qutesionaire</th>
@@ -74,24 +75,25 @@
   </body>
 </html>
 <script>
-var fields = document.getElementsByClassName("answers");
-for (var i = 0; i < fields.length; i++) {
-  fields[i].addEventListener('input', checkAll);
-}
-function checkAll()
-{
-  var empty = "done";
-  for (var i = 0; i < fields.length; i++) {
-    if(fields[i].value == "")
-      empty = "empty";
-  }
-  if(empty == "done")
-    {
-      document.getElementById("submitbtn").style = "visibility:visible"
-    }
-  else {
+function myFunction() {
+  // Declare variables
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("inputText");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("inputTable");
+  tr = table.getElementsByTagName("tr");
 
-    document.getElementById("submitbtn").style = "visibility:hidden"
+  // Loop through all table rows, and hide those who don't match the search query
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[0];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }
   }
 }
 </script>
