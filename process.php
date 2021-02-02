@@ -1,5 +1,5 @@
 <?php
-
+  include 'db.php';
   $username = $_POST['user'];
   $password = $_POST['pass'];
 
@@ -8,13 +8,13 @@
   $username = mysql_real_escape_string($username);
   $password = mysql_real_escape_string($password);
 
-  include 'db.php';
 
-  $result = mysql_query("select * from users where username = '$username' and password = '$password'")
-              or die("Failed to query database ".mysql_error());
+  $sql = "SELECT * FROM `users` WHERE `username` = '$username' AND `password` = '$password'";
+  //$result = mysql_query("select * from users where username = '$username' and password = '$password'")
+  //            or die("Failed to query database ".mysql_error());
   $row = mysql_fetch_array($result);
   if ($row['username'] == $username && $row['password'] == $password) {
-    echo "Login Successful".$row['username'];
+    echo "Login Successful " + $row['username'];
   } else {
     echo "Failed to Login!";
   }
