@@ -43,7 +43,7 @@
         <tbody>
           <?php
               $stmt = $link->query("SELECT * FROM `completed_questionnaires` WHERE 1");
-              while($row = $link->fetch(PDO::FETCH_ASSOC)){
+              while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
                   echo "<tr>";
                   echo "<td>".$row['Questionnaire_Name']."</td>";
                   echo "<td>".$row['Username']."</td>";
