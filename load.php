@@ -18,6 +18,7 @@ if(isset($_POST["read"]))
 		}
 	}
 	fclose($fileRead);
+	header("Location: transcript_gen_test.html?loadsuccessful");
 }
 
 ?>
