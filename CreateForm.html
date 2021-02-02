@@ -133,7 +133,7 @@
           document.getElementById("num_of_questions").value = questionNum;
           document.getElementById("newQuestion").value = "";
 
-          if(!(document.body.contains(document.getElementById("options_for" + questionNum)))){
+          if(!(document.body.contains(document.getElementById("options_for_" + questionNum)))){
               optionsStr = document.createElement("input");
               optionsStr.setAttribute("type", "hidden");
               optionsStr.setAttribute("name", "options_for_" + questionNum);
