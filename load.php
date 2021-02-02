@@ -1,5 +1,5 @@
 <?php
-if(isset($_POST["file"]))
+if(isset($_POST["load"]))
 {
 	$file = $_FILES["load"]["name"];
 	$fileError = $_FILES["load"]["error"];
