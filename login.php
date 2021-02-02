@@ -24,9 +24,17 @@
           <label for="signup">Sign up</label>
         </div>
         <p>
-          <input type="submit" id="Login" name="btn" value="Submit" placeholder="Go!">
+          <input type="submit" onclick="myFunction()" id="Submit" name="btn" value="Submit" placeholder="Go!">
         </p>
       </form>
     </div>
+
+    <script>
+    function myFunction() {
+      var x = document.getElementById("login").checked;
+      document.getElementById("demo").innerHTML = x;
+    }
+    </script>
+
   </body>
 </html>
