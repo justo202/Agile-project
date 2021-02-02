@@ -24,7 +24,7 @@
           <label for="signup">Sign up</label>
         </div>
         <p>
-          <input type="submit" onclick="myFunction()" id="Submit" name="btn" value="Submit" placeholder="Go!">
+          <button type="submit" onclick="myFunction()" id="Submit" name="btn" value="Submit" placeholder="Go!">
         </p>
       </form>
     </div>
