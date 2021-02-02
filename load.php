@@ -1,5 +1,5 @@
 <?php
-if(isset($_POST["read"]))
+if(isset($_POST["import_transcript"]))
 {
 	$file = $_FILES["load"]["name"];
 	$fileError = $_FILES["load"]["error"];
