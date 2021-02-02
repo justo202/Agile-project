@@ -1,5 +1,5 @@
 <?php
-
+  include 'db.php';
   $username = $_POST['user'];
   $password = $_POST['pass'];
 
@@ -8,7 +8,7 @@
   $username = mysql_real_escape_string($username);
   $password = mysql_real_escape_string($username);
 
-  include 'db.php';
+
 
   $result = mysqli_query("select * from users where username = '$username' and password = '$password'")
               or die("Failed to query database ".mysql_error());
