@@ -5,9 +5,6 @@
     <title>Login Page</title>
   </head>
   <body>
-    <?php
-    include 'db.php';
-    ?>
     <div id="frm">
       <form action="process.php" method="POST">
         <p>
