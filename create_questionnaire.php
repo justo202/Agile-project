@@ -29,7 +29,6 @@
         {
             //Add each question to the the array
             $options[$x] = $_POST['options_for_'.$x];
-            echo $options[$x];
         }
 
         return $options;
@@ -86,6 +85,8 @@
         {
             //Store the sql statement in variable $add_question_sql
             $add_question_sql = $link->prepare("INSERT INTO questions VALUES (?, ?, ?, ?, ?)");
+
+            echo strcmp($options_array[$x], "openQ");
 
             if(strcmp($options_array[$x], "openQ") == 0)
             {
