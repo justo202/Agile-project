@@ -32,7 +32,6 @@
             }
 
           }
-          echo "<input type = \"hidden\" value = \"".$name."\" name = \"name\">";
           // Free result set
           mysqli_free_result($result);
       } else{
