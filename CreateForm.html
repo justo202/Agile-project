@@ -39,15 +39,15 @@
 
         <div style="display: none" id="answerChoice">
             <label id="optionNum">Option 1</label><br>
-            <input type="text" id="newOption" name="newOption">
-            <input type="button" value="Add Option" onclick="addOption()">
+            <input type="text" id="newOption" name="newOption" class="form-control">
+            <input type="button" value="Add Option" onclick="addOption()" class="btn btn-primary">
         </div>
 
         <input type="button" value="Add Question" onclick="addQuestion()" class="btn btn-primary"><br>
         <label>Name of Researcher:</label>
-        <input type="text" id="creator_name" name="creator_name" class="form-control"><br>
+        <input type="text" id="creator_name" name="creator_name" class="form-control" required><br>
         <label>Questionnaire Name:</label>
-        <input type="text" id="questionnaire_name" name="questionnaire_name" class="form-control"><br>
+        <input type="text" id="questionnaire_name" name="questionnaire_name" class="form-control" required><br>
         <input type="hidden" id="num_of_questions" name="num_of_questions">
         <input type="submit" value="Submit" class="btn btn-primary">
       </form>
@@ -96,7 +96,7 @@
 
           var option = document.createElement("p");
           option.setAttribute("name", "option" + optionNum);
-          option.innerHTML = document.getElementById("newOption").value;
+          option.innerHTML = "Option "+ optionNum + " - " + document.getElementById("newOption").value;
           option.setAttribute("id", "option" + optionNum);
           document.getElementById("answerChoice").appendChild(option);
           optionNum = optionNum + 1;
