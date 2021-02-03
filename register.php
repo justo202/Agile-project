@@ -61,11 +61,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         }
     }
 
+    $sql = "INSERT INTO users (username, password) VALUES ('hello', 'mememe')";
+
+
     // Check input errors before inserting in database
     if(empty($username_err) && empty($password_err) && empty($confirm_password_err)){
 
         // Prepare an insert statement
-        $sql = "INSERT INTO users (username, password) VALUES ('hello', 'mememe')";
+        //$sql = "INSERT INTO users (username, password) VALUES ('hello', 'mememe')";
 
         /*if($stmt = mysqli_prepare($link, $sql)){
             // Bind variables to the prepared statement as parameters
