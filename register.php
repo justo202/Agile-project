@@ -61,21 +61,21 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         }
     }
 
-    $sql = "INSERT INTO users (username, password) VALUES ('hello', 'mememe')";
+  /*  $sql = "INSERT INTO users (username, password) VALUES ('hello', 'mememe')";
 
     if ($link->query($sql) === TRUE) {
     } else {
       echo "Error: " . $sql . "<br>" . $link->error;
-    }
+    }*/
 
 
     // Check input errors before inserting in database
     if(empty($username_err) && empty($password_err) && empty($confirm_password_err)){
 
         // Prepare an insert statement
-        //$sql = "INSERT INTO users (username, password) VALUES ('hello', 'mememe')";
+        $sql = "INSERT INTO users (username, password) VALUES ('hello', 'mememe')";
 
-        /*if($stmt = mysqli_prepare($link, $sql)){
+        if($stmt = mysqli_prepare($link, $sql)){
             // Bind variables to the prepared statement as parameters
             mysqli_stmt_bind_param($stmt, "ss", $param_username, $param_password);
 
@@ -94,7 +94,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             // Close statement
             mysqli_stmt_close($stmt);
         }
-        */
+        
     }
 
     // Close connection
