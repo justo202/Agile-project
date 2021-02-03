@@ -48,7 +48,7 @@ $questions = $_POST['question'];
 
             echo "<input type = \"hidden\" value = \"".$answers[$x]."\" name = \"answers[]\">";
             echo "<input type = \"hidden\" value = \"".$name."\" name = \"name\">";
-            echo "<input type = \"hidden\" value = \"".$num[$x]."\" name = \"num[]\">";
+            echo "<input type = \"hidden\" value = \"".$number[$x]."\" name = \"num[]\">";
            }
 
             ?>
