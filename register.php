@@ -62,7 +62,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     // Check input errors before inserting in database
     if(empty($username_err) && empty($password_err) && empty($confirm_password_err)){
-      echo "Something happened ahuidsabnfjkñsa";
+      //echo "Something happened ahuidsabnfjkñsa";
         // Prepare an insert statement
         $sql = "INSERT INTO users (username, password) VALUES (?, ?)";
 
@@ -72,7 +72,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
             // Set parameters
             $param_username = $username;
-            $param_password = password_hash($password, PASSWORD_DEFAULT); // Creates a password hash
+            $param_password = $password; // Creates a password hash
 
             // Attempt to execute the prepared statement
             if(mysqli_stmt_execute($stmt)){
