@@ -6,6 +6,7 @@ if(isset($_POST['load']))
 	$file = $_FILES['loadfile']['name'];
 	$fileError = $_FILES['loadfile']['error'];
 	$fileType = $_FILES['loadfile']['type'];
+	$fileTmp = $_FILES['loadfile']['tmp_name'];
 	
 	//seperate '.' from txt and file name 
 	$extension = explode('.', $file);
@@ -18,7 +19,7 @@ if(isset($_POST['load']))
 	{
 		if ($fileError === 0)
 		{
-			$fileRead = fopen($file, "r") or die("Unable to open file, please try again!");
+			$fileRead = fopen($fileTmp, "r") or die("Unable to open file, please try again!");
 			//read line by line unto end of the file
 			while(!feof($fileRead))
 			{
