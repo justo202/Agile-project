@@ -42,9 +42,9 @@ $questions = $_POST['question'];
          $i = count($answers);
          for($x = 0; $x < $i;$x++)
          {
-           echo "<label name = \"answers[]\">".$number[$x]."</label>"
-           echo "<label name = \"answers[]\">".$questions[$x]."</label>"
-           echo "<label name = \"answers[]\">".$answers[$x]."</label>"
+           echo "<label name = \"answers[]\">".$number[$x]."</label>";
+           echo "<label name = \"answers[]\">".$questions[$x]."</label>";
+           echo "<label name = \"answers[]\">".$answers[$x]."</label>";
 
           echo "<input type = \"hidden\" value = \"".$answers[$x]."\" name = \"answers[]\">";
           echo "<input type = \"hidden\" value = \"".$name."\" name = \"name\">";
