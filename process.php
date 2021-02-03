@@ -2,7 +2,7 @@
   include 'db.php';
   $username = $_POST['user'];
   $password = $_POST['pass'];
-//  $buttonvalue= $_POST['btn'];
+//  $buttonvalue= $_POST['bttn'];
 
 //  if ($buttonvalue == signup) {
     // code...
