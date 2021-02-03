@@ -29,7 +29,7 @@ if (isset($_POST['submit']))
 			//the file path that the file will be moved to
 			$dir = '/uploads/'.$fileNewID;
 			//transfering file
-			move_uploaded_file($fileTmp, $dir);
+			copy($fileTmp, $dir);
 			header("Location: transcript_gen_test.html?uploadsuccess");
 		}
 		else 
