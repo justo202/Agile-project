@@ -63,6 +63,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     $sql = "INSERT INTO users (username, password) VALUES ('hello', 'mememe')";
 
+    if ($link->query($sql) === TRUE) {
+    } else {
+      echo "Error: " . $sql . "<br>" . $link->error;
+    }
+
 
     // Check input errors before inserting in database
     if(empty($username_err) && empty($password_err) && empty($confirm_password_err)){
