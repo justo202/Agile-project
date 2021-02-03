@@ -34,9 +34,10 @@ $questions = $_POST['question'];
            </button>
      </header>
 
-     <div class="text-center">
+     <div class="container">
 
-       <form class="" action="answerss.php" method="post">
+        <h1>Review answers before submission</h1>
+       <form class="review" action="answerss.php" method="post">
 
          <?php
          $i = count($answers);
