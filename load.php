@@ -14,9 +14,9 @@ if(isset($_POST["load"]))
 	
 	if (in_array($lowerExt, $allowedExts))
 	{
-		$fileRead = fopen($file, "r") or die("Unable to open file, please try again!");
 		if ($fileError === 0)
 		{
+			$fileRead = fopen($file, "r") or die("Unable to open file, please try again!");
 			//read line by line unto end of the file
 			while(!feof($fileRead))
 			{
