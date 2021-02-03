@@ -15,7 +15,7 @@ $questions = $_POST['question'];
 
      <!-- Style Links -->
      <link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css">
-     <link rel="stylesheet" href="LoginStyle.css">
+     <link rel="stylesheet" href="form.css">
 
    </head>
 
