@@ -2,7 +2,7 @@
 
 session_start();
 if(isset($_SESSION["loggedin"])&&$_SESSION["loggedin"]==true){
-    header( "refresh:3;url=https://agile-project.azurewebsites.net/home.php" );
+    header("location: home.php");
     exit;
 }
 
@@ -10,18 +10,18 @@ if(isset($_SESSION["loggedin"])&&$_SESSION["loggedin"]==true){
 // Include config file
 require_once "db.php";
 
-$email = $password = "";
-$email_err = $password_err = "";
+$username = $password = "";
+$username_err = $password_err = "";
 
 // Processing form data when form is submitted
 if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     // Validate email
-    if(empty(trim($_POST["email"]))){
-        $email_err = "Please enter your email.";
+    if(empty(trim($_POST["username"]))){
+        $username_err = "Please enter your username.";
     }else
     {
-        $email = trim($_POST["email"]);
+        $username = trim($_POST["username"]);
     }
 
     // Validate password
@@ -32,22 +32,22 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     }
 
     // Check input errors before inserting in database
-    if(empty($email_err) && empty($password_err)){
+    if(empty($username_err) && empty($password_err)){
 
         // Prepare an Select statement
-        $sql = "SELECT Username, Password FROM user";
+        $sql = "SELECT id, username, password FROM users WHERE username = :username";
 
         if($stmt = $mysql->prepare($sql)){
             // Bind variables to the prepared statement as parameters
-            $stmt->bindParam(":email", $param_email, PDO::PARAM_STR);
+            $stmt->bindParam(":username", $param_username, PDO::PARAM_STR);
             // Set parameters
-            $param_email = $email;
+            $param_username = $username;
             // Attempt to execute the prepared statement
             if($stmt->execute()){
                 if ($stmt->rowCount()==1) {
                     if ($row = $stmt->fetch()) {
-                        $id = $row["ID"];
-                        $email = $row["email"];
+                        $id = $row["id"];
+                        $username = $row["username"];
                         $hashed_password = $row["password"];
                         //if password matches start the session
                         if ($password == $hashed_password) {
@@ -55,15 +55,15 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             //store data in session variables
                             $_SESSION["loggedin"] = true;
                             $_SESSION["id"] = $id;
-                            $_SESSION["email"] = $email;
+                            $_SESSION["username"] = $username;
 
-                            header( "refresh:3;url=https://agile-project.azurewebsites.net/home.php" );
+                            header("location: home.php");
                         }else{
                             $password_err = "The password you entered was not valid";
                         }
                     }
                 }else{
-                    $email_err = "No account found with that username" ;
+                    $username_err = "No account found with that username" ;
                 }
             } else{
                 echo "Something went wrong. Please try again later.";
@@ -77,6 +77,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     unset($mysql);
 }
 ?>
+
+
 
 <!doctype html>
 <html lang="en">
