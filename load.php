@@ -1,9 +1,9 @@
 <?php
 if(isset($_POST["load"]))
 {
-	$file = $_FILES["load"]["name"];
-	$fileError = $_FILES["load"]["error"];
-	$fileType = $_FILES["load"]["type"];
+	$file = $_FILES["loadfile"]["name"];
+	$fileError = $_FILES["loadfile"]["error"];
+	$fileType = $_FILES["loadfile"]["type"];
 	
 	//seperate '.' from txt and file name 
 	$extension = explode(".", $file);
@@ -28,6 +28,10 @@ if(isset($_POST["load"]))
 		}
 		fclose($fileRead);
 		header("Location: transcript_gen_test.html?loadsuccessful");
+	}
+	else
+	{	
+		echo "Invalid file type, please ensure its a txt file.";
 	}
 }
 
