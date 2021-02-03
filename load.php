@@ -2,7 +2,7 @@
 if(isset($_POST['load']))
 {
 	$test = $_FILES['loadfile'];
-	print_r($test)
+	print_r($test);
 	$file = $_FILES['loadfile']['name'];
 	$fileError = $_FILES['loadfile']['error'];
 	$fileType = $_FILES['loadfile']['type'];
