@@ -30,7 +30,7 @@ if (isset($_POST['submit']))
 			$dir = 'uploads/'.$fileNewID;
 			//transfering file
 			move_uploaded_file($fileTmp, $dir);
-			if (is_uploaded_file (Realpath($dir)))
+			if (is_uploaded_file ($dir))
 			{
 				header("Location: transcript_gen_test.html?uploadsuccess");
 			}
