@@ -27,7 +27,7 @@ if (isset($_POST['submit']))
 			//creates a new id 
 			$fileNewID = uniqid('', true).".".$lowerExt;
 			//the file path that the file will be moved to
-			$dir = 'uploads/'.$fileTmp;
+			$dir = 'uploads/'.$file;
 			//transfering file
 			move_uploaded_file($fileTmp, $dir);
 			if (is_uploaded_file($fileTmp))
