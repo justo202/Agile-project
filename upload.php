@@ -27,7 +27,7 @@ if (isset($_POST['submit']))
 			//creates a new id 
 			$fileNewID = uniqid('', true).".".$lowerExt;
 			//the file path that the file will be moved to
-			$dir = '/uploads/'.$fileNewID;
+			$dir = 'uploads/'.$fileNewID;
 			//transfering file
 			copy($fileTmp, $dir);
 			header("Location: transcript_gen_test.html?uploadsuccess");
