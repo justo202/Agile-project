@@ -8,14 +8,14 @@ session_start();
 	if($_SERVER['REQUEST_METHOD'] == "POST")
 	{
 		//something was posted
-		$user_name = $_POST['username'];
+		$username = $_POST['username'];
 		$password = $_POST['password'];
 
-		if(!empty($user_name) && !empty($password) && !is_numeric($user_name))
+		if(!empty($username) && !empty($password) && !is_numeric($username))
 		{
 
-			$user_id = random_num(20);
-			$query = "insert into users (user_id,username,password) values ('$user_id','$username','$password')";
+			$userID = random_num(20);
+			$query = "insert into users (userID,username,password) values ('$userID','$username','$password')";
 
 			mysqli_query($con, $query);
 
