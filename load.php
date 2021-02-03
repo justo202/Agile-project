@@ -22,10 +22,12 @@ if(isset($_POST['load']))
 			//read line by line unto end of the file
 			while(!feof($fileRead))
 			{
-				echo fgets($fileRead) . "<br>";
+				$text = fgets($fileRead);
+				print $text . "<br>";
 			}		
 			fclose($fileRead);
-			header("Location: transcript_gen_test.html?loadsuccessful");
+			
+			//header("Location: transcript_gen_test.html?loadsuccessful");
 		}
 		else
 		{
