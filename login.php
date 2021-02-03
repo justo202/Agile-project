@@ -26,7 +26,7 @@ session_start();
 
 					$user_data = mysqli_fetch_assoc($result);
 
-					if($user_data['password'] === $password)
+					if($user_data['password'] == $password)
 					{
 
 						$_SESSION['userID'] = $user_data['userID'];
