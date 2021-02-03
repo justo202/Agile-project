@@ -12,23 +12,23 @@ if(isset($_POST["load"]))
 	
 	$allowedExts = array("txt", "text/plain");
 	
-	if (in_array($lowerExt, $allowedExts));
+	if (in_array($lowerExt, $allowedExts))
 	{
 		$fileRead = fopen($file, "r") or die("Unable to open file, please try again!");
-			if ($fileError === 0)
+		if ($fileError === 0)
+		{
+			//read line by line unto end of the file
+			while(!feof($fileRead))
 			{
-				//read line by line unto end of the file
-				while(!feof($fileRead))
-				{
-					echo fgets($fileRead) . "<br>";
-				}		
-				fclose($fileRead);
-				header("Location: transcript_gen_test.html?loadsuccessful");
-			}
-			else
-			{
-				echo "Sorry there was an issue reading from file.";
-			}
+				echo fgets($fileRead) . "<br>";
+			}		
+			fclose($fileRead);
+			header("Location: transcript_gen_test.html?loadsuccessful");
+		}
+		else
+		{
+			echo "Sorry there was an issue reading from file.";
+		}
 	}
 	else
 	{	
