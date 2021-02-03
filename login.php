@@ -30,7 +30,7 @@ session_start();
 					{
 
 						$_SESSION['userID'] = $user_data['userID'];
-						header("Location: home.php");
+						header("Location: https://agile-project.azurewebsites.net/home.php");
 						die;
 					}
 				}

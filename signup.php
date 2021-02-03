@@ -19,7 +19,7 @@ session_start();
 
 			mysqli_query($con, $query);
 
-			header("Location: login.php");
+			header("Location: https://agile-project.azurewebsites.net/login.php");
 			die;
 		}else
 		{
