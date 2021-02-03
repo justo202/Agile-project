@@ -2,7 +2,7 @@
 if(isset($_POST['load']))
 {
 	$test = $_FILES['loadfile'];
-	print_r($test);
+
 	$file = $_FILES['loadfile']['name'];
 	$fileError = $_FILES['loadfile']['error'];
 	$fileType = $_FILES['loadfile']['type'];
@@ -13,7 +13,7 @@ if(isset($_POST['load']))
 	$lowerExt = strtolower(end($extension));
 	
 	$allowedExts = array('txt', 'text/plain');
-	/*
+	
 	if (in_array($lowerExt, $allowedExts))
 	{
 		if ($fileError === 0)
@@ -36,7 +36,7 @@ if(isset($_POST['load']))
 	{	
 		echo "Invalid file type, please ensure its a txt file.";
 	}
-	*/
+
 }
 
 ?>
