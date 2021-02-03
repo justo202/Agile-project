@@ -1,6 +1,6 @@
 <?php
 
-$dbhost = "localhost";
+$dbhost = "https://agile-project.azurewebsites.net";
 $dbuser = "root";
 $dbpass = "";
 $dbname = "localdb";
