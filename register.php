@@ -1,6 +1,7 @@
 <?php
 // Include config file
-include("db.php");
+require_once "db.php";
+
 // Define variables and initialize with empty values
 $username = $password = $confirm_password = "";
 $username_err = $password_err = $confirm_password_err = "";
@@ -62,7 +63,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     // Check input errors before inserting in database
     if(empty($username_err) && empty($password_err) && empty($confirm_password_err)){
-      //echo "Something happened ahuidsabnfjkñsa";
+
         // Prepare an insert statement
         $sql = "INSERT INTO users (username, password) VALUES (?, ?)";
 
