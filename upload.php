@@ -5,7 +5,7 @@ if (isset($_POST['submit']))
 	$test = $_FILES['file'];
 	//the file to be uploaded
 	$file = $_FILES['file']['name'];
-	//file tmp name when uploading
+	//file tmp location when uploading
 	$fileTmp = $_FILES['file']['tmp_name'];
 	$fileType = $_FILES['file']['type'];
 	//for any errors when uploading
@@ -16,7 +16,7 @@ if (isset($_POST['submit']))
 	//convert the txt to lowercase if needed
 	$lowerExt = strtolower(end($extension));
 	
-	$allowedExts = array('txt', 'text/plain');
+	$allowedExts = array('txt', 'text/plain', 'jpg', 'jpeg');
 	
 	
 	//if file is '.txt' and there is not an error then upload file
