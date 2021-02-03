@@ -30,7 +30,15 @@ if (isset($_POST['submit']))
 			$dir = 'uploads/'.$fileNewID;
 			//transfering file
 			move_uploaded_file($fileTmp, $dir);
-			header("Location: transcript_gen_test.html?uploadsuccess");
+			if (is_uploaded_file($fileTmp));
+			{
+				header("Location: transcript_gen_test.html?uploadsuccess");
+			}
+			else
+			{
+				echo "Sorry there was an issue uploading your file, please try again.";
+			}
+		
 		}
 		else 
 		{
