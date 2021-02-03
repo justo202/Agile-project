@@ -37,21 +37,23 @@ $questions = $_POST['question'];
      <div class="container">
 
         <h1>Review answers before submission</h1>
-       <form class="review" action="answerss.php" method="post">
+       <form action="answerss.php" method="post">
+         <div class="review">
+           <?php
+           $i = count($answers);
+           for($x = 0; $x < $i;$x++)
+           {
+             echo "<h4>".$number[$x]." ".$questions[$x]."</h4>";
+             echo "<p>".$answers[$x]."</p>";
 
-         <?php
-         $i = count($answers);
-         for($x = 0; $x < $i;$x++)
-         {
-           echo "<h4>".$number[$x]." ".$questions[$x]."</h4>";
-           echo "<p>".$answers[$x]."</p>";
+            echo "<input type = \"hidden\" value = \"".$answers[$x]."\" name = \"answers[]\">";
+            echo "<input type = \"hidden\" value = \"".$name."\" name = \"name\">";
+            echo "<input type = \"hidden\" value = \"".$num[$x]."\" name = \"num[]\">";
+           }
 
-          echo "<input type = \"hidden\" value = \"".$answers[$x]."\" name = \"answers[]\">";
-          echo "<input type = \"hidden\" value = \"".$name."\" name = \"name\">";
-          echo "<input type = \"hidden\" value = \"".$num[$x]."\" name = \"num[]\">";
-         }
+            ?>
+         </div>
 
-          ?>
 
           <input class = "btn btn-info" type="submit" name="button" id = "submitbtn" value = "Submit"></input>
        </form>
