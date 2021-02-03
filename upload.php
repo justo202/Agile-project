@@ -29,7 +29,7 @@ if (isset($_POST["submit"]))
 			$dir = "Uploads/".$fileNewID;
 			//transfering file
 			move_uploaded_file($fileTmp, $dir);
-			header("Location: Transcripts.php?uploadsuccess");
+			header("Location: transcript_gen_html.php?uploadsuccess");
 		}
 		else 
 		{
