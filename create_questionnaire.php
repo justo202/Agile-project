@@ -91,6 +91,7 @@
             if(strcmp($options_array[$x], "openQ") == 0)
             {
                 $type = "open";
+                echo $type;
                 $add_question_sql->bind_param("ssiss", $questions_array[$x], $questionnaire_name, $x, $type, null);
             }
             else{
