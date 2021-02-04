@@ -40,14 +40,16 @@
         <div id="transcript_box">
           <div class="transcript_options">
 			<!-- Load transcript --> 
-			 <form class="transcript" action="load.php" method="POST">
-			 <input type ="file" name ="load">Import Existing Transcript</button>
+			 <form class="transcript" action="load.php" method="POST" enctype ="multipart/form-data">
+			 <input type ="file" name ="loadfile"/>
+			 <input type ="submit" name="load" value="Load"/>
 			 </form>
             <!-- <br> -->
             <button id="create_transcript">Create New Transcript</button>
           </div>
 		  <!-- Upload transcript -->
           <form class="transcript" action="upload.php" method="POST" enctype ="multipart/form-data">
+		  <input type ="file" name="file"/>
 		  <input type = "submit" name = "submit" value = "upload"/>
             <textarea id="transcript" name="transcript" rows="14"></textarea>
           </form>

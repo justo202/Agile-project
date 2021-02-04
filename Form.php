@@ -34,7 +34,7 @@
       <h1 class="mt-5"><?php echo $_GET['survey']; ?></h1>
       <p class="lead">Please fill out all answers</p>
 
-        <form class="" action="answerss.php" method="post">
+        <form class="" action="form_review.php" method="post">
 
           <?php
           $name = $_GET['survey'];
@@ -47,7 +47,7 @@
 
                           echo "<div class=\"form-group\">";
                           echo "<label>Question " . $val++ . ": " . $row['Question'] . "</label>";
-
+                          echo "<input type = \"hidden\" value = \"".$row['Question']."\" name = \"question[]\">";
 
 
                   if(strval($row['Question_Type']) == "open")

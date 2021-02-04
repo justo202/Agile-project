@@ -1,21 +1,22 @@
 <?php
 //run when submit butten is clicked
-if (isset($_POST["submit"]))
+if (isset($_POST['submit']))
 {
-	$test = $_FILES["file"];
+	$test = $_FILES['file'];
 	//the file to be uploaded
-	$file = $_FILES["file"]["name"];
-	//file tmp name when uploading
-	$fileTmp = $_FILES["file"]["tmp_name"];
-	$fileType = $_FILES["file"]["type"];
+	$file = $_FILES['file']['name'];
+	//file tmp location when uploading
+	$fileTmp = $_FILES['file']['tmp_name'];
+	$fileType = $_FILES['file']['type'];
 	//for any errors when uploading
-	$fileError = $_FILES["file"]["error"];
+	$fileError = $_FILES['file']['error'];
 	
 	//seperate '.' from txt and file name 
-	$extension = explode(".", $file);
+	$extension = explode('.', $file);
 	//convert the txt to lowercase if needed
 	$lowerExt = strtolower(end($extension));
-	$allowedExts = array("txt", "text/plain");
+	
+	$allowedExts = array('txt', 'text/plain', 'jpg', 'jpeg');
 	
 	
 	//if file is '.txt' and there is not an error then upload file
@@ -24,12 +25,20 @@ if (isset($_POST["submit"]))
 		if ($fileError === 0)
 		{
 			//creates a new id 
-			$fileNewID = uniqid("", true).".".$lowerExt;
+			$fileNewID = uniqid('', true).".".$lowerExt;
 			//the file path that the file will be moved to
-			$dir = "Uploads/".$fileNewID;
+			$dir = 'uploads/'.$fileNewID;
 			//transfering file
 			move_uploaded_file($fileTmp, $dir);
-			header("Location: Transcripts.php?uploadsuccess");
+			if (is_uploaded_file ($fileTmp))
+			{
+				header("Location: transcript_gen_test.html?uploadsuccess");
+			}
+			else
+			{
+				echo "Sorry there was an issue uploading your file, please try again.";
+			}
+		
 		}
 		else 
 		{
