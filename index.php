@@ -73,7 +73,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     //validate role
     if(empty(trim($_POST["role"]))){
         $role_err = "Please enter a role.";
-    } elseif(trim($_POST["role"]) != "1" || trim($_POST["role"]) != "2"){
+    } elseif((trim($_POST["role"]) != "1") || (trim($_POST["role"]) != "2")){
         $role_err = "Select a valid role number.";
     } else{
         $role = trim($_POST["role"]);
