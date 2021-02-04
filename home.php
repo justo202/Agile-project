@@ -5,6 +5,10 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     header("location: login.php");
     exit;
 }
+
+echo '<pre>';
+var_dump($_SESSION);
+echo '</pre>';
 /*elseif (!isset($_SESSION["role"]) || $_SESSION["role"] !== 1) {
   header("location: participant_home.php");
   exit;
