@@ -1,4 +1,20 @@
+<?php
+session_start();
+// Check if the user is logged in, if not then redirect him to login page
+if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
+    header("location: login.php");
+    exit;
+}
 
+echo '<pre>';
+var_dump($_SESSION);
+echo '</pre>';
+
+//This code works
+if ($_SESSION["role"] != 2) {
+  header("location: home.php");
+  exit;
+}
 
 <!doctype html>
 <html lang="en">
