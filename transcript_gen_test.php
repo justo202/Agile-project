@@ -41,23 +41,22 @@
           <div class="transcript_options">
 		  
 			<!-- Load transcript --> 
-			 <form class="transcript" method="POST" enctype ="multipart/form-data">
-			 <input type ="file" name ="loadfile"/>
-			 <input type ="submit" name="load" value="Load"/>
-			 </form>
-			 
-			 <?php
+			
+			<?php
 			 
 			 function Read()
 			 {
-			 
+			 //once load is clicked
 			 if(isset($_POST['load']))
 			 {
 				$test = $_FILES['loadfile'];
-
+				//file properities - name
 				$file = $_FILES['loadfile']['name'];
+				//file properities - error handeling
 				$fileError = $_FILES['loadfile']['error'];
+				//file properities - type
 				$fileType = $_FILES['loadfile']['type'];
+				//file properities - tmp location
 				$fileTmp = $_FILES['loadfile']['tmp_name'];
 	
 				//seperate '.' from txt and file name 
@@ -66,7 +65,8 @@
 				$lowerExt = strtolower(end($extension));
 	
 				$allowedExts = array('txt', 'text/plain');
-	
+				
+				//if file is a text then read
 				if (in_array($lowerExt, $allowedExts))
 				{
 					if ($fileError === 0)
@@ -91,21 +91,16 @@
 			 
 			 
 			?>
-			 
-			 
-			 
-			 
-			 
-			 
-			 
-			 
-			 
-			 
+			 <form class="transcript" method="POST" enctype ="multipart/form-data">
+			 <input type ="file" name ="loadfile"/>
+			 <input type ="submit" name="load" value="Load"/>
+			 <textarea id="transcript" name="transcript"><?php Read(); ?></textarea> 
+			 </form>
 			 
             <!-- <br> -->
             <button id="create_transcript">Create New Transcript</button>
           </div>
-            <textarea id="transcript" name="transcript" rows="14"><?php Read(); ?></textarea>
+            <textarea id="transcript" name="transcript" rows="14"></textarea>
         
           <div class="">
             <button id="save_transcript" type="submit">Save Transcript</button>
