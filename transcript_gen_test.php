@@ -71,7 +71,7 @@
 				{
 					if ($fileError === 0)
 					{
-						echo file_get_contents($fileTmp);
+						echo file_get_contents($file);
 			
 						//header("Location: transcript_gen_test.html?loadsuccessful");
 					}
@@ -87,10 +87,8 @@
 
 			 }
 			 }
-			
-			 
-			 
 			?>
+			
 			 <form class="transcript" method="POST" enctype ="multipart/form-data">
 			 <input type ="file" name ="loadfile"/>
 			 <input type ="submit" name="load" value="Load"/>
