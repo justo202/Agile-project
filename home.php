@@ -9,15 +9,11 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 echo '<pre>';
 var_dump($_SESSION);
 echo '</pre>';
-/*elseif (!isset($_SESSION["role"]) || $_SESSION["role"] !== 1) {
-  header("location: participant_home.php");
-  exit;
-}*/
 
-if ($_SESSION["role"] != 2) {
+/*if ($_SESSION["role"] != 2) {
   header("location: Form.php");
   exit;
-}
+}*/
 
 ?>
 
