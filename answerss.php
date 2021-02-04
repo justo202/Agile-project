@@ -5,6 +5,7 @@ include 'db.php';
 $answers = $_POST['answers'];
 $name = $_POST['name'];
 $number = $_POST['num'];
+$user = $_SESSION["username"];
 $i = 0;
 foreach($answers as $answer)
 {
@@ -15,6 +16,11 @@ foreach($answers as $answer)
   echo "Error: " . $sql . "<br>" . $link->error;
 }
   $i++;
+}
+ $sqlanswer = "INSERT INTO `completed_questionnaires`(`Questionnaire_Name`, `Username`) VALUES ($name,$user)";
+ if ($link->query($sqlanswer) === TRUE) {
+} else {
+ echo "Error: " . $sqlanswer . "<br>" . $link->error;
 }
 mysqli_close($link);
  ?>
