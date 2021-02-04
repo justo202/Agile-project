@@ -6,17 +6,21 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     exit;
 }
 
-if (!isset($_SESSION["role"]) || $_SESSION["role"] != 2) {
-  header("location: index.php");
+echo '<pre>';
+var_dump($_SESSION);
+echo '</pre>';
+
+//This code works
+if ($_SESSION["role"] != 2) {
+  header("location: home.php");
   exit;
 }
 
 ?>
-
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Home</title>
+    <title>Participant Home</title>
     <!-- Style Links -->
     <link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css">
   </head>
@@ -26,7 +30,7 @@ if (!isset($_SESSION["role"]) || $_SESSION["role"] != 2) {
     ?>
     <header>
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="home.php">Home</a>
+        <a class="navbar-brand" href="participants.php">Home</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -46,10 +50,6 @@ if (!isset($_SESSION["role"]) || $_SESSION["role"] != 2) {
           <h1 class="jumbotron-heading">Dundee University Questionnaires</h1>
           <p class="lead text-muted">place holder</p>
           <img class="mb-4" src="logo.png" alt="" width="100" height="100"><br>
-          <p>
-            <a href="CreateForm.html" class="btn btn-primary my-2">Create Survey</a>
-            <a href="Answers.html" class="btn btn-secondary my-2">Questionnaire Insights</a>
-          </p>
         </div>
       </section>
       <div class="album py-5 bg-light">
