@@ -76,7 +76,7 @@
 							while(!feof($fileRead))
 							{
 								$text = fgets($fileRead);
-								print $text . "<br>";
+								print $text . "\n";
 							}		
 							fclose($fileRead);
 			
