@@ -86,12 +86,17 @@
             //Store the sql statement in variable $add_question_sql
             $add_question_sql = $link->prepare("INSERT INTO questions VALUES (?, ?, ?, ?, ?)");
 
-            echo strcmp($options_array[$x], "openQ");
-
             if(strcmp($options_array[$x], "openQ") == 0)
             {
                 $type = "open";
                 $options = null;
+
+                echo $questions_array[$x];
+                echo $questionnaire_name;
+                echo $x;
+                echo $type;
+                echo $options;
+
                 $add_question_sql->bind_param("ssiss", $questions_array[$x], $questionnaire_name, $x, $type, $options);
             }
             else{
