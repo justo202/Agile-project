@@ -110,7 +110,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
   <div class="text-center">
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" class="form-signin">
           <img class="mb-4" src="logo.png" alt="" width="72" height="72">
-          <h1 class="h3 mb-3 font-weight-normal">Please Sign In</h1>
+          <h1 class="h3 mb-3 font-weight-normal">Please Sign Up</h1>
             <div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
               <label for="inputUsername" class="sr-only">Username</label>
                 <input type="text" name="username" class="form-control" placeholder="Username" required autofocus value="<?php echo $username; ?>">
