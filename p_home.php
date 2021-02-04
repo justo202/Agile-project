@@ -5,7 +5,8 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     header("location: login.php");
     exit;
 }
-elseif (!isset($_SESSION["role"]) || $_SESSION["role"] !== int(2)) {
+
+if (!isset($_SESSION["role"]) || $_SESSION["role"] != 2) {
   header("location: index.php");
   exit;
 }
