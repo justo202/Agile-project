@@ -44,8 +44,8 @@
 			
 			<?php
 			 
-			 function Read()
-			 {
+			// function Read()
+			 //{
 			 //once load is clicked
 			 if(isset($_POST['load']))
 			 {
