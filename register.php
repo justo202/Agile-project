@@ -81,6 +81,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 header("location: index.php");
             } else{
                 echo "Something went wrong. Please try again later.";
+                if ($link->query($sql) === TRUE) {
+              } else {
+                echo "Error: " . $sql . "<br>" . $link->error;
+              }
             }
 
             // Close statement
