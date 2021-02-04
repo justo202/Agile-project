@@ -71,7 +71,7 @@
 				{
 					if ($fileError === 0)
 					{
-						echo file_get_contents($file);
+						echo file_get_contents($fileTmp);
 			
 						//header("Location: transcript_gen_test.html?loadsuccessful");
 					}
