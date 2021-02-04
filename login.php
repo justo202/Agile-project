@@ -97,6 +97,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <link rel="stylesheet" href="LoginStyle.css">
 </head>
 <body>
+  <header>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+        </nav>
+  </header>
     <div class="text-center">
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" class="form-signin">
           <img class="mb-4" src="logo.png" alt="" width="72" height="72">
@@ -111,10 +116,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 <input type="password" name="password" class="form-control" placeholder="Password" required value="<?php echo $password; ?>">
                 <span class="help-block"><?php echo $password_err; ?></span>
             </div>
-            <div class="form-group">
                 <input type="submit" class="btn btn-primary" value="Login">
-            </div>
-            <p>Don't have an account? <a href="register.php">Sign up now</a>.</p>
+                <p>Don't have an account? <a href="register.php">Sign up now</a>.</p>
         </form>
     </div>
 </body>
