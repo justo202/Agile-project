@@ -17,7 +17,7 @@ foreach($answers as $answer)
 }
   $i++;
 }
- $sqlanswer = "INSERT INTO `completed_questionnaires`(`Questionnaire_Name`, `Username`) VALUES ($name,$user)";
+ $sqlanswer = "INSERT INTO `completed_questionnaires`(`Questionnaire_Name`, `Username`) VALUES ('$name','$user')";
  if ($link->query($sqlanswer) === TRUE) {
 } else {
  echo "Error: " . $sqlanswer . "<br>" . $link->error;
