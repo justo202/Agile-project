@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Ethics Form</title>
+    </head>
+
+    <body>
+        <form id="SectionA">
+            <label>Section A: Definition of Research</label><br>
+            <label>A1. Is your project research?</label>
+            <label>Yes</label>
+            <input type="checkbox" id="A1yes" value="yes"><br><br>
+        </form>
+
+        <div style="display: block;" id="notSectionB">
+            <p>If NO please see guidance on requirements for registering and approval of clinical audit and service evaluation projects with NHS Tayside Clinical Governance.</p>
+        </div>
+
+        <form style="display: none" id="SectionB">
+            <label>Section B: Collection and Analysis of Data From or About Human Beings</label><br>
+            <label>B1. Does the project involve collecting primary data from, or about, living human beings (this includes data collected via interviews, surveys, social media or any other data containing identifiable information including the completion of consent forms)?</label>
+            <label>Yes</label>
+            <input type="checkbox" id="B1yes" value="yes"><br>
+
+            <label>B2. Does the project involve analysing primary or unpublished data from, or about, living human beings?</label>
+            <label>Yes</label>
+            <input type="checkbox" id="B2yes" value="yes"><br>
+
+            <label>B3. Does the project involve collecting or analysing primary or unpublished data about people who have recently died, other than data that are already publicly available?</label>
+            <label>Yes</label>
+            <input type="checkbox" id="B3yes" value="yes"><br>
+
+            <label>B4. Does the project involve collecting or analysing primary or unpublished data about or from organisations or agencies of any kind, other than data that are already publicly available?</label>
+            <label>Yes</label>
+            <input type="checkbox" id="B4yes" value="yes"><br><br>
+
+            <div style="display: block;" id="notSectionC">
+                <p>If you answered NO to ALL of the questions you will not require formal ethical approval.</br>
+                    If your project does not require ethical approval, and you wish to publish your findings, you may still wish to seek approval from the relevant SREC in order to meet journal requirements. If so, please proceed to Checklist 2.</p>
+            </div>
+        </form>
+
+        
+
+        <form style="display: none;" id="SectionC">
+            <label>Section C: Healthcare or Social Care Research ‘In or Through the NHS’</label><br>
+            <label>C1. Does the project involve patients, their carers or volunteers in the NHS (in hospital, General Practitioners, community care)?</label>
+            <label>Yes</label>
+            <input type="checkbox" class="C1-8" id="C1yes" value="yes"><br>
+
+            <label>C2. Does the project involve the investigation of the safety or efficacy of a medicine, foodstuff, medical device or placebo in humans?</label>
+            <label>Yes</label>
+            <input type="checkbox" class="C1-8" id="C2yes" value="yes"><br>
+
+            <label>C3. Does the project involve access to collections of patient data?</label>
+            <label>Yes</label>
+            <input type="checkbox"  class="C1-8"id="C3yes" value="yes"><br>
+
+            <label>C4. Does the project involve use of any NHS resources including staff time, clinical support services (e.g. biochemistry, haematology) or NHS facilities (e.g. consulting rooms)?</label>
+            <label>Yes</label>
+            <input type="checkbox" class="C1-8" id="C4yes" value="yes"><br>
+
+            <label>C5. Does the project involve research within prisons?</label>
+            <label>Yes</label>
+            <input type="checkbox" class="C1-8" id="C5yes" value="yes"><br>
+
+            <label>C6. Does the project involve adults (aged 16 or over) with incapacity (i.e. lack of capacity to make decisions for themselves)?</label>
+            <label>Yes</label>
+            <input type="checkbox" class="C1-8" id="C6yes" value="yes"><br>
+
+            <label>C7. Does the project involve social care research with NHS patients or a mix of NHS patients and social care users?</label>
+            <label>Yes</label>
+            <input type="checkbox" class="C1-8" id="C7yes" value="yes"><br>
+
+            <label>C8. Does the project involve the use of tissue for genetic analysis/diagnosis or a therapeutic purpose (e.g. the use of DNA for analysis or RNA when used to provide information about DNA for research (section 45, Human Tissue Act))?</label>
+            <label>Yes</label>
+            <input type="checkbox" class="C1-8" id="C8yes" value="yes"><br>
+
+            <label>C9. Will the project use anonymised tissue and associated data from NHS patients that is surplus to diagnostic and surgical requirements and will be obtained from a tissue bank (e.g. Tayside Biorepository)?</label>
+            <label>Yes</label>
+            <input type="checkbox" id="C9yes" value="yes"><br>
+
+            <div style="display: block;" id="answeredNoToSectionC">
+                <p>If you answered NO to ALL questions in section C please proceed to Checklist 2 as you will require approval from a School SREC.</p></br>
+                <input type="button" onclick="checklist2()" value="Checklist 2">
+            </div>
+        </form>
+
+        <div style="display: none;" id="yesToSectionC">
+            <p>If you answered YES to ANY of the questions C1 – C8 above your project is likely to require NHS REC approval or may fall under other approval schemes (e.g., Caldicott Guardian).
+                <br> You must therefore contact the Tayside Medical Science Centre (TASC) Research Governance Office (TASCgovernance@dundee.ac.uk) for advice. TASC will advise if the project should be designated as healthcare research and which research approvals are required.</p>
+        </div>
+
+        <div style="display: none;" id="yesToOnlyC9">
+            <p>If you ONLY answered YES to question C9, you should obtain ethical approval through the Tayside Biorepository (https://www.tissuebank.dundee.ac.uk/?page=contacts).</p>
+        </div>
+
+
+        <div style="display: none;" id="checklist2">
+            <label>CHECKLIST 2: Is your project ‘low’ or ‘medium’ or ‘high’ risk?</label><br>
+
+            <label>1. Will your research involve children under 16?</label>
+            <label>Yes</label>
+            <input type="checkbox" id="Q1yes" value="yes"><br><br>
+
+            <label>2. Will your research involve participants in unequal relationships in a context outside the research, (for example, participants who are in a subordinate relationship with the researcher(s) such as your own students or employees)? </label>
+            <label>Yes</label>
+            <input type="checkbox" id="Q2yes" value="yes"><br><br>
+
+            <label>3. Will your research involve vulnerable participants (for example, participants with learning or communication difficulties, disabilities, members of marginalised communities, people involved in illegal activities such as drug abuse)?</label>
+            <label>Yes</label>
+            <input type="checkbox" id="Q3yes" value="yes"><br><br>
+
+            <label>4. Will your research involve the use of tissue samples (including blood and biopsies from healthy volunteers) excluding use for genetic analysis only or tissue obtained from a tissue bank?</label>
+            <label>Yes</label>
+            <input type="checkbox" id="Q4yes" value="yes"><br><br>
+
+            <label>5. Is there a significant risk of physical discomfort or pain to participant?</label>
+            <label>Yes</label>
+            <input type="checkbox" id="Q5yes" value="yes"><br><br>
+
+            <label>6. Will the research involve working with any substances and/or equipment which may be considered hazardous?</label>
+            <label>Yes</label>
+            <input type="checkbox" id="Q6yes" value="yes"><br><br>
+
+            <label>7. Will the research involve psychological intervention?</label>
+            <label>Yes</label>
+            <input type="checkbox" id="Q7yes" value="yes"><br><br>
+
+            <label>8. Is there a significant risk of psychological or emotional distress to participants?</label>
+            <label>Yes</label>
+            <input type="checkbox" id="Q8yes" value="yes"><br><br>
+
+            <label>9. Is there a significant risk that participants may reveal previous, current or proposed illegal acts?</label>
+            <label>Yes</label>
+            <input type="checkbox" id="Q9yes" value="yes"><br><br>
+
+            <label>10. Will the study involve covert observation (i.e. participation without consent or knowledge at the time) and/or deception of any sort?</label>
+            <label>Yes</label>
+            <input type="checkbox" id="Q10yes" value="yes"><br><br>
+
+            <label>11. Will it be possible to link information or data back to individual participants in any way?</label>
+            <label>Yes</label>
+            <input type="checkbox" id="Q11yes" value="yes"><br><br>
+
+            <label>12. Will financial inducements or any other kind of inducements (other than reasonable compensation for time or small rewards such as vouchers) be offered to participants? </label>
+            <label>Yes</label>
+            <input type="checkbox" id="Q12yes" value="yes"><br><br>
+
+            <label>13. Will the study involve discussion of sensitive or potentially sensitive topics (e.g. sexual activity, drug use)?</label>
+            <label>Yes</label>
+            <input type="checkbox" id="Q13yes" value="yes"><br><br>
+
+            <label>14. Will the research involve access to data that requires permission from the appropriate authorities before use (e.g. data held by the police)?</label>
+            <label>Yes</label>
+            <input type="checkbox" id="Q14yes" value="yes"><br><br>
+
+            <label>15. Is there a risk that the safety of the researcher may be compromised (e.g. working in potentially dangerous situations such as lone working or working overseas)?</label>
+            <label>Yes</label>
+            <input type="checkbox" id="Q15yes" value="yes"><br><br>
+
+            <label>16. Will the research involve the collection and analysis of personal data revealing information on: racial or ethnic origin; political opinions; religious or philosophical beliefs; trade union membership; genetics, biometrics; health; sex life; or sexual orientation?</label>
+            <label>Yes</label>
+            <input type="checkbox" id="Q16yes" value="yes"><br><br>
+
+            <div style="display: block;" id="lowRisk">
+                <p>Please download <a href="Ethics Form A.pdf" download>FORM A</a>: Application for ethical approval for low risk projects</p>
+            </div>
+
+            <div style="display: none;" id="highRisk">
+                <p>Please download <a href="Ethics Form B.pdf" download>FORM B</a>: Application for ethical approval for medium/high risk projects</p>
+            </div>
+
+        </div>
+
+
+        <script>
+            function yesChecked(yesElId, secElId, notSecElId)
+            {
+                var yes = document.getElementById(yesElId).checked;
+                var sec = document.getElementById(secElId);
+                if(yes)
+                {
+                    sec.style.display = "block";
+                    document.getElementById(notSecElId).style.display = "none";
+                    if(document.getElementById("C9yes").checked)
+                    {
+                        document.getElementById("yesToOnlyC9").style.display = "none";
+                    }
+                }
+                else{
+                    sec.style.display = "none";
+                    document.getElementById(notSecElId).style.display = "block";
+                }
+            }
+
+            function checkC9()
+            {
+                var isChecked = document.getElementById("C9yes").checked;
+                var isC1to8Checked = false;
+
+                const C1to8 = document.querySelectorAll(".C1-8");
+                for (const question of C1to8)
+                {
+                    if(question.checked == true)
+                    {
+                        isC1to8Checked = true;
+                    }
+                }
+
+                if(isChecked && (!isC1to8Checked))
+                {
+                    document.getElementById("yesToOnlyC9").style.display = "block";
+                }
+            }
+
+            document.getElementById('A1yes').addEventListener('change', function(){ yesChecked('A1yes', 'SectionB', 'notSectionB');});  
+            document.getElementById('B1yes').addEventListener('change', function(){ yesChecked('B1yes', 'SectionC', 'notSectionC');});
+            document.getElementById('B2yes').addEventListener('change', function(){ yesChecked('B2yes', 'SectionC', 'notSectionC');});
+            document.getElementById('B3yes').addEventListener('change', function(){ yesChecked('B3yes', 'SectionC', 'notSectionC');});
+            document.getElementById('B4yes').addEventListener('change', function(){ yesChecked('B4yes', 'SectionC', 'notSectionC');});
+            document.getElementById('C1yes').addEventListener('change', function(){ yesChecked('C1yes', 'yesToSectionC', 'answeredNoToSectionC');});
+            document.getElementById('C2yes').addEventListener('change', function(){ yesChecked('C2yes', 'yesToSectionC', 'answeredNoToSectionC');});
+            document.getElementById('C3yes').addEventListener('change', function(){ yesChecked('C3yes', 'yesToSectionC', 'answeredNoToSectionC');});
+            document.getElementById('C4yes').addEventListener('change', function(){ yesChecked('C4yes', 'yesToSectionC', 'answeredNoToSectionC');});
+            document.getElementById('C5yes').addEventListener('change', function(){ yesChecked('C5yes', 'yesToSectionC', 'answeredNoToSectionC');});
+            document.getElementById('C6yes').addEventListener('change', function(){ yesChecked('C6yes', 'yesToSectionC', 'answeredNoToSectionC');});
+            document.getElementById('C7yes').addEventListener('change', function(){ yesChecked('C7yes', 'yesToSectionC', 'answeredNoToSectionC');});
+            document.getElementById('C8yes').addEventListener('change', function(){ yesChecked('C8yes', 'yesToSectionC', 'answeredNoToSectionC');});
+            document.getElementById('C9yes').addEventListener('change', function(){ checkC9();});
+
+            function checklist2()
+            {
+                document.getElementById("SectionA").style.display = "none";
+                document.getElementById("notSectionB").style.display = "none";
+                document.getElementById("SectionB").style.display = "none";
+                document.getElementById("SectionC").style.display = "none";
+                document.getElementById("answeredNoToSectionC").style.display = "none";
+                document.getElementById("checklist2").style.display = "block";
+            }
+
+            document.getElementById('Q1yes').addEventListener('change', function(){ yesChecked('Q1yes', 'highRisk', 'lowRisk');});
+            document.getElementById('Q2yes').addEventListener('change', function(){ yesChecked('Q2yes', 'highRisk', 'lowRisk');});
+            document.getElementById('Q3yes').addEventListener('change', function(){ yesChecked('Q3yes', 'highRisk', 'lowRisk');});
+            document.getElementById('Q4yes').addEventListener('change', function(){ yesChecked('Q4yes', 'highRisk', 'lowRisk');});
+            document.getElementById('Q5yes').addEventListener('change', function(){ yesChecked('Q5yes', 'highRisk', 'lowRisk');});
+            document.getElementById('Q6yes').addEventListener('change', function(){ yesChecked('Q6yes', 'highRisk', 'lowRisk');});
+            document.getElementById('Q7yes').addEventListener('change', function(){ yesChecked('Q7yes', 'highRisk', 'lowRisk');});
+            document.getElementById('Q8yes').addEventListener('change', function(){ yesChecked('Q8yes', 'highRisk', 'lowRisk');});
+            document.getElementById('Q9yes').addEventListener('change', function(){ yesChecked('Q9yes', 'highRisk', 'lowRisk');});
+            document.getElementById('Q10yes').addEventListener('change', function(){ yesChecked('Q10yes', 'highRisk', 'lowRisk');});
+            document.getElementById('Q11yes').addEventListener('change', function(){ yesChecked('Q11yes', 'highRisk', 'lowRisk');});
+            document.getElementById('Q12yes').addEventListener('change', function(){ yesChecked('Q12yes', 'highRisk', 'lowRisk');});
+            document.getElementById('Q13yes').addEventListener('change', function(){ yesChecked('Q13yes', 'highRisk', 'lowRisk');});
+            document.getElementById('Q14yes').addEventListener('change', function(){ yesChecked('Q14yes', 'highRisk', 'lowRisk');});
+            document.getElementById('Q15yes').addEventListener('change', function(){ yesChecked('Q15yes', 'highRisk', 'lowRisk');});
+            document.getElementById('Q16yes').addEventListener('change', function(){ yesChecked('Q16yes', 'highRisk', 'lowRisk');});
+
+
+        </script>
+    </body>
+</html>
