@@ -13,7 +13,7 @@
         </form>
 
         <div style="display: block;" id="notSectionB">
-            <p>If NO please see guidance on requirements for registering and approval of clinical audit and service evaluation projects with NHS Tayside Clinical Governance.</p>
+            <p>If NO please see <href="https://www.dundee.ac.uk/media/dundeewebsite/ethics/documents/Non-Clinical-Research-Ethics-CHECKLIST-1-Guidance-v1-10012019.pdf">guidance on requirements for registering and approval of clinical audit and service evaluation projects with NHS Tayside Clinical Governance.</href></p>
         </div>
 
         <form style="display: none" id="SectionB">
@@ -35,8 +35,7 @@
             <input type="checkbox" id="B4yes" value="yes"><br><br>
 
             <div style="display: block;" id="notSectionC">
-                <p>If you answered NO to ALL of the questions you will not require formal ethical approval.</br>
-                    If your project does not require ethical approval, and you wish to publish your findings, you may still wish to seek approval from the relevant SREC in order to meet journal requirements. If so, please proceed to Checklist 2.</p>
+                <p>If you answered NO to ALL of the questions you will not require formal ethical approval.</br></p>
             </div>
         </form>
 
@@ -92,7 +91,7 @@
         </div>
 
         <div style="display: none;" id="yesToOnlyC9">
-            <p>If you ONLY answered YES to question C9, you should obtain ethical approval through the Tayside Biorepository (https://www.tissuebank.dundee.ac.uk/?page=contacts).</p>
+            <p>If you ONLY answered YES to question C9, you should obtain ethical approval through the Tayside Biorepository (<href="https://www.tissuebank.dundee.ac.uk/?page=contacts">https://www.tissuebank.dundee.ac.uk/?page=contacts</href>).</p>
         </div>
 
 
@@ -175,7 +174,7 @@
 
 
         <script>
-            function yesChecked(yesElId, secElId, notSecElId)
+            function yesChecked(yesElId, section, secElId, notSecElId)
             {
                 var yes = document.getElementById(yesElId).checked;
                 var sec = document.getElementById(secElId);
@@ -189,8 +188,11 @@
                     }
                 }
                 else{
-                    sec.style.display = "none";
-                    document.getElementById(notSecElId).style.display = "block";
+                    if(countCheckedBoxes(section) == 0)
+                    {
+                        sec.style.display = "none";
+                        document.getElementById(notSecElId).style.display = "block";
+                    } 
                 }
             }
 
@@ -214,19 +216,26 @@
                 }
             }
 
-            document.getElementById('A1yes').addEventListener('change', function(){ yesChecked('A1yes', 'SectionB', 'notSectionB');});  
-            document.getElementById('B1yes').addEventListener('change', function(){ yesChecked('B1yes', 'SectionC', 'notSectionC');});
-            document.getElementById('B2yes').addEventListener('change', function(){ yesChecked('B2yes', 'SectionC', 'notSectionC');});
-            document.getElementById('B3yes').addEventListener('change', function(){ yesChecked('B3yes', 'SectionC', 'notSectionC');});
-            document.getElementById('B4yes').addEventListener('change', function(){ yesChecked('B4yes', 'SectionC', 'notSectionC');});
-            document.getElementById('C1yes').addEventListener('change', function(){ yesChecked('C1yes', 'yesToSectionC', 'answeredNoToSectionC');});
-            document.getElementById('C2yes').addEventListener('change', function(){ yesChecked('C2yes', 'yesToSectionC', 'answeredNoToSectionC');});
-            document.getElementById('C3yes').addEventListener('change', function(){ yesChecked('C3yes', 'yesToSectionC', 'answeredNoToSectionC');});
-            document.getElementById('C4yes').addEventListener('change', function(){ yesChecked('C4yes', 'yesToSectionC', 'answeredNoToSectionC');});
-            document.getElementById('C5yes').addEventListener('change', function(){ yesChecked('C5yes', 'yesToSectionC', 'answeredNoToSectionC');});
-            document.getElementById('C6yes').addEventListener('change', function(){ yesChecked('C6yes', 'yesToSectionC', 'answeredNoToSectionC');});
-            document.getElementById('C7yes').addEventListener('change', function(){ yesChecked('C7yes', 'yesToSectionC', 'answeredNoToSectionC');});
-            document.getElementById('C8yes').addEventListener('change', function(){ yesChecked('C8yes', 'yesToSectionC', 'answeredNoToSectionC');});
+
+            function countCheckedBoxes(section)
+            {
+                const checked = document.querySelectorAll("#"+section+" input:checked");
+                return checked.length;
+            }
+
+            document.getElementById('A1yes').addEventListener('change', function(){ yesChecked('A1yes', 'SectionA', 'SectionB', 'notSectionB');});  
+            document.getElementById('B1yes').addEventListener('change', function(){ yesChecked('B1yes', 'SectionB','SectionC', 'notSectionC');});
+            document.getElementById('B2yes').addEventListener('change', function(){ yesChecked('B2yes', 'SectionB','SectionC', 'notSectionC');});
+            document.getElementById('B3yes').addEventListener('change', function(){ yesChecked('B3yes', 'SectionB','SectionC', 'notSectionC');});
+            document.getElementById('B4yes').addEventListener('change', function(){ yesChecked('B4yes', 'SectionB','SectionC', 'notSectionC');});
+            document.getElementById('C1yes').addEventListener('change', function(){ yesChecked('C1yes', 'SectionC','yesToSectionC', 'answeredNoToSectionC');});
+            document.getElementById('C2yes').addEventListener('change', function(){ yesChecked('C2yes', 'SectionC','yesToSectionC', 'answeredNoToSectionC');});
+            document.getElementById('C3yes').addEventListener('change', function(){ yesChecked('C3yes', 'SectionC','yesToSectionC', 'answeredNoToSectionC');});
+            document.getElementById('C4yes').addEventListener('change', function(){ yesChecked('C4yes', 'SectionC','yesToSectionC', 'answeredNoToSectionC');});
+            document.getElementById('C5yes').addEventListener('change', function(){ yesChecked('C5yes', 'SectionC','yesToSectionC', 'answeredNoToSectionC');});
+            document.getElementById('C6yes').addEventListener('change', function(){ yesChecked('C6yes', 'SectionC','yesToSectionC', 'answeredNoToSectionC');});
+            document.getElementById('C7yes').addEventListener('change', function(){ yesChecked('C7yes', 'SectionC','yesToSectionC', 'answeredNoToSectionC');});
+            document.getElementById('C8yes').addEventListener('change', function(){ yesChecked('C8yes', 'SectionC','yesToSectionC', 'answeredNoToSectionC');});
             document.getElementById('C9yes').addEventListener('change', function(){ checkC9();});
 
             function checklist2()
