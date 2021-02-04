@@ -18,12 +18,6 @@
             <li class="nav-item">
               <a class="nav-link active" aria-current="page" href="#"style="font-size:20px; font-weight: bold;">Make Transcript</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#" style="font-size:20px; font-weight: bold;">Log In</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#" style="font-size:20px; font-weight: bold;">[Whatever]</a>
-            </li>
           </ul>
         </div>
       </div>
@@ -129,8 +123,6 @@
         <div class="save_transcript_options">
           <h1 id="s_t_options">Save Transcript Options</h1>
           <button onclick="save_and_export()">Save Transcript and Export</button>
-		  
-          <button onclick="exit()">Don't Save</button>
         </div>
         <!-- <br> -->
         <div class="save_to_server_box">
@@ -139,23 +131,7 @@
         </div>
         <!-- <br> -->
 
-
-        <div class="available_transcripts">
-          <h1 id="available_ts">Available Transcripts</h1>
-          <br>
-          <br>
-          <br>
-          <br>
-          <br>
-          <br>
-          <br>
-          <br>
-          <!-- <?php
-           ?> -->
-        </div>
-
       </div>
-
 
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
