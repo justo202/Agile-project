@@ -14,6 +14,11 @@ echo '</pre>';
   exit;
 }*/
 
+if ($_SESSION["role"] != 2) {
+  header("location: logout.php");
+  exit;
+}
+
 ?>
 
 <!doctype html>
