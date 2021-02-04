@@ -97,7 +97,7 @@
                 echo $type;
                 echo $options;
 
-                $add_question_sql->bind_param("ssiss", $questions_array[$x], $questionnaire_name, $x, $type, $options);
+                $add_question_sql->bind_param("ssisi", $questions_array[$x], $questionnaire_name, $x, $type, $options);
             }
             else{
                 $type = "multiple_choice";
