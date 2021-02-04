@@ -6,7 +6,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     exit;
 }
 elseif (!isset($_SESSION["role"]) || $_SESSION["role"] !== "2") {
-  header("location: home.php");
+  header("location: index.php");
   exit;
 }
 
