@@ -6,10 +6,6 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     exit;
 }
 
-echo '<pre>';
-var_dump($_SESSION);
-echo '</pre>';
-
 //This code works
 if ($_SESSION["role"] != 1) {
   header("location: participants.php");
