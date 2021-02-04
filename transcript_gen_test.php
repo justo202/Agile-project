@@ -44,8 +44,8 @@
 			
 			<?php
 			 
-			// function Read()
-			 //{
+			 function Read()
+			 {
 			 //once load is clicked
 			 if(isset($_POST['load']))
 			 {
@@ -93,7 +93,7 @@
 				}
 
 			 }
-			 //}
+			 }
 			?>
 			
 			 <form class="transcript" action="<?php echo $_SERVER['PHP_SELF'] ?>" method="POST">
@@ -104,7 +104,7 @@
             <!-- <br> -->
             <button id="create_transcript">Create New Transcript</button>
           </div>
-            <textarea id="transcript" name="transcript" rows="14"></textarea>
+            <textarea id="transcript" name="transcript" rows="14"><?php Read(); ?></textarea>
         
           <div class="">
             <button id="save_transcript" type="submit">Save Transcript</button>
