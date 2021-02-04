@@ -1,6 +1,8 @@
 
 
 <?php
+// Initialize the session
+session_start();
 include 'db.php';
 $answers = $_POST['answers'];
 $name = $_POST['name'];
