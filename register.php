@@ -126,11 +126,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 <input type="password" name="confirm_password" class="form-control" placeholder="Confirm Password" required value="<?php echo $confirm_password; ?>">
                 <span class="help-block"><?php echo $confirm_password_err; ?></span>
             </div>
-            <div class="form-group">
                 <input type="submit" class="btn btn-primary" value="Submit">
                 <input type="reset" class="btn btn-default" value="Clear Values">
                 <p>Already have an account? <a href="index.php">Login here</a>.</p>
-            </div>
         </form>
     </div>
 </body>
