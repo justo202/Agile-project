@@ -15,7 +15,7 @@ echo '</pre>';
 }*/
 
 if ($_SESSION["role"] != 2) {
-  header("location: logout.php");
+  header("refresh:3; location: logout.php");
   exit;
 }
 
