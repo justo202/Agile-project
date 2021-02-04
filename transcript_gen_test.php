@@ -93,7 +93,7 @@
 				}
 
 			 }
-			 }
+			 //}
 			?>
 			
 			 <form class="transcript" action="<?php echo $_SERVER['PHP_SELF'] ?>" method="POST">
