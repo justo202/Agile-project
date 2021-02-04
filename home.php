@@ -15,7 +15,7 @@ echo '</pre>';
 }*/
 
 if ($_SESSION["role"] != 2) {
-  header( "refresh:3;url=https://agile-project.azurewebsites.net/logout.php" );
+  header("location: Form.php");
   exit;
 }
 
