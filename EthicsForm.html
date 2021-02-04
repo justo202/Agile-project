@@ -13,7 +13,7 @@
         </form>
 
         <div style="display: block;" id="notSectionB">
-            <p>If NO please see <href="https://www.dundee.ac.uk/media/dundeewebsite/ethics/documents/Non-Clinical-Research-Ethics-CHECKLIST-1-Guidance-v1-10012019.pdf">guidance on requirements for registering and approval of clinical audit and service evaluation projects with NHS Tayside Clinical Governance.</href></p>
+            <p>If NO please see <a="https://www.dundee.ac.uk/media/dundeewebsite/ethics/documents/Non-Clinical-Research-Ethics-CHECKLIST-1-Guidance-v1-10012019.pdf">guidance on requirements for registering and approval of clinical audit and service evaluation projects with NHS Tayside Clinical Governance.</a></p>
         </div>
 
         <form style="display: none" id="SectionB">
@@ -42,38 +42,40 @@
         
 
         <form style="display: none;" id="SectionC">
+            <div id="C1-8">
             <label>Section C: Healthcare or Social Care Research ‘In or Through the NHS’</label><br>
             <label>C1. Does the project involve patients, their carers or volunteers in the NHS (in hospital, General Practitioners, community care)?</label>
             <label>Yes</label>
-            <input type="checkbox" class="C1-8" id="C1yes" value="yes"><br>
+            <input type="checkbox" id="C1yes" value="yes"><br>
 
             <label>C2. Does the project involve the investigation of the safety or efficacy of a medicine, foodstuff, medical device or placebo in humans?</label>
             <label>Yes</label>
-            <input type="checkbox" class="C1-8" id="C2yes" value="yes"><br>
+            <input type="checkbox" id="C2yes" value="yes"><br>
 
             <label>C3. Does the project involve access to collections of patient data?</label>
             <label>Yes</label>
-            <input type="checkbox"  class="C1-8"id="C3yes" value="yes"><br>
+            <input type="checkbox" id="C3yes" value="yes"><br>
 
             <label>C4. Does the project involve use of any NHS resources including staff time, clinical support services (e.g. biochemistry, haematology) or NHS facilities (e.g. consulting rooms)?</label>
             <label>Yes</label>
-            <input type="checkbox" class="C1-8" id="C4yes" value="yes"><br>
+            <input type="checkbox"  id="C4yes" value="yes"><br>
 
             <label>C5. Does the project involve research within prisons?</label>
             <label>Yes</label>
-            <input type="checkbox" class="C1-8" id="C5yes" value="yes"><br>
+            <input type="checkbox"  id="C5yes" value="yes"><br>
 
             <label>C6. Does the project involve adults (aged 16 or over) with incapacity (i.e. lack of capacity to make decisions for themselves)?</label>
             <label>Yes</label>
-            <input type="checkbox" class="C1-8" id="C6yes" value="yes"><br>
+            <input type="checkbox"  id="C6yes" value="yes"><br>
 
             <label>C7. Does the project involve social care research with NHS patients or a mix of NHS patients and social care users?</label>
             <label>Yes</label>
-            <input type="checkbox" class="C1-8" id="C7yes" value="yes"><br>
+            <input type="checkbox"  id="C7yes" value="yes"><br>
 
             <label>C8. Does the project involve the use of tissue for genetic analysis/diagnosis or a therapeutic purpose (e.g. the use of DNA for analysis or RNA when used to provide information about DNA for research (section 45, Human Tissue Act))?</label>
             <label>Yes</label>
-            <input type="checkbox" class="C1-8" id="C8yes" value="yes"><br>
+            <input type="checkbox"  id="C8yes" value="yes"><br>
+            </div>
 
             <label>C9. Will the project use anonymised tissue and associated data from NHS patients that is surplus to diagnostic and surgical requirements and will be obtained from a tissue bank (e.g. Tayside Biorepository)?</label>
             <label>Yes</label>
@@ -91,7 +93,7 @@
         </div>
 
         <div style="display: none;" id="yesToOnlyC9">
-            <p>If you ONLY answered YES to question C9, you should obtain ethical approval through the Tayside Biorepository (<href="https://www.tissuebank.dundee.ac.uk/?page=contacts">https://www.tissuebank.dundee.ac.uk/?page=contacts</href>).</p>
+            <p>If you ONLY answered YES to question C9, you should obtain ethical approval through the Tayside Biorepository (<a href="https://www.tissuebank.dundee.ac.uk/?page=contacts">https://www.tissuebank.dundee.ac.uk/?page=contacts</a>).</p>
         </div>
 
 
@@ -201,7 +203,7 @@
                 var isChecked = document.getElementById("C9yes").checked;
                 var isC1to8Checked = false;
 
-                const C1to8 = document.querySelectorAll(".C1-8");
+                const C1to8 = document.querySelectorAll("#C1-8 input:checked");
                 for (const question of C1to8)
                 {
                     if(question.checked == true)
@@ -212,30 +214,37 @@
 
                 if(isChecked && (!isC1to8Checked))
                 {
+                    document.getElementById("answeredNoToSectionC").style.display = "none";
                     document.getElementById("yesToOnlyC9").style.display = "block";
+                }
+
+                if((!isChecked) && (!isC1to8Checked))
+                {
+                    document.getElementById("answeredNoToSectionC").style.display = "block";
+                    document.getElementById("yesToOnlyC9").style.display = "none";
                 }
             }
 
 
             function countCheckedBoxes(section)
             {
-                const checked = document.querySelectorAll("#"+section+" input:checked");
+                const checked = document.querySelectorAll(section+" input:checked");
                 return checked.length;
             }
 
-            document.getElementById('A1yes').addEventListener('change', function(){ yesChecked('A1yes', 'SectionA', 'SectionB', 'notSectionB');});  
-            document.getElementById('B1yes').addEventListener('change', function(){ yesChecked('B1yes', 'SectionB','SectionC', 'notSectionC');});
-            document.getElementById('B2yes').addEventListener('change', function(){ yesChecked('B2yes', 'SectionB','SectionC', 'notSectionC');});
-            document.getElementById('B3yes').addEventListener('change', function(){ yesChecked('B3yes', 'SectionB','SectionC', 'notSectionC');});
-            document.getElementById('B4yes').addEventListener('change', function(){ yesChecked('B4yes', 'SectionB','SectionC', 'notSectionC');});
-            document.getElementById('C1yes').addEventListener('change', function(){ yesChecked('C1yes', 'SectionC','yesToSectionC', 'answeredNoToSectionC');});
-            document.getElementById('C2yes').addEventListener('change', function(){ yesChecked('C2yes', 'SectionC','yesToSectionC', 'answeredNoToSectionC');});
-            document.getElementById('C3yes').addEventListener('change', function(){ yesChecked('C3yes', 'SectionC','yesToSectionC', 'answeredNoToSectionC');});
-            document.getElementById('C4yes').addEventListener('change', function(){ yesChecked('C4yes', 'SectionC','yesToSectionC', 'answeredNoToSectionC');});
-            document.getElementById('C5yes').addEventListener('change', function(){ yesChecked('C5yes', 'SectionC','yesToSectionC', 'answeredNoToSectionC');});
-            document.getElementById('C6yes').addEventListener('change', function(){ yesChecked('C6yes', 'SectionC','yesToSectionC', 'answeredNoToSectionC');});
-            document.getElementById('C7yes').addEventListener('change', function(){ yesChecked('C7yes', 'SectionC','yesToSectionC', 'answeredNoToSectionC');});
-            document.getElementById('C8yes').addEventListener('change', function(){ yesChecked('C8yes', 'SectionC','yesToSectionC', 'answeredNoToSectionC');});
+            document.getElementById('A1yes').addEventListener('change', function(){ yesChecked('A1yes', '#SectionA', 'SectionB', 'notSectionB');});  
+            document.getElementById('B1yes').addEventListener('change', function(){ yesChecked('B1yes', '#SectionB','SectionC', 'notSectionC');});
+            document.getElementById('B2yes').addEventListener('change', function(){ yesChecked('B2yes', '#SectionB','SectionC', 'notSectionC');});
+            document.getElementById('B3yes').addEventListener('change', function(){ yesChecked('B3yes', '#SectionB','SectionC', 'notSectionC');});
+            document.getElementById('B4yes').addEventListener('change', function(){ yesChecked('B4yes', '#SectionB','SectionC', 'notSectionC');});
+            document.getElementById('C1yes').addEventListener('change', function(){ yesChecked('C1yes', '#C1-8','yesToSectionC', 'answeredNoToSectionC');});
+            document.getElementById('C2yes').addEventListener('change', function(){ yesChecked('C2yes', '#C1-8','yesToSectionC', 'answeredNoToSectionC');});
+            document.getElementById('C3yes').addEventListener('change', function(){ yesChecked('C3yes', '#C1-8','yesToSectionC', 'answeredNoToSectionC');});
+            document.getElementById('C4yes').addEventListener('change', function(){ yesChecked('C4yes', '#C1-8','yesToSectionC', 'answeredNoToSectionC');});
+            document.getElementById('C5yes').addEventListener('change', function(){ yesChecked('C5yes', '#C1-8','yesToSectionC', 'answeredNoToSectionC');});
+            document.getElementById('C6yes').addEventListener('change', function(){ yesChecked('C6yes', '#C1-8','yesToSectionC', 'answeredNoToSectionC');});
+            document.getElementById('C7yes').addEventListener('change', function(){ yesChecked('C7yes', '#C1-8','yesToSectionC', 'answeredNoToSectionC');});
+            document.getElementById('C8yes').addEventListener('change', function(){ yesChecked('C8yes', '#C1-8','yesToSectionC', 'answeredNoToSectionC');});
             document.getElementById('C9yes').addEventListener('change', function(){ checkC9();});
 
             function checklist2()
