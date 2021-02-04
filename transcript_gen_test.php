@@ -89,7 +89,7 @@
 			 }
 			?>
 			
-			 <form class="transcript" method="POST" enctype ="multipart/form-data">
+			 <form class="transcript" action="<?php echo $_SERVER['PHP_SELF'] ?> method="POST" enctype ="multipart/form-data">
 			 <input type ="file" name ="loadfile"/>
 			 <input type ="submit" name="load" value="Load"/>
 			 </form>
