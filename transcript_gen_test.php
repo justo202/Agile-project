@@ -71,7 +71,14 @@
 				{
 					if ($fileError === 0)
 					{
-						echo file_get_contents($fileTmp);
+							$fileRead = fopen($fileTmp, "r") or die("Unable to open file, please try again!");
+							//read line by line unto end of the file
+							while(!feof($fileRead))
+							{
+								$text = fgets($fileRead);
+								print $text . "<br>";
+							}		
+							fclose($fileRead);
 			
 						//header("Location: transcript_gen_test.html?loadsuccessful");
 					}
