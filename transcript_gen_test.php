@@ -41,7 +41,7 @@
           <div class="transcript_options">
 		  
 			<!-- Load transcript --> 
-			 <form class="transcript" action="load.php" method="POST" enctype ="multipart/form-data">
+			 <form class="transcript" method="POST" enctype ="multipart/form-data">
 			 <input type ="file" name ="loadfile"/>
 			 <input type ="submit" name="load" value="Load"/>
 			 </form>
