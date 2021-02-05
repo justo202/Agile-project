@@ -6,6 +6,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <link rel="stylesheet" href="make_transcript.css">
   </head>
+  <!--  onload="page_reset()" -->
   <body>
     <nav class="navbar navbar-expand-lg navbar-dark" style="background-color:#343a40">
       <div class="container-fluid">
@@ -31,130 +32,120 @@
 
     <div class="make_transcript_body">
       <div class="main_transcript_box">
-        <div class="make_transcript_box">
+        <div id="make_transcript_box">
           <div id="file_upload_box" onclick="browse()">
-            <h3><span id="browse_for_file" onclick="browse()">Browse</span> for or Drag Media File (mp4 or mp3) Here</h3>
+            <h3><span id="browse_for_file" onclick="browse()">Browse</span> for or Drag Media File (mp4 or mp3) Here if you want to view your video side by side</h3>
           </div>
-          <button onclick="make_transcript()">Make Transcript</button>
+          <button onclick="close_video_uploader()">Close Video Uploader</button>
         </div>
         <div id="transcript_box">
           <div class="transcript_options">
-		  
-			<!-- Load transcript --> 
-			
-			<?php
-			 
-			 function Read()
-			 {
-			 //once load is clicked
-			 if(isset($_POST['load']))
-			 {
-				$test = $_FILES['loadfile'];
-				//file properities - name
-				$file = $_FILES['loadfile']['name'];
-				//file properities - error handeling
-				$fileError = $_FILES['loadfile']['error'];
-				//file properities - type
-				$fileType = $_FILES['loadfile']['type'];
-				//file properities - tmp location
-				$fileTmp = $_FILES['loadfile']['tmp_name'];
-	
-				//seperate '.' from txt and file name 
-				$extension = explode('.', $file);
-				//convert the txt to lowercase if needed
-				$lowerExt = strtolower(end($extension));
-	
-				$allowedExts = array('txt', 'text/plain');
-				
-				//if file is a text then read
-				if (in_array($lowerExt, $allowedExts))
-				{
-					if ($fileError === 0)
-					{
-							$fileRead = fopen($fileTmp, "r") or die("Unable to open file, please try again!");
-							//read line by line unto end of the file
-							while(!feof($fileRead))
-							{
-								$text = fgets($fileRead);
-								print $text . "\n";
-							}		
-							fclose($fileRead);
-			
-						//header("Location: transcript_gen_test.html?loadsuccessful");
-					}
-					else
-					{
-						echo "Sorry there was an issue reading from file.";
-					}
-				}
-				else
-				{	
-					echo "Invalid file type, please ensure its a txt file.";
-				}
+      			<!-- Load transcript -->
 
-			 }
-			 }
-			?>
-			
-			 <form class="transcript" action="<?php echo $_SERVER['PHP_SELF'] ?>" method="POST" enctype ="multipart/form-data">
-			 <input type ="file" name ="loadfile"/>
-			 <input type ="submit" name="load" value="Load"/>
-			 </form>
-			 
-            <!-- <br> -->
-            <button id="create_transcript">Create New Transcript</button>
+      			<?php
+
+      			 function Read()
+      			 {
+      			 //once load is clicked
+      			 if(isset($_POST['load']))
+      			 {
+      				$test = $_FILES['loadfile'];
+      				//file properities - name
+      				$file = $_FILES['loadfile']['name'];
+      				//file properities - error handeling
+      				$fileError = $_FILES['loadfile']['error'];
+      				//file properities - type
+      				$fileType = $_FILES['loadfile']['type'];
+      				//file properities - tmp location
+      				$fileTmp = $_FILES['loadfile']['tmp_name'];
+
+      				//seperate '.' from txt and file name
+      				$extension = explode('.', $file);
+      				//convert the txt to lowercase if needed
+      				$lowerExt = strtolower(end($extension));
+
+      				$allowedExts = array('txt', 'text/plain');
+
+      				//if file is a text then read
+      				if (in_array($lowerExt, $allowedExts))
+      				{
+      					if ($fileError === 0)
+      					{
+      							$fileRead = fopen($fileTmp, "r") or die("Unable to open file, please try again!");
+      							//read line by line unto end of the file
+      							while(!feof($fileRead))
+      							{
+      								$text = fgets($fileRead);
+      								print $text . "\n";
+      							}
+      							fclose($fileRead);
+
+      						//header("Location: transcript_gen_test.html?loadsuccessful");
+      					}
+      					else
+      					{
+      						echo "Sorry there was an issue reading from file.";
+      					}
+      				}
+      				else
+      				{
+      					echo "Invalid file type, please ensure its a txt file.";
+      				}
+
+      			 }
+      			 }
+      			?>
+
+    			 <form class="transcript" action="<?php echo $_SERVER['PHP_SELF'] ?>" method="POST" enctype ="multipart/form-data">
+    			 <input type ="file" name ="loadfile"/>
+    			 <input id="load_input_button" type ="submit" name="load" value="Load File"/>
+           <!-- <h4></h4> -->
+    			 </form>
+
+
+            <button id="open_vid_uploader" onclick="open_uploader()">Open Video Uploader</button>
+            <button id="create_transcript" onclick="c_n_transcript()">Create New Transcript</button>
           </div>
             <textarea id="transcript" name="transcript" rows="14"><?php Read(); ?></textarea>
-        
+
           <div class="">
-            <button id="save_transcript" type="submit">Save Transcript</button>
             <button onclick="tag_button()">Tag/ Make Theme</button>
+            <button id="save_transcript" onclick="save_options()" type="submit">Save Transcript</button>
             <br>
             <h5 id="error_msg">No selection was made in transcript. Try again</h5>
-            <div id="name_theme_box">
-              <h4>Name tag/theme:</h4><input type="text" id="theme_name" placeholder="Type Theme Name Here">
+            <h5 id="save_error_msg">Nothing was made in transcript to save. Try again</h5>
+          </div>
+          <div id="name_theme_box">
+            <h4>Name tag/theme:</h4><input type="text" id="theme_name" placeholder="Type Theme Name Here">
+            <br>
+            <h5 id="name_error_msg">No name written in input area. Try again</h5>
+            <!-- <input type="submit" name="" value=""> -->
+            <button id="save_theme_name" >Save Theme Name</button>
+            <!-- <div id="theme_label">
+              <button id="attach_note">Attach Note to theme</button>
+              <button id="proceed">Proceed without notes</button>
               <br>
-              <h5 id="name_error_msg">No name written in input area. Try again</h5>
-              <!-- <input type="submit" name="" value=""> -->
-              <button id="save_theme_name" onclick="save_theme_name()">Save Theme Name</button>
-              <!-- <div id="theme_label">
-                <button id="attach_note">Attach Note to theme</button>
-                <button id="proceed">Proceed without notes</button>
-                <br>
-                <textarea id="theme_notes_t_area" name="theme_notes" rows="10"></textarea>
-              </div> -->
-            </div>
+              <textarea id="theme_notes_t_area" name="theme_notes" rows="10"></textarea>
+            </div> -->
           </div>
         </div>
-        <!-- <br> -->
-        <div class="save_transcript_options">
+
+        <div id="save_transcript_options">
           <h1 id="s_t_options">Save Transcript Options</h1>
           <button onclick="save_and_export()">Save Transcript and Export</button>
-		  
           <button onclick="exit()">Don't Save</button>
         </div>
-        <!-- <br> -->
-        <div class="save_to_server_box">
-          <h1>Transcript Name</h1>
-          <input id="transcript_name" placeholder="Type Transcript Name Here">
+        <br>
+        <br>
+        <br>
+
+        <!-- Displays the available tags/themes -->
+        <div class="available_themes">
+          <h1 id="available_ts">Tag Memo</h1>
+          <div id="available_tags">
+            <h4 style="text-align: center;">Currently no tags made</h4>
+          </div>
         </div>
-        <!-- <br> -->
-
-
-        <div class="available_transcripts">
-          <h1 id="available_ts">Available Transcripts</h1>
-          <br>
-          <br>
-          <br>
-          <br>
-          <br>
-          <br>
-          <br>
-          <br>
-          <!-- <?php
-           ?> -->
-        </div>
-
       </div>
 
 
