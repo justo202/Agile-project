@@ -106,7 +106,7 @@
 			 <input id="load_input_button" type ="submit" name="load" value="Load"/>
 			 </form>
 			 
-            <!-- <br> -->
+
 			<button id="open_vid_uploader" onclick="open_uploader()">Open Video Uploader</button>
             <button id="create_transcript" onclick="c_n_transcript()">Create New Transcript</button>
           </div>
