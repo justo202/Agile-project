@@ -46,7 +46,7 @@ if ($_SESSION["role"] != 1) {
         <div class="container">
           <h1 class="jumbotron-heading">Dundee University Questionnaires</h1>
           <p class="lead text-muted">place holder</p>
-          <img class="mb-4" src="logo.png" alt="" width="100" height="100"><br>
+          <img class="mb-4" src="output-onlinepngtools.png" alt="" width="100" height="100"><br>
           <p>
             <a href="CreateForm.html" class="btn btn-primary my-2">Create Survey</a>
             <a href="Answers.html" class="btn btn-secondary my-2">Questionnaire Insights</a>
