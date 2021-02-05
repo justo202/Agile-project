@@ -63,26 +63,30 @@ function tag_button() {
   } else {
     document.getElementById('error_msg').style.display = 'none';
     document.getElementById('save_error_msg').style.display = 'none';
-
-    save_theme_name(tagged);
+    document.getElementById('name_error_msg').style.display = 'none';
+    var tag_name="";
+    addTag(currentTag(tags)+1,tag_name,tagged,tags);
+    // save_theme_name(tagged);
+    document.getElementById('name_theme_box').style.visibility = 'visible';
   }
 }
 // associates a name/tag to a specific theme
-function save_theme_name(tagged) {
+function save_theme_name() {
 
-  document.getElementById('name_theme_box').style.visibility = 'visible';
-  document.getElementById("save_theme_name").addEventListener("click",function () {
+  // document.getElementById('name_theme_box').style.visibility = 'visible';
+  // var tag_selection=tagged;
+  // document.getElementById("save_theme_name").addEventListener("click",function () {
     var t_name= document.getElementById("theme_name");
     var tag_name=t_name.value;
-
+    // var tag_selection=tagged;
     if (tag_name=="") {
       document.getElementById('name_error_msg').style.display = 'initial';
     } else {
       document.getElementById('name_error_msg').style.display = 'none';
 
-      addTag(currentTag(tags)+1,tag_name,tagged,tags);
-
-      let selected = tagged;
+      // addTag(currentTag(tags)+1,tag_name,tag_selection,tags);
+      tags[currentTag(tags)].tag_name=tag_name;
+      let selected = tags[currentTag(tags)].tag_content;
       let transcript_text = document.getElementById("transcript").value;
       let re = new RegExp(selected,"g"); // search for all instances
       let newText = transcript_text.replace(re, `[${selected}][${tags[currentTag(tags)].tag_index}]`);
@@ -99,7 +103,8 @@ function save_theme_name(tagged) {
             index=tags[available_tags].tag_index;
             name=tags[available_tags].tag_name;
             content=tags[available_tags].tag_content;
-            document.getElementById("available_tags").innerHTML='<div id="tags"> <span id="tag_index">'+index+'</span> <span id="tag_name">'+ name+'</span><span id="tag_content">' +content+' </span>   </div>';
+            document.getElementById("available_tags").innerHTML='<div id="tags"> <span id="tag_index_header">Tag Index</span> <span id="tag_name_header"> Tag Name</span><span id="tag_content_header">Tag Content </span>   </div>';
+            document.getElementById("available_tags").innerHTML+='<div id="tags"> <span id="tag_index">'+index+'</span> <span id="tag_name">'+ name+'</span><span id="tag_content">' +content+' </span>   </div>';
           } else {
             index=tags[available_tags].tag_index;
             name=tags[available_tags].tag_name;
@@ -108,11 +113,12 @@ function save_theme_name(tagged) {
           }
         }
         t_name.value="";
+        document.getElementById('name_theme_box').style.visibility = 'hidden';
       }
 
     }
 
-  },false);
+  // },false);
 
 }
 // displays the save options for the users

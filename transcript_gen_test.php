@@ -112,9 +112,10 @@
           <div id="name_theme_box">
             <h4>Name tag/theme:</h4><input type="text" id="theme_name" placeholder="Type Theme Name Here">
             <br>
-            <h5 id="name_error_msg">No name written in input area. Try again</h5>
             <!-- <input type="submit" name="" value=""> -->
-            <button id="save_theme_name" >Save Theme Name</button>
+            <button id="save_theme_name" onclick="save_theme_name()">Save Theme Name</button>
+            <br>
+            <h5 id="name_error_msg">No name written in input area. Try again</h5>
             <!-- <div id="theme_label">
               <button id="attach_note">Attach Note to theme</button>
               <button id="proceed">Proceed without notes</button>
@@ -129,6 +130,7 @@
           <button onclick="save_and_export()">Save Transcript and Export</button>
           <button onclick="exit()">Don't Save</button>
         </div>
+        <br>
         <br>
         <br>
         <br>
