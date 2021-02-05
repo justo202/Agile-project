@@ -14,7 +14,7 @@ Vivien, Justas, Dominic, Gerard, Mark, Abdulmalik, Brenyn
 Mark
 
 ### Apologies:
-Ill Student 1.
+timing error
 
 ### Summary of Conversation:
 We spent a few minutes talking about the feedback for the first sprint we got and talked about how we could improve from the first sprint and how to turn our project into something way more agile like and thought about the proper processes of a sprint review.
@@ -33,7 +33,7 @@ Justas, Dominic, Gerard, Mark, Abdulmalik, Mark
 Vivien, Brenyn
 
 ### Apologies:
-Ill Student 1.
+personal issues
 
 ### Summary of Conversation:
 We talked about what we all got so far, such as the beginning of the implementation of the multiple choice features and all the different errors we were getting. The transcript still being a work in progress on Brenyn and Abdulmalik's side. We went through the website together and assessed the different issues and fix we'd like to have done and also marked a few questions for the stakeholders. 
