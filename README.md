@@ -8,7 +8,7 @@ Group Members:
 - Mark Capewell (Matriculation Number)
 - Brenyn Goodwin (Matriculation Number)
 - Abdulmalik Adegoke (180024430)
-- Dominic McGraw (Matriculation Number)
+- Dominic McGraw (160016783)
 
 ## Hints:
 - You may wish to change the issue tags that are in GitHub to map to different activities that you are carrying out:
