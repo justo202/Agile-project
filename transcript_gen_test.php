@@ -10,7 +10,7 @@
   <body>
     <nav class="navbar navbar-expand-lg navbar-dark" style="background-color:#343a40">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#" style="font-size:30px; font-weight: bold;">Home</a>
+        <a class="navbar-brand" href="home.php" style="font-size:30px; font-weight: bold;">Home</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -18,12 +18,6 @@
           <ul class="navbar-nav">
             <li class="nav-item">
               <a class="nav-link active" aria-current="page" href="#"style="font-size:20px; font-weight: bold;">Make Transcript</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#" style="font-size:20px; font-weight: bold;">Log In</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#" style="font-size:20px; font-weight: bold;">[Whatever]</a>
             </li>
           </ul>
         </div>
@@ -118,9 +112,10 @@
           <div id="name_theme_box">
             <h4>Name tag/theme:</h4><input type="text" id="theme_name" placeholder="Type Theme Name Here">
             <br>
-            <h5 id="name_error_msg">No name written in input area. Try again</h5>
             <!-- <input type="submit" name="" value=""> -->
-            <button id="save_theme_name" >Save Theme Name</button>
+            <button id="save_theme_name" onclick="save_theme_name()">Save Theme Name</button>
+            <br>
+            <h5 id="name_error_msg">No name written in input area. Try again</h5>
             <!-- <div id="theme_label">
               <button id="attach_note">Attach Note to theme</button>
               <button id="proceed">Proceed without notes</button>
@@ -135,6 +130,7 @@
           <button onclick="save_and_export()">Save Transcript and Export</button>
           <button onclick="exit()">Don't Save</button>
         </div>
+        <br>
         <br>
         <br>
         <br>

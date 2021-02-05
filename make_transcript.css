@@ -198,18 +198,37 @@ button:hover,#load_input_button:hover{
   border-collapse: collapse;
   padding: 10px;
   font-size: 30px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+#tag_index_header,#tag_name_header,#tag_content_header{
+  font-weight: bold;
+  width: 30%;
+}
+#tag_index_header{
+  float: left;
+}
+#tag_name_header{
+  text-align: center;
+  justify-content: center;
+}
+#tag_content_header{
+  float: right;
 }
 #tag_index,#tag_name,#tag_content{
   width: 30%;
 }
 #tag_index{
+  padding: 10px;
   float: left;
 }
 #tag_name{
+  padding: 10px;
   text-align: center;
   justify-content: center;
 }
 #tag_content{
+  padding: 10px;
   float: right;
 }
 tr{
