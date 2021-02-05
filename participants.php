@@ -6,18 +6,18 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     exit;
 }
 
+
 //This code works
-if ($_SESSION["role"] != 1) {
-  header("location: participants.php");
+if ($_SESSION["role"] != 2) {
+  header("location: home.php");
   exit;
 }
 
 ?>
-
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Home</title>
+    <title>Participant Home</title>
     <!-- Style Links -->
     <link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css">
   </head>
@@ -27,19 +27,7 @@ if ($_SESSION["role"] != 1) {
     ?>
     <header>
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="home.php">Home</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <a class="navbar-brand" href="EthicsForm.html">Ethics Form</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <a class="navbar-brand" href="list.php">Completion list</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <a class="navbar-brand" href="transcript.php">Tag transcript</a>
+        <a class="navbar-brand" href="participants.php">Home</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -55,10 +43,6 @@ if ($_SESSION["role"] != 1) {
           <h1 class="jumbotron-heading">Dundee University Questionnaires</h1>
           <p class="lead text-muted">place holder</p>
           <img class="mb-4" src="output-onlinepngtools.png" alt="" width="100" height="100"><br>
-          <p>
-            <a href="CreateForm.html" class="btn btn-primary my-2">Create Survey</a>
-            <a href="Answers.html" class="btn btn-secondary my-2">Questionnaire Insights</a>
-          </p>
         </div>
       </section>
       <div class="album py-5 bg-light">
@@ -76,7 +60,6 @@ if ($_SESSION["role"] != 1) {
                       echo "<div class=\"card-body\">";
                       echo "<p class=\"card-text\">Questionaire by ".$row['Creator_Name']."</p>";
                       echo "<button onclick = \"window.location.href = 'form.php?survey=". $row['Questionnaire_Name'] ."'\" type=\"button\" class=\"btn btn-lg btn-block btn-outline-primary\">Take Questionaire</button>";
-                      echo "<button onclick = \"window.location.href = 'download.php?name=". $row['Questionnaire_Name'] ."'\" type=\"button\" class=\"btn btn-lg btn-block btn-outline-primary\">Download answer data</button>";
                       echo "</div></div></div>";
                     }
                     // Free result set

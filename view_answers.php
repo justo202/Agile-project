@@ -11,35 +11,17 @@ class results {
     public $question;
     public $answers_arr = array();
 
-    function set_question_num($question_num)
-    {
-        $this->question_num = $question_num;
-    }
+    function set_question_num($question_num){$this->question_num = $question_num;}
 
-    function set_question($question)
-    {
-        $this->question = $question;
-    }
+    function set_question($question){$this->question = $question;}
 
-    function add_answer($answer)
-    {
-        $this->answers_arr[] = $answer;
-    }
+    function add_answer($answer){$this->answers_arr[] = $answer;}
 
-    function view_question_num()
-    {
-        return $this->question_num;
-    }
+    function view_question_num(){return $this->question_num;}
 
-    function view_question()
-    {
-        return $this->question;
-    }
+    function view_question(){return $this->question;}
 
-    function view_answer($i)
-    {
-        return $this->answers_arr[$i];
-    }
+    function view_answer($i){return $this->answers_arr[$i];}
 
     function view_all_answers()
     {
@@ -49,16 +31,16 @@ class results {
       }
     }
 
-    function get_arr_size()
-    {
-      return sizeof($this->answers_arr);
-    }
+    function get_arr_size(){return sizeof($this->answers_arr);}
 }
 
 function getAnswers($questionnaire_name, $link)
 {
-    $get_answers_sql = "SELECT Question_Number, Answer FROM answers WHERE Questionnaire_Name = '".$questionnaire_name."'";
-    $results = $link->query($get_answers_sql);
+    $get_answers_sql = $link->prepare("SELECT Question_Number, Answer FROM answers WHERE Questionnaire_Name = ?");
+    $get_answers_sql->bind_param("s", $questionnaire_name);
+    $get_answers_sql->execute();
+    $results = $get_answers_sql->get_result();
+    $get_answers_sql->close();
 
     if ($results->num_rows > 0)
     {
@@ -72,8 +54,11 @@ function getAnswers($questionnaire_name, $link)
 
 function getQuestions($questionnaire_name, $link)
 {
-    $get_questions_sql = "SELECT Question_Number, Question FROM questions WHERE Questionnaire_Name = '".$questionnaire_name."'";
-    $results = $link->query($get_questions_sql);
+    $get_questions_sql = $link->prepare("SELECT Question_Number, Question FROM questions WHERE Questionnaire_Name = ?");
+    $get_questions_sql->bind_param("s", $questionnaire_name);
+    $get_questions_sql->execute();
+    $results = $get_questions_sql->get_result();
+    $get_questions_sql->close();
 
     if ($results->num_rows > 0)
     {
@@ -141,7 +126,7 @@ while($row = $question_rows->fetch_assoc())
             <span class="navbar-toggler-icon"></span>
           </button>
 
-          <a class="navbar-brand" href="index.php">Log out</a>
+          <a class="navbar-brand" href="logout.php">Log out</a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -189,11 +174,42 @@ while($row = $question_rows->fetch_assoc())
 
     </main>
 
-     <!--<footer class="footer">
-      <div class="container">
-        <span class="text-muted">Place sticky footer content here.</span>
-      </div>
-    </footer> -->
+    <footer>
+        <div class="row justify-content-center mb-0 pt-5 pb-0 row-2 px-3">
+            <div class="col-12">
+                <div class="row row-2">
+                    <div class="col-sm-3 text-md-center">
+                        <h5><span> <i class="fa fa-firefox text-light" aria-hidden="true"></i></span><b> Dundee University</b></h5>
+                    </div>
+                    <div class="col-sm-3 my-sm-0 mt-5">
+                        <ul class="list-unstyled">
+                            <li class="mt-0">Info</li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-3 my-sm-0 mt-5">
+                        <ul class="list-unstyled">
+                            <li class="mt-0">Info</li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-3 my-sm-0 mt-5">
+                        <ul class="list-unstyled">
+                            <li class="mt-0">Info</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center mt-0 pt-0 row-1 mb-0 px-sm-3 px-2">
+            <div class="col-12">
+                <div class="row my-4 row-1 no-gutters">
+                    <div class="col-sm-3 col-auto text-center"><small>&#9400; Our Company</small></div>
+                    <div class="col-md-3 col-auto "></div>
+                    <div class="col-md-3 col-auto"></div>
+                    <div class="col my-auto text-md-left text-right "> <small> mail@mail.com <span><img src="https://i.imgur.com/TtB6MDc.png" class="img-fluid " width="25"></span> <span></small></div>
+                </div>
+            </div>
+        </div>
+    </footer>
 
   </body>
 </html>

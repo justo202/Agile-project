@@ -21,44 +21,104 @@
         return $questions;
     }
 
+    function get_options($num_of_questions)
+    {
+        $options = array();
+
+        for($x = 1; $x <= $num_of_questions; $x++)
+        {
+            //Add each question to the the array
+            $options[$x] = $_POST['options_for_'.$x];
+        }
+
+        return $options;
+    }
+
+    function does_questionnaire_exist($questionnaire_name, $link)
+    {
+        $does_exist_sql = $link->prepare("SELECT * FROM questionnaires WHERE Questionnaire_Name = ?");
+        $does_exist_sql->bind_param("s", $questionnaire_name);
+        $does_exist_sql->execute();
+
+        $results = $does_exist_sql->get_result();
+
+        $does_exist_sql->close();
+        if ($results->num_rows > 0)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
     $questions_array = get_questions($num_of_questions);
+    $options_array = get_options($num_of_questions);
 
     //This function creates new records in the questionnaire table in the database
     //It will add the name of the questionnaire and the name of the user who created it
     function add_questionaire($questionnaire_name, $creator_name, $link)
     {
         //Store the sql statement in variable $add_questionnaire_sql
-        $add_questionnaire_sql = "INSERT INTO questionnaires VALUES ('".$questionnaire_name."', '".$creator_name."')";
+        $add_questionnaire_sql = $link->prepare("INSERT INTO questionnaires VALUES (?,?)");
+        $add_questionnaire_sql->bind_param("ss", $questionnaire_name, $creator_name);
+        $add_questionnaire_sql->execute();
 
-        if ($link->query($add_questionnaire_sql) === TRUE)
+        if ($add_questionnaire_sql->affected_rows > 0)
         {
             echo "Questionnaire ".$questionnaire_name." created successfully <br>";
         } else {
             echo "Error: " . $add_questionnaire_sql . "<br>" . $link->error;
         }
+
+        $add_questionnaire_sql->close();
     }
 
     //This function creates new records in the question table in the database
     //It will add the name of the questionnaire and each question in the questionnaire
-    function add_questions($questions_array, $questionnaire_name, $num_of_questions, $link)
+    function add_questions($questions_array, $options_array, $questionnaire_name, $num_of_questions, $link)
     {
         //each question in the questions array will need to be added so the next bit of code is
         //iterates through the array.
         for($x = 1; $x <= $num_of_questions; $x++)
         {
             //Store the sql statement in variable $add_question_sql
-            $add_question_sql = "INSERT INTO questions VALUES ('".$questions_array[$x]."', '".$questionnaire_name."', '".$x."')";
-            if ($link->query($add_question_sql) === TRUE)
+            $add_question_sql = $link->prepare("INSERT INTO questions VALUES (?, ?, ?, ?, ?)");
+
+            if(strcmp($options_array[$x], "openQ") == 0)
             {
-                echo $question_array[$x]."<br> added to questionnaire <br>";
+                $type = "open";
+                $options = null;
+
+                $add_question_sql->bind_param("ssisi", $questions_array[$x], $questionnaire_name, $x, $type, $options);
+            }
+            else{
+                $type = "multiple_choice";
+                $add_question_sql->bind_param("ssiss", $questions_array[$x], $questionnaire_name, $x, $type, $options_array[$x]);
+            }
+            
+            $add_question_sql->execute();
+
+            if ($add_question_sql->affected_rows > 0)
+            {
+                echo $question_array[$x]." added to questionnaire <br>";
             } else {
                 echo "Error: " . $add_question_sql . "<br>" . $link->error;
             }
+
+            $add_question_sql->close();
         }
     }
 
-    add_questionaire($questionnaire_name, $creator_name, $link);
-    add_questions($questions_array, $questionnaire_name, $num_of_questions, $link);
+    if(does_questionnaire_exist($questionnaire_name, $link))
+    {
+        echo "Sorry questionnaire already exists, please edit the name";
+    }
+    else{
+        add_questionaire($questionnaire_name, $creator_name, $link);
+        add_questions($questions_array, $options_array, $questionnaire_name, $num_of_questions, $link);
+    }
 
 
     ?>

@@ -18,7 +18,10 @@
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
-
+            <a class="navbar-brand" href="EthicsForm.html">Ethics Form</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
             <a class="navbar-brand" href="index.php">Log out</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
@@ -33,11 +36,21 @@
       <form id="questions" action="/create_questionnaire.php" method="post" class="form-group">
         <label id="question" for="QuestionNumber">Question 1</label>
         <input type="textarea" id="newQuestion" name="newQuestion" class="form-control">
+
+        <label>Multiple Choice:</label>
+        <input type="checkbox" id="is_multiple" onclick="showChoiceInput()"><br>
+
+        <div style="display: none" id="answerChoice">
+            <label id="optionNum">Option 1</label><br>
+            <input type="text" id="newOption" name="newOption" class="form-control">
+            <input type="button" value="Add Option" onclick="addOption()" class="btn btn-primary">
+        </div>
+
         <input type="button" value="Add Question" onclick="addQuestion()" class="btn btn-primary"><br>
         <label>Name of Researcher:</label>
-        <input type="text" id="creator_name" name="creator_name" class="form-control"><br>
+        <input type="text" id="creator_name" name="creator_name" class="form-control" required><br>
         <label>Questionnaire Name:</label>
-        <input type="text" id="questionnaire_name" name="questionnaire_name" class="form-control"><br>
+        <input type="text" id="questionnaire_name" name="questionnaire_name" class="form-control" required><br>
         <input type="hidden" id="num_of_questions" name="num_of_questions">
         <input type="submit" value="Submit" class="btn btn-primary">
       </form>
@@ -57,38 +70,134 @@
     </footer> -->
 
     <script>
-        var questionNum = 1  //variable to keep track of the number of question that are being added
+      function showChoiceInput(){
+          var x = document.getElementById("answerChoice");
+          var is_multiple = document.getElementById("is_multiple");
+          if (is_multiple.checked === true) {
+              x.style.display = "block";
+          } else {
+              x.style.display = "none";
+          }
+      }
 
-        function addQuestion() {
-
-            //create a hidden element and set its value to the question that has just been entered so that it is stored
-            var input = document.createElement("input");
-
-            input.setAttribute("type", "hidden");
-
-            input.setAttribute("name", "question" + questionNum);
-
-            input.setAttribute("value", document.getElementById("newQuestion").value);
-            document.getElementById("questions").appendChild(input);
+      var optionNum = 1;
 
 
-            //create two new elements to display most recent question number and the question
-            var number = document.createElement("label");
-            var question = document.createElement("p");
+      function addOption()
+      {
+          if(optionNum == 1)
+          {
+              optionsStr = document.createElement("input");
+              optionsStr.setAttribute("type", "hidden");
+              optionsStr.setAttribute("name", "options_for_" + questionNum);
+              optionsStr.setAttribute("id", "options_for_" + questionNum);
+              optionsStr.setAttribute("value", document.getElementById("newOption").value);
+              document.getElementById("answerChoice").appendChild(optionsStr);
+          }else{
+              document.getElementById("options_for_" + questionNum).value = document.getElementById("options_for_" + questionNum).value + "||" + document.getElementById("newOption").value;
+          }
 
-            number.innerHTML = "Question " + questionNum + ":";
-            question.innerHTML = document.getElementById("newQuestion").value;
+          var option = document.createElement("p");
+          option.setAttribute("name", "option" + optionNum);
+          option.innerHTML = "Option "+ optionNum + " - " + document.getElementById("newOption").value;
+          option.setAttribute("id", "option" + optionNum);
+          document.getElementById("answerChoice").appendChild(option);
+          optionNum = optionNum + 1;
 
-            document.getElementById("displayQuestions").appendChild(number);
-            document.getElementById("displayQuestions").appendChild(question);
+          document.getElementById("optionNum").innerHTML = "Option " + optionNum;
+          document.getElementById("newOption").value = "";
+      }
 
-            document.getElementById("num_of_questions").value = questionNum;
-            document.getElementById("newQuestion").value = "";
+      var questionNum = 1  //variable to keep track of the number of question that are being added
 
-            questionNum = questionNum + 1;
-            document.getElementById("question").innerHTML = "Question " + questionNum;
-        }
-    </script>
+      function addQuestion() {
+
+          //create a hidden element and set its value to the question that has just been entered so that it is stored
+          var input = document.createElement("input");
+
+          input.setAttribute("type", "hidden");
+
+          input.setAttribute("name", "question" + questionNum);
+
+          input.setAttribute("value", document.getElementById("newQuestion").value);
+          document.getElementById("questions").appendChild(input);
+
+
+          //create two new elements to display most recent question number and the question
+          var number = document.createElement("label");
+          var question = document.createElement("p");
+
+          number.innerHTML = "Question " + questionNum + ":";
+          question.innerHTML = document.getElementById("newQuestion").value;
+
+          document.getElementById("displayQuestions").appendChild(number);
+          document.getElementById("displayQuestions").appendChild(question);
+
+          document.getElementById("num_of_questions").value = questionNum;
+          document.getElementById("newQuestion").value = "";
+
+          if(!(document.body.contains(document.getElementById("options_for_" + questionNum)))){
+              optionsStr = document.createElement("input");
+              optionsStr.setAttribute("type", "hidden");
+              optionsStr.setAttribute("name", "options_for_" + questionNum);
+              optionsStr.setAttribute("id", "options_for_" + questionNum);
+              optionsStr.setAttribute("value", "openQ");
+              document.getElementById("answerChoice").appendChild(optionsStr);
+          }
+
+          questionNum = questionNum + 1;
+          document.getElementById("question").innerHTML = "Question " + questionNum;
+
+          for(x=1; x<optionNum; x++)
+          {
+              document.getElementById("option" + x).remove();
+          }
+
+          optionNum = 1;
+          document.getElementById("optionNum").innerHTML = "Option 1"
+          document.getElementById("is_multiple").checked = false;
+          document.getElementById("answerChoice").style.display = "none";
+
+
+      }
+  </script>
+
+<footer>
+  <div class="row justify-content-center mb-0 pt-5 pb-0 row-2 px-3">
+      <div class="col-12">
+          <div class="row row-2">
+              <div class="col-sm-3 text-md-center">
+                  <h5><span> <i class="fa fa-firefox text-light" aria-hidden="true"></i></span><b> Dundee University</b></h5>
+              </div>
+              <div class="col-sm-3 my-sm-0 mt-5">
+                  <ul class="list-unstyled">
+                      <li class="mt-0">Info</li>
+                  </ul>
+              </div>
+              <div class="col-sm-3 my-sm-0 mt-5">
+                  <ul class="list-unstyled">
+                      <li class="mt-0">Info</li>
+                  </ul>
+              </div>
+              <div class="col-sm-3 my-sm-0 mt-5">
+                  <ul class="list-unstyled">
+                      <li class="mt-0">Info</li>
+                  </ul>
+              </div>
+          </div>
+      </div>
+  </div>
+  <div class="row justify-content-center mt-0 pt-0 row-1 mb-0 px-sm-3 px-2">
+      <div class="col-12">
+          <div class="row my-4 row-1 no-gutters">
+              <div class="col-sm-3 col-auto text-center"><small>&#9400; Our Company</small></div>
+              <div class="col-md-3 col-auto "></div>
+              <div class="col-md-3 col-auto"></div>
+              <div class="col my-auto text-md-left text-right "> <small> mail@mail.com <span><img src="https://i.imgur.com/TtB6MDc.png" class="img-fluid " width="25"></span> <span></small></div>
+          </div>
+      </div>
+  </div>
+</footer>
 
   </body>
 </html>

@@ -1,30 +1,11 @@
 
 
 <?php
-// Initialize the session
-session_start();
 include 'db.php';
 $answers = $_POST['answers'];
 $name = $_POST['name'];
 $number = $_POST['num'];
-$user = $_SESSION["username"];
-$i = 0;
-foreach($answers as $answer)
-{
-  $sql = "INSERT INTO `answers` (`Question_Number`, `Questionnaire_Name`, `Answer`) VALUES ('$number[$i]', '$name', '$answer')";
-
-  if ($link->query($sql) === TRUE) {
-} else {
-  echo "Error: " . $sql . "<br>" . $link->error;
-}
-  $i++;
-}
- $sqlanswer = "INSERT INTO `completed_questionnaires`(`Questionnaire_Name`, `Username`) VALUES ('$name','$user')";
- if ($link->query($sqlanswer) === TRUE) {
-} else {
- echo "Error: " . $sqlanswer . "<br>" . $link->error;
-}
-mysqli_close($link);
+$questions = $_POST['question'];
  ?>
  <!doctype html>
  <html lang="en">
@@ -34,7 +15,7 @@ mysqli_close($link);
 
      <!-- Style Links -->
      <link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css">
-     <link rel="stylesheet" href="LoginStyle.css">
+     <link rel="stylesheet" href="form.css">
 
    </head>
 
@@ -46,19 +27,36 @@ mysqli_close($link);
            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
              <span class="navbar-toggler-icon"></span>
            </button>
+
            <a class="navbar-brand" href="logout.php">Log out</a>
            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
              <span class="navbar-toggler-icon"></span>
            </button>
      </header>
 
-     <div class="text-center">
+     <div class="container">
 
-     <form class="form-signin">
-       <img class="mb-4" src="logo.png" alt="" width="72" height="72">
-       <h1 class="h3 mb-3 font-weight-normal">Thank you for completing our survey!</h1>
+        <h1>Review answers before submission</h1>
+       <form action="answerss.php" method="post">
+         <div class="review">
+           <?php
+           $i = count($answers);
+           for($x = 0; $x < $i;$x++)
+           {
+             echo "<h4>".$number[$x]." ".$questions[$x]."</h4>";
+             echo "<p>".$answers[$x]."</p>";
 
-     </form>
+            echo "<input type = \"hidden\" value = \"".$answers[$x]."\" name = \"answers[]\">";
+            echo "<input type = \"hidden\" value = \"".$name."\" name = \"name\">";
+            echo "<input type = \"hidden\" value = \"".$number[$x]."\" name = \"num[]\">";
+           }
+
+            ?>
+         </div>
+
+
+          <input class = "btn btn-info" type="submit" name="button" id = "submitbtn" value = "Submit"></input>
+       </form>
      </div>
 
      <footer>
