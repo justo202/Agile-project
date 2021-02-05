@@ -62,10 +62,10 @@ h3,h4{
 h5{
   color: red;
 }
-#error_msg,#name_error_msg{
-  visibility: hidden;
+#error_msg,#name_error_msg,#save_error_msg{
+  display: none;
 }
-button{
+button,#load_input_button{
   border: none;
   /* width: 50px; */
   margin: 10px 0;
@@ -75,10 +75,19 @@ button{
   padding: 10px 10px;
   background-color:#343a40;
 }
-button:hover{
+button:hover,#load_input_button:hover{
   border-width: thick;
   border-color:	#F0F0F0;
   border:solid;
+}
+/* .m_t_button_holder{
+  width: 100%;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+} */
+#open_vid_uploader{
+  display: none;
 }
 .make_transcript_body{
   /* width: 100%; */
@@ -92,7 +101,7 @@ button:hover{
   /* box-shadow: ; */
   padding: 10px;
 }
-.make_transcript_box{
+#make_transcript_box{
   margin: 10px;
   width: 50%;
   float: left;
@@ -107,6 +116,7 @@ button:hover{
   border-style: dashed;
   height: 400px;
   display: flex;
+  text-align: center;
   justify-content: center;
   align-items: center;
   /* float: left; */
@@ -125,7 +135,7 @@ button:hover{
 #transcript_box{
   float: right;
   width: 45%;
-  visibility: hidden;
+  /* visibility: hidden; */
 }
 #transcript{
   width: 100%;
@@ -140,19 +150,20 @@ button:hover{
 #theme_name{
 
 }
-.available_transcripts{
+.available_themes{
   margin-top: 10px;
   width: 100%;
 }
 #available_ts{
   text-align: center;
 }
-.save_transcript_options{
-  /* visibility: hidden; */
+#save_transcript_options{
+  visibility: hidden;
   /* z-index: 1; */
   /* min-width: 350px;
   max-width: 500px; */
   padding: 10px;
+  text-align: center;
 }
 #s_t_options{
   text-align: center;
@@ -165,10 +176,45 @@ button:hover{
   padding: 10px;
 }
 #transcript_name{
-  
-}
-/* #-id */
 
+}
+#available_tags{
+  text-align: center;
+}
+/* #tagButton{
+  border: none;
+  margin: 10px 0;
+  font-size: 20px;
+  color: white;
+  font-weight: bold;
+  padding: 0 10px;
+  background-color:#343a40;
+} */
+/* #-id */
+#tags{
+  width: 100%;
+  border-top: 1px solid black;
+  /* border-bottom: 1px solid black; */
+  border-collapse: collapse;
+  padding: 10px;
+  font-size: 30px;
+}
+#tag_index,#tag_name,#tag_content{
+  width: 30%;
+}
+#tag_index{
+  float: left;
+}
+#tag_name{
+  text-align: center;
+  justify-content: center;
+}
+#tag_content{
+  float: right;
+}
+tr{
+
+}
 /* For phones */
 @media only screen and (max-width: 1200px) {
 /* Section and Div Box responsive styling including the styling of the bootstarp Jumbotron */

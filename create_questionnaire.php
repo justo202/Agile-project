@@ -91,12 +91,6 @@
                 $type = "open";
                 $options = null;
 
-                echo $questions_array[$x];
-                echo $questionnaire_name;
-                echo $x;
-                echo $type;
-                echo $options;
-
                 $add_question_sql->bind_param("ssisi", $questions_array[$x], $questionnaire_name, $x, $type, $options);
             }
             else{
@@ -108,7 +102,7 @@
 
             if ($add_question_sql->affected_rows > 0)
             {
-                echo $question_array[$x]."<br> added to questionnaire <br>";
+                echo $question_array[$x]." added to questionnaire <br>";
             } else {
                 echo "Error: " . $add_question_sql . "<br>" . $link->error;
             }

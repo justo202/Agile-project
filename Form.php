@@ -64,8 +64,9 @@
                       echo " <div class=\"form-check\">";
                       echo " <input class=\"form-check-input\" type=\"radio\" id = \"".$a."\"name=\"answers[]\" value=\"".$a."\" checked>";
                       echo "<label class=\"form-check-label\" for=\"".$a."\">".$a."</label>";
-                      echo "</div>";
+
                     }
+                    echo "</div>";
                     echo "<input type = \"hidden\" value = \"".$row['Question_Number']."\" name = \"num[]\">";
                     echo "</div>";
                   }
