@@ -26,14 +26,7 @@
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>	
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav">
-            <li class="nav-item">
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+        
 
     <div class="make_transcript_body">
       <div class="main_transcript_box">
@@ -106,7 +99,7 @@
 			 <input id="load_input_button" type ="submit" name="load" value="Load"/>
 			 </form>
 			 
-            <!-- <br> -->
+
 			<button id="open_vid_uploader" onclick="open_uploader()">Open Video Uploader</button>
             <button id="create_transcript" onclick="c_n_transcript()">Create New Transcript</button>
           </div>
