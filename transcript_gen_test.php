@@ -10,7 +10,7 @@
   <body>
     <nav class="navbar navbar-expand-lg navbar-dark" style="background-color:#343a40">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#" style="font-size:30px; font-weight: bold;">Home</a>
+        <a class="navbar-brand" href="home.php" style="font-size:30px; font-weight: bold;">Home</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -18,12 +18,6 @@
           <ul class="navbar-nav">
             <li class="nav-item">
               <a class="nav-link active" aria-current="page" href="#"style="font-size:20px; font-weight: bold;">Make Transcript</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#" style="font-size:20px; font-weight: bold;">Log In</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#" style="font-size:20px; font-weight: bold;">[Whatever]</a>
             </li>
           </ul>
         </div>
