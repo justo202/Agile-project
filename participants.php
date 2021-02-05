@@ -42,7 +42,7 @@ if ($_SESSION["role"] != 2) {
         <div class="container">
           <h1 class="jumbotron-heading">Dundee University Questionnaires</h1>
           <p class="lead text-muted">place holder</p>
-          <img class="mb-4" src="logo.png" alt="" width="100" height="100"><br>
+          <img class="mb-4" src="output-onlinepngtools.png" alt="" width="100" height="100"><br>
         </div>
       </section>
       <div class="album py-5 bg-light">
