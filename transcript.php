@@ -41,7 +41,7 @@
           <div id="file_upload_box" onclick="browse()">
             <h3><span id="browse_for_file" onclick="browse()">Browse</span> for or Drag Media File (mp4 or mp3) Here if you want to view your video side by side</h3>
           </div>
-          <button onclick="make_transcript()">Close Video Uploader</button>
+          <button onclick="close_video_uploader()">Close Video Uploader</button>
         </div>
         <div id="transcript_box">
           <div class="transcript_options">
@@ -103,11 +103,12 @@
 			
 			 <form class="transcript" action="<?php echo $_SERVER['PHP_SELF'] ?>" method="POST" enctype ="multipart/form-data">
 			 <input type ="file" name ="loadfile"/>
-			 <input type ="submit" name="load" value="Load"/>
+			 <input id="load_input_button" type ="submit" name="load" value="Load"/>
 			 </form>
 			 
             <!-- <br> -->
-            <button id="create_transcript">Create New Transcript</button>
+			<button id="open_vid_uploader" onclick="open_uploader()">Open Video Uploader</button>
+            <button id="create_transcript" onclick="c_n_transcript()">Create New Transcript</button>
           </div>
             <textarea id="transcript" name="transcript" rows="14"><?php Read(); ?></textarea>
         
