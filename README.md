@@ -6,9 +6,9 @@ Group Members:
 - Vivien Prakash (150019240)
 - Gerard Blanco Bernal (180000301)
 - Mark Capewell (180010926)
-- Brenyn Goodwin (Matriculation Number)
+- Brenyn Goodwin (170008681)
 - Abdulmalik Adegoke (180024430)
-- Dominic McGraw (160016783)
+- Dominic McGraw (Matriculation Number)
 
 ## Hints:
 - You may wish to change the issue tags that are in GitHub to map to different activities that you are carrying out:
