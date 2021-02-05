@@ -6,6 +6,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <link rel="stylesheet" href="make_transcript.css">
   </head>
+  <!-- on="page_reset()" -->
   <body>
     <nav class="navbar navbar-expand-lg navbar-dark" style="background-color:#343a40">
       <div class="container-fluid">
@@ -24,13 +25,10 @@
 			<a class="navbar-brand" href="logout.php">Log out</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
-			</button>
-			
+			</button>	
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav">
             <li class="nav-item">
-     
-			  
             </li>
           </ul>
         </div>
@@ -39,11 +37,11 @@
 
     <div class="make_transcript_body">
       <div class="main_transcript_box">
-        <div class="make_transcript_box">
+        <div id="make_transcript_box">
           <div id="file_upload_box" onclick="browse()">
-            <h3><span id="browse_for_file" onclick="browse()">Browse</span> for or Drag Media File (mp4 or mp3) Here</h3>
+            <h3><span id="browse_for_file" onclick="browse()">Browse</span> for or Drag Media File (mp4 or mp3) Here if you want to view your video side by side</h3>
           </div>
-          <button onclick="make_transcript()">Make Transcript</button>
+          <button onclick="make_transcript()">Close Video Uploader</button>
         </div>
         <div id="transcript_box">
           <div class="transcript_options">
@@ -114,11 +112,13 @@
             <textarea id="transcript" name="transcript" rows="14"><?php Read(); ?></textarea>
         
           <div class="">
-            <button id="save_transcript" type="submit">Save Transcript</button>
             <button onclick="tag_button()">Tag/ Make Theme</button>
+			<button id="save_transcript" onclick="save_options()" type="submit">Save Transcript</button>
             <br>
             <h5 id="error_msg">No selection was made in transcript. Try again</h5>
-            <div id="name_theme_box">
+			<h5 id="save_error_msg">Nothing was made in transcript to save. Try again</h5>
+			</div>
+			<div id="name_theme_box">
               <h4>Name tag/theme:</h4><input type="text" id="theme_name" placeholder="Type Theme Name Here">
               <br>
               <h5 id="name_error_msg">No name written in input area. Try again</h5>
@@ -134,14 +134,20 @@
           </div>
         </div>
         <!-- <br> -->
-        <div class="save_transcript_options">
+        <div id="save_transcript_options">
           <h1 id="s_t_options">Save Transcript Options</h1>
           <button onclick="save_and_export()">Save Transcript and Export</button>
+		  <button onclick="exit()">Don't Save</button>
         </div>
+		<br>
+		<br>
+		<br>
         <!-- <br> -->
-        <div class="save_to_server_box">
-          <h1>Transcript Name</h1>
-          <input id="transcript_name" placeholder="Type Transcript Name Here">
+		   <div class="available_themes">
+          <h1 id="available_ts">Tag Memo</h1>
+          <div id="available_tags">
+            <h4 style="text-align: center;">Currently no tags made</h4>
+          </div>
         </div>
         <!-- <br> -->
 
